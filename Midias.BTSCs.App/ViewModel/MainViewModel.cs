@@ -1,10 +1,13 @@
 using GalaSoft.MvvmLight;
-using Midias.BTSCs.Repositories;
+using Midias.BTSCs.Dto;
+using Midias.BTSCs.Services;
+using System.Collections.Generic;
 
 namespace Midias.BTSCs.App.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        public List<ProduitDto> list { get; set; }
         private string _text;
         public string Text
         {
@@ -18,15 +21,19 @@ namespace Midias.BTSCs.App.ViewModel
                     return;
 
                 _text = value;
-                RaisePropertyChanged(_text);
+                RaisePropertyChanged(Text);
             }
         }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            var list = Test.TestMethod();
+            IProduitsService service = new ProduitsService();
+            
+            var testlist = service.GetProduitsAsync();
+            testlist.Wait();
             Text = list[0].Id + " / " + list[0].Libelle;
         }
     }

@@ -7,8 +7,8 @@
     <ProjectGuid>{5FF5C420-A274-492D-AABF-588C2EBC6EF6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Midias.BTSCs.Repositories</RootNamespace>
-    <AssemblyName>Midias.BTSCs.Repositories</AssemblyName>
+    <RootNamespace>Midias.BTSCs.Services</RootNamespace>
+    <AssemblyName>Midias.BTSCs.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="ServiceBase.cs" />
+    <Compile Include="Services\ProduitsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

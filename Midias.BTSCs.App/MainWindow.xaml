@@ -16,8 +16,42 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding Text}"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone
+            Mode="Accent"
+            Padding="16">
+            <StackPanel
+                Orientation="Horizontal" Grid.Row="0">
+                <ToggleButton
+                    Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Margin="16 0 0 0">
+                    Midias.BTSCs Application de gestion
+                </TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <materialDesign:Card Padding="32 16 32 32" Margin="16" Grid.Row="1">
+            <ListView
+                ItemsSource="{Binding list}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Id}"
+                            Header="Id" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Libelle}"
+                            Header="Libellé" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding PrixHT}"
+                            Header="Prix HT" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </materialDesign:Card>
+
     </Grid>
 </Window>
