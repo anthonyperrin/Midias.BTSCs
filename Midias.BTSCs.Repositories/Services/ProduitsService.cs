@@ -12,9 +12,9 @@ namespace Midias.BTSCs.Services
     {
         Task<ProduitDto> GetProduit(int id);
         Task<List<ProduitDto>> GetProduitsAsync();
-        void AddProduit(ProduitDto produit);
+        Task AddProduit(ProduitDto produit);
         Task<ProduitDto> UpdateProduit(ProduitDto produitDto);
-        Task
+        Task DeleteProduit(int id);
     }
 
     public class ProduitsService : ServiceBase, IProduitsService
@@ -48,7 +48,7 @@ namespace Midias.BTSCs.Services
             }).ToListAsync();
         }
 
-        public async void AddProduit(ProduitDto produit)
+        public async Task AddProduit(ProduitDto produit)
         {
             Context.Produits.Add(new Produit()
             {
@@ -79,6 +79,17 @@ namespace Midias.BTSCs.Services
                 Categorie = produit.Categorie,
                 Taxe = produit.Taxe
             };
+        }
+
+        public async Task DeleteProduit(int id)
+        {
+            var produit = await Context.Produits.Where(p => p.Id == id).FirstOrDefaultAsync();
+
+            if (produit == null)
+                return;
+
+            Context.Produits.Remove(produit);
+            await Context.SaveChangesAsync();
         }
     }
 }
