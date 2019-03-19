@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Midias.BTSCs.Dal
 {
@@ -10,5 +11,8 @@ namespace Midias.BTSCs.Dal
         public double PrixHT { get; set; }
         public string Categorie { get; set; }
         public double Taxe { get; set; }
+        public int Quantite { get; set; }
+
+        public ICollection<Mouvement> Mouvements { get; set; }
     }
 }

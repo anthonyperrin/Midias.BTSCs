@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BTSCsDbContext.cs" />
     <Compile Include="DbModels\Produit.cs" />
+    <Compile Include="DbModels\Mouvement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
