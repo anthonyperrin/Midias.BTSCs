@@ -11,7 +11,8 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
+        TextOptions.TextRenderingMode="Auto"       
+        WindowState="Maximized"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -20,11 +21,12 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <materialDesign:ColorZone
+        <materialDesign:ColorZone 
+            Grid.Row="0"
             Mode="Accent"
             Padding="16">
             <StackPanel
-                Orientation="Horizontal" Grid.Row="0">
+                Orientation="Horizontal">
                 <ToggleButton
                     Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                 <TextBlock
@@ -34,24 +36,36 @@
                 </TextBlock>
             </StackPanel>
         </materialDesign:ColorZone>
-        <materialDesign:Card Padding="32 16 32 32" Margin="16" Grid.Row="1">
-            <ListView
-                ItemsSource="{Binding list}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Id}"
-                            Header="Id" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding Libelle}"
-                            Header="Libellé" />
-                        <GridViewColumn
-                            DisplayMemberBinding="{Binding PrixHT}"
-                            Header="Prix HT" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </materialDesign:Card>
+        <Grid
+            Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Padding="16" Margin="16" Grid.Column="0">
+            </materialDesign:Card>
+            <materialDesign:Card Padding="16" Margin="16" Grid.Column="1">
+                <StackPanel>
+                    <Label Content="Liste des produits"></Label>
+                    <ListView
+                        ItemsSource="{Binding list}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Libelle}"
+                                    Header="Libellé" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding PrixHT}"
+                                    Header="Prix HT" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Quantite}"
+                                    Header="Quantité" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+            </materialDesign:Card>
+        </Grid>
 
     </Grid>
 </Window>
