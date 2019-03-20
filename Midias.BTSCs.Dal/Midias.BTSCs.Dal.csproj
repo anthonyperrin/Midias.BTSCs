@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,14 +50,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BTSCsDbContext.cs" />
-    <Compile Include="DbModels\Produit.cs" />
-    <Compile Include="DbModels\Mouvement.cs" />
+    <Compile Include="Adresse.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categorie.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commande.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Livraison.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Midias.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Midias.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Midias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Midias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Midias.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Mouvement.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produit.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salarie.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicule.cs">
+      <DependentUpon>Midias.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Midias.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Midias.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Midias.edmx.diagram">
+      <DependentUpon>Midias.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Midias.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Midias.edmx</DependentUpon>
+      <LastGenOutput>Midias.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Midias.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Midias.edmx</DependentUpon>
+      <LastGenOutput>Midias.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

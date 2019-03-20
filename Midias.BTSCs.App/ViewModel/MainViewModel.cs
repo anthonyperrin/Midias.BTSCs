@@ -31,10 +31,20 @@ namespace Midias.BTSCs.App.ViewModel
         public MainViewModel()
         {
             IProduitsService service = new ProduitsService();
-            
-            var testlist = service.GetProduitsAsync();
-            testlist.Wait();
-            Text = list[0].Id + " / " + list[0].Libelle;
+            //service.CreateNewProduit(new ProduitDto()
+            //{
+            //    Id = 2,
+            //    Libelle = "Article test",
+            //    Categorie = new CategorieDto()
+            //    {
+            //        Id = 1,
+            //        Libelle = "Catégorie test"
+            //    },
+            //    PrixHT = 2,
+            //    Quantite = 1,
+            //    Taxe = 2
+            //});
+            list = service.GetProduits();
         }
     }
 }

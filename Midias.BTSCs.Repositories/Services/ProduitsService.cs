@@ -15,30 +15,30 @@ namespace Midias.BTSCs.Services
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns></returns>
-        Task<ProduitDto> GetProduit(int id);
+        ProduitDto GetProduit(int id);
         /// <summary>
         /// Returns a list with all the products
         /// </summary>
         /// <returns></returns>
-        Task<List<ProduitDto>> GetProduits();
+        List<ProduitDto> GetProduits();
         /// <summary>
         /// Create a new template of product
         /// </summary>
         /// <param name="produit">Product Dto</param>
         /// <returns></returns>
-        Task CreateNewProduit(ProduitDto produit);
+        void CreateNewProduit(ProduitDto produit);
         /// <summary>
         /// Updates the given product with its new values
         /// </summary>
         /// <param name="produitDto">New product Dto</param>
         /// <returns></returns>
-        Task<ProduitDto> UpdateProduit(ProduitDto produitDto);
+        ProduitDto UpdateProduit(ProduitDto produitDto);
         /// <summary>
         /// Delete the product template
         /// </summary>
         /// <param name="id">Product to remove Id</param>
         /// <returns></returns>
-        Task DeleteProduit(int id);
+        void DeleteProduit(int id);
     }
 
     public class ProduitsService : ServiceBase, IProduitsService
@@ -47,9 +47,76 @@ namespace Midias.BTSCs.Services
         {
         }
 
-        public async Task<ProduitDto> GetProduit(int id)
+        public ProduitDto GetProduit(int id)
         {
-            var produit = await Context.Produits.Where(p => p.Id == id).FirstOrDefaultAsync();
+            var produit = Context.Produit.Where(p => p.Id == id).FirstOrDefault();
+            return new ProduitDto()
+            {
+                Id = produit.Id,
+                Libelle = produit.Libelle,
+                PrixHT = produit.PrixHT,
+                Categorie = new CategorieDto()
+                {
+                    Id = produit.Categorie.Id,
+                    Libelle = produit.Categorie.Libelle
+                },
+                Taxe = produit.Taxe,
+                Quantite = produit.Quantite,
+                Mouvements = produit.Mouvement.Select(m => new MouvementDto()
+                {
+                    Id = m.Id,
+                    DateCreation = m.DateCreation,
+                    Quantite = m.Quantite
+                }).ToList()
+            };
+        }
+
+        public List<ProduitDto> GetProduits()
+        {
+            return Context.Produit.Select(p => new ProduitDto()
+            {
+                Id = p.Id,
+                PrixHT = p.PrixHT,
+                Libelle = p.Libelle,
+                Taxe = p.Taxe,
+                Quantite = p.Quantite,
+                Categorie = new CategorieDto()
+                {
+                    Id = p.Categorie.Id,
+                    Libelle = p.Categorie.Libelle
+                },
+            }).ToList();
+        }
+
+        public void CreateNewProduit(ProduitDto produit)
+        {
+            Context.Produit.Add(new Produit()
+            {
+                Id = produit.Id,
+                Libelle = produit.Libelle,
+                PrixHT = produit.PrixHT,
+                Quantite = produit.Quantite,
+                Categorie = new Categorie()
+                {
+                    Id = produit.Categorie.Id,
+                    Libelle = produit.Categorie.Libelle,
+                },
+                Taxe = produit.Taxe
+            });
+            Context.SaveChanges();
+        }
+
+        public ProduitDto UpdateProduit(ProduitDto produitDto)
+        {
+            var produit = GetProduit(produitDto.Id);
+
+            produit.Libelle = produitDto.Libelle;
+            produit.PrixHT = produitDto.PrixHT;
+            produit.Taxe = produitDto.Taxe;
+            produit.Categorie = produitDto.Categorie;
+
+            Context.SaveChanges();
+
             return new ProduitDto()
             {
                 Id = produit.Id,
@@ -57,70 +124,21 @@ namespace Midias.BTSCs.Services
                 PrixHT = produit.PrixHT,
                 Categorie = produit.Categorie,
                 Taxe = produit.Taxe,
-                Mouvements = produit.Mouvements.Select(m => new MouvementDto()
-                {
-                    Id = m.Id,
-                    Date = m.Date,
-                    Quantite = m.Quantite
-                }).ToList()
+                Quantite = produit.Quantite,
+                Mouvements = produit.Mouvements
             };
         }
 
-        public async Task<List<ProduitDto>> GetProduits()
+        public void DeleteProduit(int id)
         {
-            return await Context.Produits.Select(p => new ProduitDto()
-            {
-                Id = p.Id,
-                PrixHT = p.PrixHT,
-                Libelle = p.Libelle,
-                Taxe = p.Taxe,
-                Categorie = p.Categorie
-            }).ToListAsync();
-        }
-
-        public async Task CreateNewProduit(ProduitDto produit)
-        {
-            Context.Produits.Add(new Produit()
-            {
-                Id = produit.Id,
-                Libelle = produit.Libelle,
-                PrixHT = produit.PrixHT,
-                Categorie = produit.Categorie,
-                Taxe = produit.Taxe
-            });
-            await Context.SaveChangesAsync();
-        }
-
-        public async Task<ProduitDto> UpdateProduit(ProduitDto produitDto)
-        {
-            var produit = await GetProduit(produitDto.Id);
-
-            produit.Libelle = produitDto.Libelle;
-            produit.PrixHT = produitDto.PrixHT;
-            produit.Taxe = produitDto.Taxe;
-            produit.Categorie = produitDto.Categorie;
-
-            await Context.SaveChangesAsync();
-
-            return new ProduitDto()
-            {
-                Libelle = produit.Libelle,
-                PrixHT = produit.PrixHT,
-                Categorie = produit.Categorie,
-                Taxe = produit.Taxe
-            };
-        }
-
-        public async Task DeleteProduit(int id)
-        {
-            var produit = await Context.Produits.Where(p => p.Id == id).FirstOrDefaultAsync();
+            var produit = Context.Produit.Where(p => p.Id == id).FirstOrDefault();
 
             if (produit == null)
                 return;
 
-            Context.Produits.Remove(produit);
+            Context.Produit.Remove(produit);
 
-            await Context.SaveChangesAsync();
+            Context.SaveChanges();
         }
     }
 }

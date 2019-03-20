@@ -6,11 +6,11 @@ namespace Midias.BTSCs.Dto
     {
         public int Id { get; set; }
         public string Libelle { get; set; }
-        public double PrixHT { get; set; }
-        public string Categorie { get; set; }
-        public double Taxe { get; set; }
-        public int Quantite { get; set; }
+        public double? PrixHT { get; set; }
+        public double? Taxe { get; set; }
+        public int? Quantite { get; set; }
 
+        public CategorieDto Categorie { get; set; }
         public List<MouvementDto> Mouvements { get; set; }
     }
 }
