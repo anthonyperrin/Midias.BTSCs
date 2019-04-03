@@ -33,20 +33,26 @@
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.homeUC1 = new Midias.BTSCs.App.UserControls.HomeUC();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
+            this.closeAppBox = new System.Windows.Forms.PictureBox();
+            this.minimizeAppBox = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.HomeBtn = new System.Windows.Forms.Button();
+            this.menuBarPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.menuBarPanel);
+            this.panel1.Controls.Add(this.HomeBtn);
             this.panel1.Controls.Add(this.VehiculesBtn);
             this.panel1.Controls.Add(this.SalariesBtn);
             this.panel1.Controls.Add(this.ProduitsBtn);
@@ -62,11 +68,14 @@
             // 
             this.VehiculesBtn.FlatAppearance.BorderSize = 0;
             this.VehiculesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.VehiculesBtn.Location = new System.Drawing.Point(0, 275);
+            this.VehiculesBtn.Image = ((System.Drawing.Image)(resources.GetObject("VehiculesBtn.Image")));
+            this.VehiculesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VehiculesBtn.Location = new System.Drawing.Point(12, 312);
             this.VehiculesBtn.Name = "VehiculesBtn";
-            this.VehiculesBtn.Size = new System.Drawing.Size(200, 60);
+            this.VehiculesBtn.Size = new System.Drawing.Size(188, 60);
             this.VehiculesBtn.TabIndex = 2;
-            this.VehiculesBtn.Text = "Véhicules";
+            this.VehiculesBtn.Text = "     Véhicules";
+            this.VehiculesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.VehiculesBtn.UseVisualStyleBackColor = true;
             this.VehiculesBtn.Click += new System.EventHandler(this.VehiculesBtn_Click);
             // 
@@ -74,11 +83,14 @@
             // 
             this.SalariesBtn.FlatAppearance.BorderSize = 0;
             this.SalariesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalariesBtn.Location = new System.Drawing.Point(0, 215);
+            this.SalariesBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
+            this.SalariesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SalariesBtn.Location = new System.Drawing.Point(12, 252);
             this.SalariesBtn.Name = "SalariesBtn";
-            this.SalariesBtn.Size = new System.Drawing.Size(200, 60);
+            this.SalariesBtn.Size = new System.Drawing.Size(188, 60);
             this.SalariesBtn.TabIndex = 1;
-            this.SalariesBtn.Text = "Salariés";
+            this.SalariesBtn.Text = "     Salariés";
+            this.SalariesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SalariesBtn.UseVisualStyleBackColor = true;
             this.SalariesBtn.Click += new System.EventHandler(this.SalariesBtn_Click);
             // 
@@ -86,22 +98,16 @@
             // 
             this.ProduitsBtn.FlatAppearance.BorderSize = 0;
             this.ProduitsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProduitsBtn.Location = new System.Drawing.Point(0, 155);
+            this.ProduitsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
+            this.ProduitsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProduitsBtn.Location = new System.Drawing.Point(12, 192);
             this.ProduitsBtn.Name = "ProduitsBtn";
-            this.ProduitsBtn.Size = new System.Drawing.Size(200, 60);
+            this.ProduitsBtn.Size = new System.Drawing.Size(188, 60);
             this.ProduitsBtn.TabIndex = 0;
-            this.ProduitsBtn.Text = "Produits";
+            this.ProduitsBtn.Text = "     Produits";
+            this.ProduitsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ProduitsBtn.UseVisualStyleBackColor = true;
             this.ProduitsBtn.Click += new System.EventHandler(this.ProduitsBtn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 10);
-            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
@@ -115,38 +121,83 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -7);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(197, 125);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // homeUC1
+            // homeUC
             // 
-            this.homeUC1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.homeUC1.Location = new System.Drawing.Point(206, 133);
-            this.homeUC1.Name = "homeUC1";
-            this.homeUC1.Size = new System.Drawing.Size(1160, 537);
-            this.homeUC1.TabIndex = 2;
+            this.homeUC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.homeUC.Location = new System.Drawing.Point(206, 133);
+            this.homeUC.Name = "homeUC";
+            this.homeUC.Size = new System.Drawing.Size(1182, 655);
+            this.homeUC.TabIndex = 2;
             // 
-            // pictureBox2
+            // closeAppBox
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1224, 29);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.closeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("closeAppBox.Image")));
+            this.closeAppBox.Location = new System.Drawing.Point(1372, 20);
+            this.closeAppBox.Name = "closeAppBox";
+            this.closeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.closeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeAppBox.TabIndex = 3;
+            this.closeAppBox.TabStop = false;
+            this.closeAppBox.Click += new System.EventHandler(this.closeAppBox_Click);
+            // 
+            // minimizeAppBox
+            // 
+            this.minimizeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeAppBox.Image")));
+            this.minimizeAppBox.Location = new System.Drawing.Point(1339, 23);
+            this.minimizeAppBox.Name = "minimizeAppBox";
+            this.minimizeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.minimizeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.minimizeAppBox.TabIndex = 4;
+            this.minimizeAppBox.TabStop = false;
+            this.minimizeAppBox.Click += new System.EventHandler(this.minimizeAppBox_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1200, 10);
+            this.panel2.TabIndex = 1;
+            // 
+            // HomeBtn
+            // 
+            this.HomeBtn.FlatAppearance.BorderSize = 0;
+            this.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
+            this.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HomeBtn.Location = new System.Drawing.Point(12, 132);
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.Size = new System.Drawing.Size(188, 60);
+            this.HomeBtn.TabIndex = 3;
+            this.HomeBtn.Text = "     Accueil";
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
+            // 
+            // menuBarPanel
+            // 
+            this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
+            this.menuBarPanel.Location = new System.Drawing.Point(0, 132);
+            this.menuBarPanel.Name = "menuBarPanel";
+            this.menuBarPanel.Size = new System.Drawing.Size(12, 60);
+            this.menuBarPanel.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.homeUC1);
+            this.Controls.Add(this.minimizeAppBox);
+            this.Controls.Add(this.closeAppBox);
+            this.Controls.Add(this.homeUC);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -159,7 +210,8 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,11 +222,14 @@
         private System.Windows.Forms.Button ProduitsBtn;
         private System.Windows.Forms.Button SalariesBtn;
         private System.Windows.Forms.Button VehiculesBtn;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private UserControls.HomeUC homeUC1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private UserControls.HomeUC homeUC;
+        private System.Windows.Forms.PictureBox closeAppBox;
+        private System.Windows.Forms.PictureBox minimizeAppBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button HomeBtn;
+        private System.Windows.Forms.Panel menuBarPanel;
     }
 }
 

@@ -99,6 +99,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\favicon.png" />
+    <Content Include="assets\icons\close.png" />
+    <Content Include="assets\icons\delete.png" />
+    <Content Include="assets\icons\menu\delivery-package-opened.png" />
+    <Content Include="assets\icons\menu\employee.png" />
+    <Content Include="assets\icons\menu\home-icon-silhouette%281%29.png" />
+    <Content Include="assets\icons\menu\home.png" />
+    <Content Include="assets\icons\menu\sports-car.png" />
+    <Content Include="assets\icons\minimize.png" />
+    <Content Include="assets\icons\negative-sign.png" />
     <Content Include="assets\logo.png" />
   </ItemGroup>
   <ItemGroup>
