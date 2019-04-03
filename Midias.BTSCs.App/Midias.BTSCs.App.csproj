@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\favicon.png" />
+    <Content Include="assets\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Midias.BTSCs.Dto\Midias.BTSCs.Dto.csproj">
@@ -110,5 +111,6 @@
       <Name>Midias.BTSCs.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

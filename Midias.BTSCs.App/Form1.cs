@@ -19,23 +19,18 @@ namespace Midias.BTSCs.App
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            homeUC.Show();
-
         }
 
         private void ProduitsBtn_Click(object sender, EventArgs e)
         {
-            homeUC.Show();
         }
 
         private void SalariesBtn_Click(object sender, EventArgs e)
         {
-            homeUC.Hide();
         }
 
         private void VehiculesBtn_Click(object sender, EventArgs e)
         {
-            homeUC.Hide();
         }
     }
 }
