@@ -11,34 +11,34 @@ namespace Midias.BTSCs.Services.Services
     public interface ILivraisonsService
     {
         /// <summary>
-        /// Returns the matching commande
+        /// Returns the matching livraison
         /// </summary>
-        /// <param name="id">Commande Id</param>
+        /// <param name="id">Livraison Id</param>
         /// <returns></returns>
-        CommandeDto GetCommande(int id);
+        LivraisonDto GetLivraison(int id);
         /// <summary>
-        /// Returns a list with all the commande
+        /// Returns a list with all the livraison
         /// </summary>
         /// <returns></returns>
-        List<CommandeDto> GetCommandes();
+        List<LivraisonDto> GetLivraisons();
         /// <summary>
-        /// Create a new template of commande
+        /// Create a new template of livraison
         /// </summary>
-        /// <param name="commande">commande Dto</param>
+        /// <param name="livraison">livraison Dto</param>
         /// <returns></returns>
-        void CreateNewCommande(CommandeDto commande);
+        void CreateNewLivraison(LivraisonDto livraison);
         /// <summary>
-        /// Updates the given commande with its new values
+        /// Updates the given livraison with its new values
         /// </summary>
-        /// <param name="commandeDto">New commande Dto</param>
+        /// <param name="livraisonDto">New livraison Dto</param>
         /// <returns></returns>
-        CommandeDto UpdateCommande(CommandeDto commandeDto);
+        LivraisonDto UpdateLivraison(LivraisonDto livraisonDto);
         /// <summary>
-        /// Delete the commande template
+        /// Delete the livraison template
         /// </summary>
-        /// <param name="id">Commande to remove Id</param>
+        /// <param name="id">livraison to remove Id</param>
         /// <returns></returns>
-        void DeleteCommande(int id);
+        void DeleteLivraison(int id);
     }
 
     class LivraisonsService : ServiceBase, ILivraisonsService
@@ -52,99 +52,164 @@ namespace Midias.BTSCs.Services.Services
             var livraison = Context.Livraison.Where(p => p.Id == id).FirstOrDefault();
             return new LivraisonDto()
             {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Client = new ClientDto()
+                Id = livraison.Id,
+                DateLivraison = livraison.DateLivraison,
+                Adresse = new AdresseDto()
                 {
-                    Id = commande.Client.Id,
-                    Nom = commande.Client.Nom,
-                    Prenom = commande.Client.Prenom
+                    Id = livraison.Adresse.Id,
+                    Rue1 = livraison.Adresse.Rue1,
+                    Rue2 = livraison.Adresse.Rue2,
+                    CodePostal = livraison.Adresse.CodePostal,
+                    Ville = livraison.Adresse.Ville,
+                    Pays = livraison.Adresse.Pays
+                },
+                Commande = new CommandeDto()
+                {
+                    Id = livraison.Commande.Id,
+                    Libelle = livraison.Commande.Libelle,
+                    Etat = livraison.Commande.Etat,
+                    DateCreation = livraison.Commande.DateCreation,
+                    DateValidation = livraison.Commande.DateValidation,
+                },
+                Salarie = new SalarieDto()
+                {
+                    Id = livraison.Salarie.Id,
+                    Nom = livraison.Salarie.Nom,
+                    Prenom = livraison.Salarie.Prenom,
+                    Valide = livraison.Salarie.Valide,
+                    Permis = livraison.Salarie.Permis,
+                    Email = livraison.Salarie.Email,
+                    Telephone = livraison.Salarie.Telephone,
+                },
+                Vehicule = new VehiculeDto()
+                {
+                    Id = livraison.Vehicule.Id,
+                    CarteGrise = livraison.Vehicule.CarteGrise,
+                    Immatriculation = livraison.Vehicule.Immatriculation,
+                    Modele = livraison.Vehicule.Modele,
+                    Marque = livraison.Vehicule.Marque,
                 }
             };
         }
 
-        public List<CommandeDto> GetCommandes()
+        public List<LivraisonDto> GetLivraisons()
         {
-            return Context.Commande.Select(commande => new CommandeDto()
+            return Context.Livraison.Select(livraison => new LivraisonDto()
             {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Client = new ClientDto()
+                Id = livraison.Id,
+                DateLivraison = livraison.DateLivraison,
+                Adresse = new AdresseDto()
                 {
-                    Id = commande.Client.Id,
-                    Nom = commande.Client.Nom,
-                    Prenom = commande.Client.Prenom
+                    Id = livraison.Adresse.Id,
+                    Rue1 = livraison.Adresse.Rue1,
+                    Rue2 = livraison.Adresse.Rue2,
+                    CodePostal = livraison.Adresse.CodePostal,
+                    Ville = livraison.Adresse.Ville,
+                    Pays = livraison.Adresse.Pays
                 },
-                Livraison = new LivraisonDto()
+                Commande = new CommandeDto()
                 {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
+                    Id = livraison.Commande.Id,
+                    Libelle = livraison.Commande.Libelle,
+                    Etat = livraison.Commande.Etat,
+                    DateCreation = livraison.Commande.DateCreation,
+                    DateValidation = livraison.Commande.DateValidation,
+                },
+                Salarie = new SalarieDto()
+                {
+                    Id = livraison.Salarie.Id,
+                    Nom = livraison.Salarie.Nom,
+                    Prenom = livraison.Salarie.Prenom,
+                    Valide = livraison.Salarie.Valide,
+                    Permis = livraison.Salarie.Permis,
+                    Email = livraison.Salarie.Email,
+                    Telephone = livraison.Salarie.Telephone,
+                },
+                Vehicule = new VehiculeDto()
+                {
+                    Id = livraison.Vehicule.Id,
+                    CarteGrise = livraison.Vehicule.CarteGrise,
+                    Immatriculation = livraison.Vehicule.Immatriculation,
+                    Modele = livraison.Vehicule.Modele,
+                    Marque = livraison.Vehicule.Marque,
                 }
             }).ToList();
         }
 
-        public void CreateNewCommande(CommandeDto commande)
+        public void CreateNewLivraison(LivraisonDto livraison)
         {
-            Context.Commande.Add(new Commande()
+            Context.Livraison.Add(new Livraison()
             {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Client = new Client()
+                Id = livraison.Id,
+                DateLivraison = livraison.DateLivraison,
+                Adresse = new Adresse()
                 {
-                    Id = commande.Client.Id,
-                    Nom = commande.Client.Nom,
-                    Prenom = commande.Client.Prenom
+                    Id = livraison.Adresse.Id,
+                    Rue1 = livraison.Adresse.Rue1,
+                    Rue2 = livraison.Adresse.Rue2,
+                    CodePostal = livraison.Adresse.CodePostal,
+                    Ville = livraison.Adresse.Ville,
+                    Pays = livraison.Adresse.Pays
                 },
-                Livraison = new Livraison()
+                Commande = new Commande()
                 {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
+                    Id = livraison.Commande.Id,
+                    Libelle = livraison.Commande.Libelle,
+                    Etat = livraison.Commande.Etat,
+                    DateCreation = livraison.Commande.DateCreation,
+                    DateValidation = livraison.Commande.DateValidation,
+                },
+                Salarie = new Salarie()
+                {
+                    Id = livraison.Salarie.Id,
+                    Nom = livraison.Salarie.Nom,
+                    Prenom = livraison.Salarie.Prenom,
+                    Valide = livraison.Salarie.Valide,
+                    Permis = livraison.Salarie.Permis,
+                    Email = livraison.Salarie.Email,
+                    Telephone = livraison.Salarie.Telephone,
+                },
+                Vehicule = new Vehicule()
+                {
+                    Id = livraison.Vehicule.Id,
+                    CarteGrise = livraison.Vehicule.CarteGrise,
+                    Immatriculation = livraison.Vehicule.Immatriculation,
+                    Modele = livraison.Vehicule.Modele,
+                    Marque = livraison.Vehicule.Marque,
                 }
             });
             Context.SaveChanges();
         }
 
-        public CommandeDto UpdateCommande(CommandeDto commandeDto)
+        public LivraisonDto UpdateLivraison(LivraisonDto livraisonDto)
         {
-            var commande = GetCommande(commandeDto.Id);
+            var livraison = GetLivraison(livraisonDto.Id);
 
-            commande.Libelle = commandeDto.Libelle;
-            commande.Etat = commandeDto.Etat;
-            commande.DateCreation = commandeDto.DateCreation;
-            commande.DateValidation = commandeDto.DateValidation;
+            livraison.DateLivraison = livraison.DateLivraison;
 
 
             Context.SaveChanges();
 
-            return new CommandeDto()
+            return new LivraisonDto()
             {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Livraison = commande.Livraison,
-                Client = commande.Client
-            };
+                Id = livraison.Id,
+                DateLivraison = livraison.DateLivraison,
+                Adresse = livraison.Adresse,
+                Commande = livraison.Commande,
+                Salarie = livraison.Salarie,
+                Vehicule = livraison.Vehicule,
+
+        };
         }
 
-        public void DeleteCommande(int id)
+        public void DeleteLivraison(int id)
         {
-            var commande = Context.Commande.Where(p => p.Id == id).FirstOrDefault();
+            var livraison = Context.Livraison.Where(p => p.Id == id).FirstOrDefault();
 
-            if (commande == null)
+            if (livraison == null)
                 return;
 
-            Context.Commande.Remove(commande);
+            Context.Livraison.Remove(livraison);
 
             Context.SaveChanges();
         }
