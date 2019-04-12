@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Midias.BTSCs.Services.Services
 {
-    public interface ICommandesService
+    public interface ILivraisonsService
     {
         /// <summary>
         /// Returns the matching commande
@@ -41,16 +41,16 @@ namespace Midias.BTSCs.Services.Services
         void DeleteCommande(int id);
     }
 
-    class CommandesService : ServiceBase, ICommandesService
+    class LivraisonsService : ServiceBase, ILivraisonsService
     {
-        public CommandesService()
+        public LivraisonsService()
         {
         }
 
-        public CommandeDto GetCommande(int id)
+        public LivraisonDto GetLivraison(int id)
         {
-            var commande = Context.Commande.Where(p => p.Id == id).FirstOrDefault();
-            return new CommandeDto()
+            var livraison = Context.Livraison.Where(p => p.Id == id).FirstOrDefault();
+            return new LivraisonDto()
             {
                 Id = commande.Id,
                 Libelle = commande.Libelle,
@@ -62,11 +62,6 @@ namespace Midias.BTSCs.Services.Services
                     Id = commande.Client.Id,
                     Nom = commande.Client.Nom,
                     Prenom = commande.Client.Prenom
-                },
-                Livraison = new LivraisonDto()
-                {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
                 }
             };
         }
@@ -126,7 +121,7 @@ namespace Midias.BTSCs.Services.Services
             commande.Etat = commandeDto.Etat;
             commande.DateCreation = commandeDto.DateCreation;
             commande.DateValidation = commandeDto.DateValidation;
-            
+
 
             Context.SaveChanges();
 
