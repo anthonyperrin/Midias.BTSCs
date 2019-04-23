@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ServiceBase.cs" />
+    <Compile Include="Services\AdressesService.cs" />
+    <Compile Include="Services\CategoriesService.cs" />
+    <Compile Include="Services\ClientsService.cs" />
+    <Compile Include="Services\CommandesService.cs" />
+    <Compile Include="Services\LivraisonsService.cs" />
     <Compile Include="Services\MouvementsService.cs" />
     <Compile Include="Services\VehiculeService.cs" />
     <Compile Include="Services\ProduitsService.cs" />

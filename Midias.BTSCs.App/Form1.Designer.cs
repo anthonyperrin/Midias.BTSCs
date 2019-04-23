@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.menuBarPanel = new System.Windows.Forms.Panel();
+            this.HomeBtn = new System.Windows.Forms.Button();
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
@@ -39,13 +41,13 @@
             this.closeAppBox = new System.Windows.Forms.PictureBox();
             this.minimizeAppBox = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.HomeBtn = new System.Windows.Forms.Button();
-            this.menuBarPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,6 +65,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 800);
             this.panel1.TabIndex = 0;
+            // 
+            // menuBarPanel
+            // 
+            this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
+            this.menuBarPanel.Location = new System.Drawing.Point(0, 132);
+            this.menuBarPanel.Name = "menuBarPanel";
+            this.menuBarPanel.Size = new System.Drawing.Size(12, 60);
+            this.menuBarPanel.TabIndex = 5;
+            // 
+            // HomeBtn
+            // 
+            this.HomeBtn.FlatAppearance.BorderSize = 0;
+            this.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
+            this.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HomeBtn.Location = new System.Drawing.Point(12, 132);
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.Size = new System.Drawing.Size(188, 60);
+            this.HomeBtn.TabIndex = 3;
+            this.HomeBtn.Text = "     Accueil";
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
             // 
             // VehiculesBtn
             // 
@@ -167,34 +192,22 @@
             this.panel2.Size = new System.Drawing.Size(1200, 10);
             this.panel2.TabIndex = 1;
             // 
-            // HomeBtn
+            // pictureBox2
             // 
-            this.HomeBtn.FlatAppearance.BorderSize = 0;
-            this.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
-            this.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeBtn.Location = new System.Drawing.Point(12, 132);
-            this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(188, 60);
-            this.HomeBtn.TabIndex = 3;
-            this.HomeBtn.Text = "     Accueil";
-            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.HomeBtn.UseVisualStyleBackColor = true;
-            this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
-            // 
-            // menuBarPanel
-            // 
-            this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
-            this.menuBarPanel.Location = new System.Drawing.Point(0, 132);
-            this.menuBarPanel.Name = "menuBarPanel";
-            this.menuBarPanel.Size = new System.Drawing.Size(12, 60);
-            this.menuBarPanel.TabIndex = 5;
+            this.pictureBox2.Image = global::Midias.BTSCs.App.Properties.Resources.logo_livretou;
+            this.pictureBox2.Location = new System.Drawing.Point(258, 174);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(474, 103);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
             this.Controls.Add(this.homeUC);
@@ -212,7 +225,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -230,6 +245,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button HomeBtn;
         private System.Windows.Forms.Panel menuBarPanel;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

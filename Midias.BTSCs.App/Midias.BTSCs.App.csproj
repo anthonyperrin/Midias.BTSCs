@@ -78,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>
@@ -105,6 +106,7 @@
     <Content Include="assets\icons\menu\employee.png" />
     <Content Include="assets\icons\menu\home-icon-silhouette%281%29.png" />
     <Content Include="assets\icons\menu\home.png" />
+    <Content Include="assets\icons\menu\logo_livretou.png" />
     <Content Include="assets\icons\menu\sports-car.png" />
     <Content Include="assets\icons\minimize.png" />
     <Content Include="assets\icons\negative-sign.png" />

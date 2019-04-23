@@ -93,6 +93,5 @@ namespace Midias.BTSCs.App
         {
             WindowState = FormWindowState.Minimized;
         }
-
     }
 }
