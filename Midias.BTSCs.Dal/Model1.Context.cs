@@ -13,10 +13,10 @@ namespace Midias.BTSCs.Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BTSCsEntities : DbContext
+    public partial class BTSCs : DbContext
     {
-        public BTSCsEntities()
-            : base("name=BTSCsEntities")
+        public BTSCs()
+            : base("name=BTSCs")
         {
         }
     
@@ -33,7 +33,6 @@ namespace Midias.BTSCs.Dal
         public virtual DbSet<Mouvement> Mouvement { get; set; }
         public virtual DbSet<Produit> Produit { get; set; }
         public virtual DbSet<Salarie> Salarie { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Vehicule> Vehicule { get; set; }
     }
 }

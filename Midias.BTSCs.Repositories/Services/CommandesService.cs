@@ -63,11 +63,11 @@ namespace Midias.BTSCs.Services.Services
                     Nom = commande.Client.Nom,
                     Prenom = commande.Client.Prenom
                 },
-                Livraison = new LivraisonDto()
+                Livraison = commande.Livraison.Select(l => new LivraisonDto()
                 {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
-                }
+                    Id = l.Id,
+                    DateLivraison = l.DateLivraison
+                }).ToList()
             };
         }
 
@@ -86,11 +86,11 @@ namespace Midias.BTSCs.Services.Services
                     Nom = commande.Client.Nom,
                     Prenom = commande.Client.Prenom
                 },
-                Livraison = new LivraisonDto()
+                Livraison = commande.Livraison.Select(l => new LivraisonDto()
                 {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
-                }
+                    Id = l.Id,
+                    DateLivraison = l.DateLivraison
+                }).ToList()
             }).ToList();
         }
 
@@ -108,11 +108,6 @@ namespace Midias.BTSCs.Services.Services
                     Id = commande.Client.Id,
                     Nom = commande.Client.Nom,
                     Prenom = commande.Client.Prenom
-                },
-                Livraison = new Livraison()
-                {
-                    Id = commande.Livraison.Id,
-                    DateLivraison = commande.Livraison.DateLivraison
                 }
             });
             Context.SaveChanges();

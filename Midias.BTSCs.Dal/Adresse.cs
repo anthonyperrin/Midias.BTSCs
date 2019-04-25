@@ -17,6 +17,7 @@ namespace Midias.BTSCs.Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Adresse()
         {
+            this.Client = new HashSet<Client>();
             this.Livraison = new HashSet<Livraison>();
         }
     
@@ -27,6 +28,8 @@ namespace Midias.BTSCs.Dal
         public string Ville { get; set; }
         public string Pays { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Client> Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Livraison> Livraison { get; set; }
     }

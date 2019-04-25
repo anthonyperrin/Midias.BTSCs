@@ -12,6 +12,6 @@ namespace Midias.BTSCs.Dto
         public DateTime? DateCreation { get; set; }
 
         public virtual ClientDto Client { get; set; }
-        public virtual LivraisonDto Livraison { get; set; }
+        public virtual List<LivraisonDto> Livraison { get; set; }
     }
 }

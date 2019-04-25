@@ -23,8 +23,8 @@ namespace Midias.BTSCs.Dal
         public int Id { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public Adresse Adresse { get; set; }
     
+        public virtual Adresse Adresse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Commande> Commande { get; set; }
     }
