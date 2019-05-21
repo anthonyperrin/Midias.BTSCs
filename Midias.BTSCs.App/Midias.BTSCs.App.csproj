@@ -111,6 +111,7 @@
     <Content Include="assets\icons\minimize.png" />
     <Content Include="assets\icons\negative-sign.png" />
     <Content Include="assets\logo.png" />
+    <Content Include="database.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Midias.BTSCs.Dto\Midias.BTSCs.Dto.csproj">

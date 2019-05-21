@@ -1,5 +1,6 @@
 ﻿using Midias.BTSCs.Dal;
 using Midias.BTSCs.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -73,7 +74,6 @@ namespace Midias.BTSCs.Services
         {
             Context.Vehicule.Add(new Vehicule()
             {
-                Id = vehicule.Id,
                 CarteGrise = vehicule.CarteGrise,
                 Immatriculation = vehicule.Immatriculation,
                 Marque = vehicule.Marque,
@@ -86,7 +86,6 @@ namespace Midias.BTSCs.Services
         {
             var vehicule = GetVehicule(vehiculeDto.Id);
 
-            vehicule.Id = vehiculeDto.Id;
             vehicule.CarteGrise = vehiculeDto.CarteGrise;
             vehicule.Immatriculation = vehiculeDto.Immatriculation;
             vehicule.Marque = vehiculeDto.Marque;
@@ -96,12 +95,10 @@ namespace Midias.BTSCs.Services
 
             return new VehiculeDto()
             {
-                Id = vehicule.Id,
                 CarteGrise = vehicule.CarteGrise,
                 Immatriculation = vehicule.Immatriculation,
                 Marque = vehicule.Marque,
                 Modele = vehicule.Modele,
-                Livraison = vehiculeDto.Livraison
             };
         }
 
