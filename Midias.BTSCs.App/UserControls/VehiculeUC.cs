@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Midias.BTSCs.Services;
 
 namespace Midias.BTSCs.App.UserControls
 {
-    public partial class HomeUC : UserControl
+    public partial class VehiculeUC : UserControl
     {
-        private IVehiculeService _vehiculesService = new VehiculeService();
-
-        public HomeUC()
+        public VehiculeUC()
         {
             InitializeComponent();
-            var vehicules = _vehiculesService.GetVehicules();
-
-            dataGridViewVehicules.DataSource = vehicules;
         }
     }
 }

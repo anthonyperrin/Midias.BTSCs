@@ -67,6 +67,12 @@
     <Compile Include="UserControls\HomeUC.Designer.cs">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\VehiculeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VehiculeUC.Designer.cs">
+      <DependentUpon>VehiculeUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,8 +89,12 @@
     <EmbeddedResource Include="UserControls\HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VehiculeUC.resx">
+      <DependentUpon>VehiculeUC.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.ProduitDto.datasource" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.VehiculeDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

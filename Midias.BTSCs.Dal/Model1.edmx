@@ -97,7 +97,7 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CarteGrise" Type="varchar" MaxLength="250" />
           <Property Name="Immatriculation" Type="varchar" MaxLength="10" />
           <Property Name="Modele" Type="varchar" MaxLength="50" />
@@ -345,7 +345,7 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarteGrise" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Immatriculation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Modele" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />

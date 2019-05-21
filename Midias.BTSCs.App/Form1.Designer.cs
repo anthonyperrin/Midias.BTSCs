@@ -37,17 +37,17 @@
             this.ProduitsBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
-            this.closeAppBox = new System.Windows.Forms.PictureBox();
-            this.minimizeAppBox = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.minimizeAppBox = new System.Windows.Forms.PictureBox();
+            this.closeAppBox = new System.Windows.Forms.PictureBox();
+            this.vehiculeUC1 = new Midias.BTSCs.App.UserControls.VehiculeUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -153,36 +153,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // homeUC
-            // 
-            this.homeUC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.homeUC.Location = new System.Drawing.Point(206, 133);
-            this.homeUC.Name = "homeUC";
-            this.homeUC.Size = new System.Drawing.Size(1182, 655);
-            this.homeUC.TabIndex = 2;
-            // 
-            // closeAppBox
-            // 
-            this.closeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("closeAppBox.Image")));
-            this.closeAppBox.Location = new System.Drawing.Point(1372, 20);
-            this.closeAppBox.Name = "closeAppBox";
-            this.closeAppBox.Size = new System.Drawing.Size(12, 12);
-            this.closeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closeAppBox.TabIndex = 3;
-            this.closeAppBox.TabStop = false;
-            this.closeAppBox.Click += new System.EventHandler(this.closeAppBox_Click);
-            // 
-            // minimizeAppBox
-            // 
-            this.minimizeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeAppBox.Image")));
-            this.minimizeAppBox.Location = new System.Drawing.Point(1339, 23);
-            this.minimizeAppBox.Name = "minimizeAppBox";
-            this.minimizeAppBox.Size = new System.Drawing.Size(12, 12);
-            this.minimizeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.minimizeAppBox.TabIndex = 4;
-            this.minimizeAppBox.TabStop = false;
-            this.minimizeAppBox.Click += new System.EventHandler(this.minimizeAppBox_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
@@ -195,22 +165,51 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Midias.BTSCs.App.Properties.Resources.logo_livretou;
-            this.pictureBox2.Location = new System.Drawing.Point(258, 174);
+            this.pictureBox2.Location = new System.Drawing.Point(527, 10);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(474, 103);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
+            // minimizeAppBox
+            // 
+            this.minimizeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeAppBox.Image")));
+            this.minimizeAppBox.Location = new System.Drawing.Point(1339, 23);
+            this.minimizeAppBox.Name = "minimizeAppBox";
+            this.minimizeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.minimizeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.minimizeAppBox.TabIndex = 4;
+            this.minimizeAppBox.TabStop = false;
+            this.minimizeAppBox.Click += new System.EventHandler(this.minimizeAppBox_Click);
+            // 
+            // closeAppBox
+            // 
+            this.closeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("closeAppBox.Image")));
+            this.closeAppBox.Location = new System.Drawing.Point(1372, 20);
+            this.closeAppBox.Name = "closeAppBox";
+            this.closeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.closeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeAppBox.TabIndex = 3;
+            this.closeAppBox.TabStop = false;
+            this.closeAppBox.Click += new System.EventHandler(this.closeAppBox_Click);
+            // 
+            // vehiculeUC1
+            // 
+            this.vehiculeUC1.Location = new System.Drawing.Point(206, 133);
+            this.vehiculeUC1.Name = "vehiculeUC1";
+            this.vehiculeUC1.Size = new System.Drawing.Size(1182, 655);
+            this.vehiculeUC1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.Controls.Add(this.vehiculeUC1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
-            this.Controls.Add(this.homeUC);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -223,9 +222,9 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,13 +238,14 @@
         private System.Windows.Forms.Button VehiculesBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private UserControls.HomeUC homeUC;
         private System.Windows.Forms.PictureBox closeAppBox;
         private System.Windows.Forms.PictureBox minimizeAppBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button HomeBtn;
         private System.Windows.Forms.Panel menuBarPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private UserControls.HomeUC homeUC;
+        private UserControls.VehiculeUC vehiculeUC1;
     }
 }
 
