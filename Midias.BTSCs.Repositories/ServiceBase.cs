@@ -4,7 +4,7 @@ namespace Midias.BTSCs.Services
 {
     public class ServiceBase
     {
-        protected BTSCsEntities Context { get; set; }
+        protected Midias.BTSCs.Dal.BTSCs Context { get; set; }
 
         public ServiceBase()
         {
@@ -13,7 +13,7 @@ namespace Midias.BTSCs.Services
 
         public void CreateContext()
         {
-            Context = new BTSCsEntities();
+            Context = new Midias.BTSCs.Dal.BTSCs();
         }
 
         public void DisposeContext()
