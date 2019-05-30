@@ -26,40 +26,61 @@ namespace Midias.BTSCs.App.UserControls
             this._isLoaded = true;
         }
 
-        private void DataGridView1_CellValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            if (this._isLoaded)
-            {
-                VehiculeDto vehicule = new VehiculeDto();
-                vehicule = (VehiculeDto)dataGridView1.Rows[e.RowIndex].DataBoundItem;
-                vehicule = this._vehiculesService.UpdateVehicule(vehicule);
-               
-            }
-        }
-
-        private void AddRowButton_Click(object sender, EventArgs e)
-        {
-            dataGridView1.Rows.Add();
-        }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            //Si les champs sont rempli
             if (!String.IsNullOrEmpty(modeleText.Text) && !String.IsNullOrEmpty(marqueText.Text) && !String.IsNullOrEmpty(immatText.Text) && !String.IsNullOrEmpty(cartegriseText.Text)){
+                //Nouveau vehicule
                 VehiculeDto vehicule = new VehiculeDto();
                 vehicule.CarteGrise = cartegriseText.Text;
                 vehicule.Immatriculation = immatText.Text;
                 vehicule.Modele = modeleText.Text;
                 vehicule.Marque = marqueText.Text;
-                this._vehiculesService.AddVehicule(vehicule);
-                var vehicules = _vehiculesService.GetVehicules();
-                dataGridView1.DataSource = vehicules;
 
+                //Ajout vehicule
+                this._vehiculesService.AddVehicule(vehicule);
+
+                //UpdateAffichage
+                this.UpdateDataGrid();
+
+                //Reset des champs
                 modeleText.ResetText();
                 marqueText.ResetText();
                 cartegriseText.ResetText();
                 immatText.ResetText();
             }
 
+        }
+
+        private void DataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this._isLoaded)
+            {
+                VehiculeDto vehicule = new VehiculeDto();
+                vehicule = (VehiculeDto)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                vehicule = this._vehiculesService.UpdateVehicule(vehicule);
+
+            }
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                VehiculeDto vehicule = new VehiculeDto();
+                vehicule = (VehiculeDto)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                this._vehiculesService.DeleteVehicule(vehicule.Id);
+                this.UpdateDataGrid();
+            }
+        }
+
+        private void UpdateDataGrid()
+        {
+            var vehicules = _vehiculesService.GetVehicules();
+            dataGridView1.DataSource = vehicules;
         }
     }
 }
