@@ -16,7 +16,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Categorie Id</param>
         /// <returns></returns>
-        CategorieDto GetCategorie(int id);
+        Categorie GetCategorie(int id);
         /// <summary>
         /// Returns a list with all the categories
         /// </summary>
@@ -48,14 +48,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public CategorieDto GetCategorie(int id)
+        public Categorie GetCategorie(int id)
         {
-            var categorie = Context.Categorie.Where(p => p.Id == id).FirstOrDefault();
-            return new CategorieDto()
-            {
-                Id = categorie.Id,
-                Libelle = categorie.Libelle
-            };
+            return Context.Categorie.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<CategorieDto> GetCategories()
@@ -79,17 +74,13 @@ namespace Midias.BTSCs.Services.Services
 
         public CategorieDto UpdateCategorie(CategorieDto categorieDto)
         {
-            var categorie = GetCategorie(categorieDto.Id);
+            var categorie = Context.Categorie.Where(p => p.Id == categorieDto.Id).FirstOrDefault();
 
             categorie.Libelle = categorieDto.Libelle;
 
             Context.SaveChanges();
 
-            return new CategorieDto()
-            {
-                Id = categorie.Id,
-                Libelle = categorie.Libelle
-            };
+            return categorieDto;
         }
 
         public void DeleteCategorie(int id)

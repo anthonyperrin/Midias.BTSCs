@@ -17,7 +17,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Adresse Id</param>
         /// <returns></returns>
-        AdresseDto GetAdresse(int id);
+        Adresse GetAdresse(int id);
         /// <summary>
         /// Returns a list with all the adresses
         /// </summary>
@@ -49,18 +49,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public AdresseDto GetAdresse(int id)
+        public Adresse GetAdresse(int id)
         {
-            var adresse = Context.Adresse.Where(p => p.Id == id).FirstOrDefault();
-            return new AdresseDto()
-            {
-                Id = adresse.Id,
-                Rue1 = adresse.Rue1,
-                Rue2 = adresse.Rue2,
-                CodePostal = adresse.CodePostal,
-                Ville = adresse.Ville,
-                Pays = adresse.Pays
-            };
+            return Context.Adresse.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<AdresseDto> GetAdresses()
@@ -92,7 +83,7 @@ namespace Midias.BTSCs.Services.Services
 
         public AdresseDto UpdateAdresse(AdresseDto adresseDto)
         {
-            var adresse = GetAdresse(adresseDto.Id);
+            Adresse adresse = Context.Adresse.Where(p => p.Id == adresseDto.Id).FirstOrDefault();
 
             adresse.Rue1 = adresseDto.Rue1;
             adresse.Rue2 = adresseDto.Rue2;
@@ -102,15 +93,7 @@ namespace Midias.BTSCs.Services.Services
 
             Context.SaveChanges();
 
-            return new AdresseDto()
-            {
-                Id = adresse.Id,
-                Rue1 = adresse.Rue1,
-                Rue2 = adresse.Rue2,
-                CodePostal = adresse.CodePostal,
-                Ville = adresse.Ville,
-                Pays = adresse.Pays
-            };
+            return adresseDto;
         }
 
         public void DeleteAdresse(int id)

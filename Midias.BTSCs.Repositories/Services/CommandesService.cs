@@ -15,7 +15,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Commande Id</param>
         /// <returns></returns>
-        CommandeDto GetCommande(int id);
+        Commande GetCommande(int id);
         /// <summary>
         /// Returns a list with all the commande
         /// </summary>
@@ -47,28 +47,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public CommandeDto GetCommande(int id)
+        public Commande GetCommande(int id)
         {
-            var commande = Context.Commande.Where(p => p.Id == id).FirstOrDefault();
-            return new CommandeDto()
-            {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Client = new ClientDto()
-                {
-                    Id = commande.Client.Id,
-                    Nom = commande.Client.Nom,
-                    Prenom = commande.Client.Prenom
-                },
-                Livraison = commande.Livraison.Select(l => new LivraisonDto()
-                {
-                    Id = l.Id,
-                    DateLivraison = l.DateLivraison
-                }).ToList()
-            };
+            return Context.Commande.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<CommandeDto> GetCommandes()
@@ -115,7 +96,7 @@ namespace Midias.BTSCs.Services.Services
 
         public CommandeDto UpdateCommande(CommandeDto commandeDto)
         {
-            var commande = GetCommande(commandeDto.Id);
+            var commande = Context.Commande.Where(p => p.Id == commandeDto.Id).FirstOrDefault(); ;
 
             commande.Libelle = commandeDto.Libelle;
             commande.Etat = commandeDto.Etat;
@@ -125,16 +106,7 @@ namespace Midias.BTSCs.Services.Services
 
             Context.SaveChanges();
 
-            return new CommandeDto()
-            {
-                Id = commande.Id,
-                Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Livraison = commande.Livraison,
-                Client = commande.Client
-            };
+            return commandeDto;
         }
 
         public void DeleteCommande(int id)

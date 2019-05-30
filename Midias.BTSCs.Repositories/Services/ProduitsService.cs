@@ -15,7 +15,7 @@ namespace Midias.BTSCs.Services
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns></returns>
-        ProduitDto GetProduit(int id);
+        Produit GetProduit(int id);
         /// <summary>
         /// Returns a list with all the products
         /// </summary>
@@ -47,28 +47,9 @@ namespace Midias.BTSCs.Services
         {
         }
 
-        public ProduitDto GetProduit(int id)
+        public Produit GetProduit(int id)
         {
-            var produit = Context.Produit.Where(p => p.Id == id).FirstOrDefault();
-            return new ProduitDto()
-            {
-                Id = produit.Id,
-                Libelle = produit.Libelle,
-                PrixHT = produit.PrixHT,
-                Categorie = new CategorieDto()
-                {
-                    Id = produit.Categorie.Id,
-                    Libelle = produit.Categorie.Libelle
-                },
-                Taxe = produit.Taxe,
-                Quantite = produit.Quantite,
-                Mouvements = produit.Mouvement.Select(m => new MouvementDto()
-                {
-                    Id = m.Id,
-                    DateCreation = m.DateCreation,
-                    Quantite = m.Quantite
-                }).ToList()
-            };
+            return Context.Produit.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<ProduitDto> GetProduits()
@@ -108,25 +89,16 @@ namespace Midias.BTSCs.Services
 
         public ProduitDto UpdateProduit(ProduitDto produitDto)
         {
-            var produit = GetProduit(produitDto.Id);
+            var produit = Context.Produit.Where(p => p.Id == produitDto.Id).FirstOrDefault(); ;
 
             produit.Libelle = produitDto.Libelle;
             produit.PrixHT = produitDto.PrixHT;
             produit.Taxe = produitDto.Taxe;
-            produit.Categorie = produitDto.Categorie;
+            produit.Categorie.Libelle = produitDto.Categorie.Libelle;
 
             Context.SaveChanges();
 
-            return new ProduitDto()
-            {
-                Id = produit.Id,
-                Libelle = produit.Libelle,
-                PrixHT = produit.PrixHT,
-                Categorie = produit.Categorie,
-                Taxe = produit.Taxe,
-                Quantite = produit.Quantite,
-                Mouvements = produit.Mouvements
-            };
+            return produitDto;
         }
 
         public void DeleteProduit(int id)

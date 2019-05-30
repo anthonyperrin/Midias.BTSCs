@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vehiculeDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Midias_BTSCsDataSet = new Midias.BTSCs.App._Midias_BTSCsDataSet();
-            this.vehiculeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiculeTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSetTableAdapters.VehiculeTableAdapter();
-            this.midiasBTSCsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiculeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carteGriseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.immatriculationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modeleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marqueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiculeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.midiasBTSCsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Midias_BTSCsDataSet = new Midias.BTSCs.App._Midias_BTSCsDataSet();
+            this.vehiculeDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehiculeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vehiculeTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSetTableAdapters.VehiculeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -61,39 +61,12 @@
             this.marqueDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vehiculeBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(588, 527);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // vehiculeDtoBindingSource
-            // 
-            this.vehiculeDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.VehiculeDto);
-            // 
-            // _Midias_BTSCsDataSet
-            // 
-            this._Midias_BTSCsDataSet.DataSetName = "_Midias_BTSCsDataSet";
-            this._Midias_BTSCsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vehiculeBindingSource
-            // 
-            this.vehiculeBindingSource.DataMember = "Vehicule";
-            this.vehiculeBindingSource.DataSource = this._Midias_BTSCsDataSet;
-            // 
-            // vehiculeTableAdapter
-            // 
-            this.vehiculeTableAdapter.ClearBeforeFill = true;
-            // 
-            // midiasBTSCsDataSetBindingSource
-            // 
-            this.midiasBTSCsDataSetBindingSource.DataSource = this._Midias_BTSCsDataSet;
-            this.midiasBTSCsDataSetBindingSource.Position = 0;
-            // 
-            // vehiculeBindingSource1
-            // 
-            this.vehiculeBindingSource1.DataMember = "Vehicule";
-            this.vehiculeBindingSource1.DataSource = this.midiasBTSCsDataSetBindingSource;
+            this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValidated);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -126,20 +99,48 @@
             this.marqueDataGridViewTextBoxColumn.HeaderText = "Marque";
             this.marqueDataGridViewTextBoxColumn.Name = "marqueDataGridViewTextBoxColumn";
             // 
+            // vehiculeBindingSource1
+            // 
+            this.vehiculeBindingSource1.DataMember = "Vehicule";
+            this.vehiculeBindingSource1.DataSource = this.midiasBTSCsDataSetBindingSource;
+            // 
+            // midiasBTSCsDataSetBindingSource
+            // 
+            this.midiasBTSCsDataSetBindingSource.DataSource = this._Midias_BTSCsDataSet;
+            this.midiasBTSCsDataSetBindingSource.Position = 0;
+            // 
+            // _Midias_BTSCsDataSet
+            // 
+            this._Midias_BTSCsDataSet.DataSetName = "_Midias_BTSCsDataSet";
+            this._Midias_BTSCsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vehiculeDtoBindingSource
+            // 
+            this.vehiculeDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.VehiculeDto);
+            // 
+            // vehiculeBindingSource
+            // 
+            this.vehiculeBindingSource.DataMember = "Vehicule";
+            this.vehiculeBindingSource.DataSource = this._Midias_BTSCsDataSet;
+            // 
+            // vehiculeTableAdapter
+            // 
+            this.vehiculeTableAdapter.ClearBeforeFill = true;
+            // 
             // VehiculeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VehiculeUC";
             this.Size = new System.Drawing.Size(886, 532);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

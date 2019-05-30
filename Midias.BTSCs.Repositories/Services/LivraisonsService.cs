@@ -15,7 +15,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Livraison Id</param>
         /// <returns></returns>
-        LivraisonDto GetLivraison(int id);
+        Livraison GetLivraison(int id);
         /// <summary>
         /// Returns a list with all the livraison
         /// </summary>
@@ -47,49 +47,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public LivraisonDto GetLivraison(int id)
+        public Livraison GetLivraison(int id)
         {
-            var livraison = Context.Livraison.Where(p => p.Id == id).FirstOrDefault();
-            return new LivraisonDto()
-            {
-                Id = livraison.Id,
-                DateLivraison = livraison.DateLivraison,
-                Adresse = new AdresseDto()
-                {
-                    Id = livraison.Adresse.Id,
-                    Rue1 = livraison.Adresse.Rue1,
-                    Rue2 = livraison.Adresse.Rue2,
-                    CodePostal = livraison.Adresse.CodePostal,
-                    Ville = livraison.Adresse.Ville,
-                    Pays = livraison.Adresse.Pays
-                },
-                Commande = new CommandeDto()
-                {
-                    Id = livraison.Commande.Id,
-                    Libelle = livraison.Commande.Libelle,
-                    Etat = livraison.Commande.Etat,
-                    DateCreation = livraison.Commande.DateCreation,
-                    DateValidation = livraison.Commande.DateValidation,
-                },
-                Salarie = new SalarieDto()
-                {
-                    Id = livraison.Salarie.Id,
-                    Nom = livraison.Salarie.Nom,
-                    Prenom = livraison.Salarie.Prenom,
-                    Valide = livraison.Salarie.Valide,
-                    Permis = livraison.Salarie.Permis,
-                    Email = livraison.Salarie.Email,
-                    Telephone = livraison.Salarie.Telephone,
-                },
-                Vehicule = new VehiculeDto()
-                {
-                    Id = livraison.Vehicule.Id,
-                    CarteGrise = livraison.Vehicule.CarteGrise,
-                    Immatriculation = livraison.Vehicule.Immatriculation,
-                    Modele = livraison.Vehicule.Modele,
-                    Marque = livraison.Vehicule.Marque,
-                }
-            };
+            return Context.Livraison.Where(p => p.Id == id).FirstOrDefault(); 
         }
 
         public List<LivraisonDto> GetLivraisons()
@@ -183,23 +143,14 @@ namespace Midias.BTSCs.Services.Services
 
         public LivraisonDto UpdateLivraison(LivraisonDto livraisonDto)
         {
-            var livraison = GetLivraison(livraisonDto.Id);
+            var livraison = Context.Livraison.Where(p => p.Id == livraisonDto.Id).FirstOrDefault(); ;
 
             livraison.DateLivraison = livraison.DateLivraison;
 
 
             Context.SaveChanges();
 
-            return new LivraisonDto()
-            {
-                Id = livraison.Id,
-                DateLivraison = livraison.DateLivraison,
-                Adresse = livraison.Adresse,
-                Commande = livraison.Commande,
-                Salarie = livraison.Salarie,
-                Vehicule = livraison.Vehicule,
-
-        };
+            return livraisonDto;
         }
 
         public void DeleteLivraison(int id)

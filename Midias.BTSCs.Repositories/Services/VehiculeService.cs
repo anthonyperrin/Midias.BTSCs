@@ -13,7 +13,7 @@ namespace Midias.BTSCs.Services
         /// </summary>
         /// <param name="id">Vehicle Id</param>
         /// <returns></returns>
-        VehiculeDto GetVehicule(int id);
+        Vehicule GetVehicule(int id);
         /// <summary>
         /// Returns a list with all the vehicles
         /// </summary>
@@ -45,17 +45,10 @@ namespace Midias.BTSCs.Services
         {
         }
 
-        public VehiculeDto GetVehicule(int id)
+        public Vehicule GetVehicule(int id)
         {
-            var vehicule = Context.Vehicule.Where(v => v.Id == id).FirstOrDefault();
-            return new VehiculeDto()
-            {
-                Id = vehicule.Id,
-                CarteGrise = vehicule.CarteGrise,
-                Immatriculation = vehicule.Immatriculation,
-                Marque = vehicule.Marque,
-                Modele = vehicule.Modele,
-            };
+            Vehicule vehicule = Context.Vehicule.Where(v => v.Id == id).FirstOrDefault();
+            return new Vehicule(vehicule.Id, vehicule.CarteGrise, vehicule.Immatriculation, vehicule.Marque, vehicule.Modele);
         }
 
         public List<VehiculeDto> GetVehicules()
@@ -86,13 +79,12 @@ namespace Midias.BTSCs.Services
 
         public VehiculeDto UpdateVehicule(VehiculeDto vehiculeDto)
         {
-            var vehicule = GetVehicule(vehiculeDto.Id);
+            Vehicule vehicule = Context.Vehicule.Where(v => v.Id == vehiculeDto.Id).FirstOrDefault();
 
             vehicule.CarteGrise = vehiculeDto.CarteGrise;
             vehicule.Immatriculation = vehiculeDto.Immatriculation;
             vehicule.Marque = vehiculeDto.Marque;
             vehicule.Modele = vehiculeDto.Modele;
-
             Context.SaveChanges();
 
             return new VehiculeDto()

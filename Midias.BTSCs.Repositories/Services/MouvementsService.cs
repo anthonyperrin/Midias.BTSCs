@@ -15,7 +15,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Mouvement Id</param>
         /// <returns></returns>
-        MouvementDto GetMouvement(int id);
+        Mouvement GetMouvement(int id);
         /// <summary>
         /// Returns a list with all the mouvements
         /// </summary>
@@ -47,24 +47,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public MouvementDto GetMouvement(int id)
+        public Mouvement GetMouvement(int id)
         {
-            var mouvement = Context.Mouvement.Where(p => p.Id == id).FirstOrDefault();
-            return new MouvementDto()
-            {
-                Id = mouvement.Id,
-                Quantite = mouvement.Quantite,
-                DateCreation = mouvement.DateCreation,
-                Produit = new ProduitDto()
-                {
-                    Id = mouvement.Produit.Id,
-                    Libelle = mouvement.Produit.Libelle,
-                    PrixHT = mouvement.Produit.PrixHT,
-                    Taxe = mouvement.Produit.Taxe,
-                    Quantite = mouvement.Produit.Quantite
-                },
-               
-            };
+            return Context.Mouvement.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<MouvementDto> GetMouvements()
@@ -106,20 +91,14 @@ namespace Midias.BTSCs.Services.Services
 
         public MouvementDto UpdateMouvement(MouvementDto mouvementDto)
         {
-            var mouvement = GetMouvement(mouvementDto.Id);
+            var mouvement = Context.Mouvement.Where(p => p.Id == mouvementDto.Id).FirstOrDefault(); ;
 
             mouvement.Quantite = mouvementDto.Quantite;
             mouvement.DateCreation = mouvementDto.DateCreation;
 
             Context.SaveChanges();
 
-            return new MouvementDto()
-            {
-                Id = mouvement.Id,
-                Quantite = mouvement.Quantite,
-                DateCreation = mouvement.DateCreation,
-                Produit = mouvement.Produit
-            };
+            return mouvementDto;
         }
 
         public void DeleteMouvement(int id)

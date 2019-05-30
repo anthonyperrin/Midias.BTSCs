@@ -15,7 +15,7 @@ namespace Midias.BTSCs.Services.Services
         /// </summary>
         /// <param name="id">Client Id</param>
         /// <returns></returns>
-        ClientDto GetClient(int id);
+        Client GetClient(int id);
         /// <summary>
         /// Returns a list with all the clients
         /// </summary>
@@ -47,24 +47,9 @@ namespace Midias.BTSCs.Services.Services
         {
         }
 
-        public ClientDto GetClient(int id)
+        public Client GetClient(int id)
         {
-            var client = Context.Client.Where(p => p.Id == id).FirstOrDefault();
-            return new ClientDto()
-            {
-                Id = client.Id,
-                Nom = client.Nom,
-                Prenom = client.Prenom,
-                Adresse = new AdresseDto()
-                {
-                    Id = client.Adresse.Id,
-                    Rue1 = client.Adresse.Rue1,
-                    Rue2 = client.Adresse.Rue2,
-                    CodePostal = client.Adresse.CodePostal,
-                    Ville = client.Adresse.Ville,
-                    Pays = client.Adresse.Pays
-                },
-            };
+            return Context.Client.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public List<ClientDto> GetClients()
@@ -100,7 +85,7 @@ namespace Midias.BTSCs.Services.Services
                     Rue2 = client.Adresse.Rue2,
                     CodePostal = client.Adresse.CodePostal,
                     Ville = client.Adresse.Ville,
-                    Pays = client.Adresse.Pays
+                    Pays = client.Adresse.Ville
                 }
             });
             Context.SaveChanges();
@@ -108,21 +93,20 @@ namespace Midias.BTSCs.Services.Services
 
         public ClientDto UpdateClient(ClientDto clientDto)
         {
-            var client = GetClient(clientDto.Id);
+            var client = Context.Client.Where(p => p.Id == clientDto.Id).FirstOrDefault();
 
             client.Nom = clientDto.Nom;
             client.Prenom = clientDto.Prenom;
-            client.Adresse = clientDto.Adresse;
+            client.Adresse.CodePostal = clientDto.Adresse.CodePostal;
+            client.Adresse.Rue1 = clientDto.Adresse.Rue1;
+            client.Adresse.Rue2 = clientDto.Adresse.Rue2;
+            client.Adresse.Ville = clientDto.Adresse.Ville;
+            client.Adresse.Pays = clientDto.Adresse.Pays;
+
 
             Context.SaveChanges();
 
-            return new ClientDto()
-            {
-                Id = client.Id,
-                Nom = client.Nom,
-                Prenom = client.Prenom,
-                Adresse = client.Adresse
-            };
+            return clientDto;
         }
 
         public void DeleteClient(int id)
