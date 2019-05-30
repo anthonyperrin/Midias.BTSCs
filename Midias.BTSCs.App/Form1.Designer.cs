@@ -43,6 +43,7 @@
             this.closeAppBox = new System.Windows.Forms.PictureBox();
             this.vehiculeUC1 = new Midias.BTSCs.App.UserControls.VehiculeUC();
             this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
+            this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -225,7 +226,15 @@
             this.homeUC.Name = "HomeUC";
             this.homeUC.Size = new System.Drawing.Size(886, 532);
             this.homeUC.TabIndex = 6;
-
+            // 
+            // ProduitUC
+            // 
+            this.produitUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.produitUC.Location = new System.Drawing.Point(154, 108);
+            this.produitUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.produitUC.Name = "ProduitUC";
+            this.produitUC.Size = new System.Drawing.Size(886, 532);
+            this.produitUC.TabIndex = 6;
             // 
             // Form1
             // 
@@ -234,6 +243,7 @@
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.vehiculeUC1);
             this.Controls.Add(this.homeUC);
+            this.Controls.Add(this.produitUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -254,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
             this.vehiculeUC1.Hide();
+            this.homeUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +286,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private UserControls.HomeUC homeUC;
         private UserControls.VehiculeUC vehiculeUC1;
+        private UserControls.ProduitUC produitUC;
     }
 }
 

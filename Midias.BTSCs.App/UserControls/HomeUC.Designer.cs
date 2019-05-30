@@ -47,11 +47,11 @@
             this.modeleDataGridViewTextBoxColumn,
             this.marqueDataGridViewTextBoxColumn});
             this.dataGridViewVehicules.DataSource = this.vehiculeDtoBindingSource;
-            this.dataGridViewVehicules.Location = new System.Drawing.Point(587, 3);
-            this.dataGridViewVehicules.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewVehicules.Location = new System.Drawing.Point(663, 6);
+            this.dataGridViewVehicules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewVehicules.Name = "dataGridViewVehicules";
             this.dataGridViewVehicules.RowTemplate.Height = 24;
-            this.dataGridViewVehicules.Size = new System.Drawing.Size(296, 528);
+            this.dataGridViewVehicules.Size = new System.Drawing.Size(395, 650);
             this.dataGridViewVehicules.TabIndex = 0;
             // 
             // immatriculationDataGridViewTextBoxColumn
@@ -78,12 +78,12 @@
             // 
             // HomeUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridViewVehicules);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeUC";
-            this.Size = new System.Drawing.Size(886, 533);
+            this.Size = new System.Drawing.Size(1181, 656);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVehicules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).EndInit();
             this.ResumeLayout(false);
