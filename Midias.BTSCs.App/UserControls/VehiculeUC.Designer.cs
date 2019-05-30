@@ -41,6 +41,15 @@
             this.vehiculeDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehiculeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehiculeTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSetTableAdapters.VehiculeTableAdapter();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cartegriseText = new System.Windows.Forms.TextBox();
+            this.immatText = new System.Windows.Forms.TextBox();
+            this.modeleText = new System.Windows.Forms.TextBox();
+            this.marqueText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).BeginInit();
@@ -127,10 +136,93 @@
             // 
             this.vehiculeTableAdapter.ClearBeforeFill = true;
             // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(634, 159);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(231, 23);
+            this.AddButton.TabIndex = 1;
+            this.AddButton.Text = "Ajouter";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(631, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Carte Grise :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(631, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Immatriculation :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(631, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Modele :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(631, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Marque :";
+            // 
+            // cartegriseText
+            // 
+            this.cartegriseText.Location = new System.Drawing.Point(702, 55);
+            this.cartegriseText.Name = "cartegriseText";
+            this.cartegriseText.Size = new System.Drawing.Size(162, 20);
+            this.cartegriseText.TabIndex = 6;
+            // 
+            // immatText
+            // 
+            this.immatText.Location = new System.Drawing.Point(720, 81);
+            this.immatText.Name = "immatText";
+            this.immatText.Size = new System.Drawing.Size(144, 20);
+            this.immatText.TabIndex = 7;
+            // 
+            // modeleText
+            // 
+            this.modeleText.Location = new System.Drawing.Point(683, 107);
+            this.modeleText.Name = "modeleText";
+            this.modeleText.Size = new System.Drawing.Size(181, 20);
+            this.modeleText.TabIndex = 8;
+            // 
+            // marqueText
+            // 
+            this.marqueText.Location = new System.Drawing.Point(683, 133);
+            this.marqueText.Name = "marqueText";
+            this.marqueText.Size = new System.Drawing.Size(181, 20);
+            this.marqueText.TabIndex = 9;
+            // 
             // VehiculeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.marqueText);
+            this.Controls.Add(this.modeleText);
+            this.Controls.Add(this.immatText);
+            this.Controls.Add(this.cartegriseText);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VehiculeUC";
@@ -142,6 +234,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +252,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn marqueDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vehiculeBindingSource1;
         private System.Windows.Forms.BindingSource midiasBTSCsDataSetBindingSource;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox cartegriseText;
+        private System.Windows.Forms.TextBox immatText;
+        private System.Windows.Forms.TextBox modeleText;
+        private System.Windows.Forms.TextBox marqueText;
     }
 }

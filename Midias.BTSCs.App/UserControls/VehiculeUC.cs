@@ -22,6 +22,7 @@ namespace Midias.BTSCs.App.UserControls
             var vehicules = _vehiculesService.GetVehicules();
 
             dataGridView1.DataSource = vehicules;
+            dataGridView1.AllowUserToAddRows = true;
             this._isLoaded = true;
         }
 
@@ -34,6 +35,31 @@ namespace Midias.BTSCs.App.UserControls
                 vehicule = this._vehiculesService.UpdateVehicule(vehicule);
                
             }
+        }
+
+        private void AddRowButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(modeleText.Text) && !String.IsNullOrEmpty(marqueText.Text) && !String.IsNullOrEmpty(immatText.Text) && !String.IsNullOrEmpty(cartegriseText.Text)){
+                VehiculeDto vehicule = new VehiculeDto();
+                vehicule.CarteGrise = cartegriseText.Text;
+                vehicule.Immatriculation = immatText.Text;
+                vehicule.Modele = modeleText.Text;
+                vehicule.Marque = marqueText.Text;
+                this._vehiculesService.AddVehicule(vehicule);
+                var vehicules = _vehiculesService.GetVehicules();
+                dataGridView1.DataSource = vehicules;
+
+                modeleText.ResetText();
+                marqueText.ResetText();
+                cartegriseText.ResetText();
+                immatText.ResetText();
+            }
+
         }
     }
 }
