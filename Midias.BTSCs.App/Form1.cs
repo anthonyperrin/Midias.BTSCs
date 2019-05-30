@@ -54,24 +54,29 @@ namespace Midias.BTSCs.App
         {
             menuBarPanel.Top = HomeBtn.Top;
             homeUC.Show();
+            vehiculeUC1.Hide();
         }
 
         private void ProduitsBtn_Click(object sender, EventArgs e)
         {
             menuBarPanel.Top = ProduitsBtn.Top;
             homeUC.Hide();
+            vehiculeUC1.Hide();
         }
 
         private void SalariesBtn_Click(object sender, EventArgs e)
         {
             menuBarPanel.Top = SalariesBtn.Top;
             homeUC.Hide();
+            vehiculeUC1.Hide();
+
         }
 
         private void VehiculesBtn_Click(object sender, EventArgs e)
         {
             menuBarPanel.Top = VehiculesBtn.Top;
             homeUC.Hide();
+            vehiculeUC1.Show();
         }
 
         /// <summary>

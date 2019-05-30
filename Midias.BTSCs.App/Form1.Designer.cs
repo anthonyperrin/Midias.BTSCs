@@ -42,6 +42,7 @@
             this.minimizeAppBox = new System.Windows.Forms.PictureBox();
             this.closeAppBox = new System.Windows.Forms.PictureBox();
             this.vehiculeUC1 = new Midias.BTSCs.App.UserControls.VehiculeUC();
+            this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,19 +60,21 @@
             this.panel1.Controls.Add(this.SalariesBtn);
             this.panel1.Controls.Add(this.ProduitsBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 800);
+            this.panel1.Size = new System.Drawing.Size(150, 650);
             this.panel1.TabIndex = 0;
             // 
             // menuBarPanel
             // 
             this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
-            this.menuBarPanel.Location = new System.Drawing.Point(0, 132);
+            this.menuBarPanel.Location = new System.Drawing.Point(0, 107);
+            this.menuBarPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.menuBarPanel.Name = "menuBarPanel";
-            this.menuBarPanel.Size = new System.Drawing.Size(12, 60);
+            this.menuBarPanel.Size = new System.Drawing.Size(9, 49);
             this.menuBarPanel.TabIndex = 5;
             // 
             // HomeBtn
@@ -80,9 +83,10 @@
             this.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
             this.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeBtn.Location = new System.Drawing.Point(12, 132);
+            this.HomeBtn.Location = new System.Drawing.Point(9, 107);
+            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(188, 60);
+            this.HomeBtn.Size = new System.Drawing.Size(141, 49);
             this.HomeBtn.TabIndex = 3;
             this.HomeBtn.Text = "     Accueil";
             this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -95,9 +99,10 @@
             this.VehiculesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VehiculesBtn.Image = ((System.Drawing.Image)(resources.GetObject("VehiculesBtn.Image")));
             this.VehiculesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.VehiculesBtn.Location = new System.Drawing.Point(12, 312);
+            this.VehiculesBtn.Location = new System.Drawing.Point(9, 254);
+            this.VehiculesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VehiculesBtn.Name = "VehiculesBtn";
-            this.VehiculesBtn.Size = new System.Drawing.Size(188, 60);
+            this.VehiculesBtn.Size = new System.Drawing.Size(141, 49);
             this.VehiculesBtn.TabIndex = 2;
             this.VehiculesBtn.Text = "     Véhicules";
             this.VehiculesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -110,9 +115,10 @@
             this.SalariesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalariesBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
             this.SalariesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SalariesBtn.Location = new System.Drawing.Point(12, 252);
+            this.SalariesBtn.Location = new System.Drawing.Point(9, 205);
+            this.SalariesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SalariesBtn.Name = "SalariesBtn";
-            this.SalariesBtn.Size = new System.Drawing.Size(188, 60);
+            this.SalariesBtn.Size = new System.Drawing.Size(141, 49);
             this.SalariesBtn.TabIndex = 1;
             this.SalariesBtn.Text = "     Salariés";
             this.SalariesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -125,9 +131,10 @@
             this.ProduitsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProduitsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
             this.ProduitsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ProduitsBtn.Location = new System.Drawing.Point(12, 192);
+            this.ProduitsBtn.Location = new System.Drawing.Point(9, 156);
+            this.ProduitsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProduitsBtn.Name = "ProduitsBtn";
-            this.ProduitsBtn.Size = new System.Drawing.Size(188, 60);
+            this.ProduitsBtn.Size = new System.Drawing.Size(141, 49);
             this.ProduitsBtn.TabIndex = 0;
             this.ProduitsBtn.Text = "     Produits";
             this.ProduitsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -138,17 +145,19 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(324, 9);
+            this.panel3.Location = new System.Drawing.Point(243, 7);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(197, 118);
+            this.panel3.Size = new System.Drawing.Size(148, 96);
             this.panel3.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(197, 125);
+            this.pictureBox1.Size = new System.Drawing.Size(148, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -157,15 +166,17 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Location = new System.Drawing.Point(150, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 10);
+            this.panel2.Size = new System.Drawing.Size(900, 8);
             this.panel2.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Midias.BTSCs.App.Properties.Resources.logo_livretou;
-            this.pictureBox2.Location = new System.Drawing.Point(527, 10);
+            this.pictureBox2.Location = new System.Drawing.Point(395, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(474, 103);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -175,9 +186,10 @@
             // minimizeAppBox
             // 
             this.minimizeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeAppBox.Image")));
-            this.minimizeAppBox.Location = new System.Drawing.Point(1339, 23);
+            this.minimizeAppBox.Location = new System.Drawing.Point(1004, 19);
+            this.minimizeAppBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.minimizeAppBox.Name = "minimizeAppBox";
-            this.minimizeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.minimizeAppBox.Size = new System.Drawing.Size(9, 10);
             this.minimizeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.minimizeAppBox.TabIndex = 4;
             this.minimizeAppBox.TabStop = false;
@@ -186,9 +198,10 @@
             // closeAppBox
             // 
             this.closeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("closeAppBox.Image")));
-            this.closeAppBox.Location = new System.Drawing.Point(1372, 20);
+            this.closeAppBox.Location = new System.Drawing.Point(1029, 16);
+            this.closeAppBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.closeAppBox.Name = "closeAppBox";
-            this.closeAppBox.Size = new System.Drawing.Size(12, 12);
+            this.closeAppBox.Size = new System.Drawing.Size(9, 10);
             this.closeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closeAppBox.TabIndex = 3;
             this.closeAppBox.TabStop = false;
@@ -196,17 +209,31 @@
             // 
             // vehiculeUC1
             // 
-            this.vehiculeUC1.Location = new System.Drawing.Point(206, 133);
+            this.vehiculeUC1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.vehiculeUC1.Location = new System.Drawing.Point(154, 108);
+            this.vehiculeUC1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.vehiculeUC1.Name = "vehiculeUC1";
-            this.vehiculeUC1.Size = new System.Drawing.Size(1182, 655);
+            this.vehiculeUC1.Size = new System.Drawing.Size(886, 532);
             this.vehiculeUC1.TabIndex = 6;
+
+            // 
+            // HomeUC
+            // 
+            this.homeUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.homeUC.Location = new System.Drawing.Point(154, 108);
+            this.homeUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.homeUC.Name = "HomeUC";
+            this.homeUC.Size = new System.Drawing.Size(886, 532);
+            this.homeUC.TabIndex = 6;
+
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.vehiculeUC1);
+            this.Controls.Add(this.homeUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -215,6 +242,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Midias.BTSCs.App";
@@ -225,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeAppBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
+            this.vehiculeUC1.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 

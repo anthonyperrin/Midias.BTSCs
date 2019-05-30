@@ -73,6 +73,11 @@
     <Compile Include="UserControls\VehiculeUC.Designer.cs">
       <DependentUpon>VehiculeUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="_Midias_BTSCsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +109,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_Midias_BTSCsDataSet.xsc">
+      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_Midias_BTSCsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Midias_BTSCsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Midias_BTSCsDataSet.xss">
+      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

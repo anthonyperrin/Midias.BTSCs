@@ -60,7 +60,7 @@ namespace Midias.BTSCs.Services
 
         public List<VehiculeDto> GetVehicules()
         {
-            return Context.Vehicule.Select(v => new VehiculeDto()
+            List<VehiculeDto> list = Context.Vehicule.Select(v => new VehiculeDto()
             {
                 Id = v.Id,
                 CarteGrise = v.CarteGrise,
@@ -68,6 +68,8 @@ namespace Midias.BTSCs.Services
                 Marque = v.Marque,
                 Modele = v.Modele,
             }).ToList();
+
+            return list;
         }
 
         public void AddVehicule(VehiculeDto vehicule)
