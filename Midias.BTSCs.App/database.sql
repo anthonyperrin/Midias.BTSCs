@@ -29,11 +29,11 @@ create table Mouvement (
 --- Salarie table
 create table Salarie (
 	Id int identity not null primary key,
-	Nom varchar,
-	Prenom varchar,
+	Nom varchar (255),
+	Prenom varchar(255),
 	Valide bit not null default(0),
 	Permis varchar,
-	Email varchar,
+	Email varchar(255),
 	Telephone varchar(15)
 	);
 
@@ -49,11 +49,11 @@ create table Vehicule (
 --- Adresse table
 create table Adresse (
 	Id int identity not null primary key,
-	Rue1 varchar,
-	Rue2 varchar,
+	Rue1 varchar (255),
+	Rue2 varchar (255),
 	CodePostal varchar(5),
 	Ville varchar(100),
-	Pays varchar
+	Pays varchar (255)
 	);
 	
 --- Client table 
@@ -67,7 +67,7 @@ create table Client (
 --- Commande table
 create table Commande (
 	Id int identity not null primary key,
-	Libelle varchar,
+	Libelle varchar (255),
 	Etat int not null default(0),
 	DateCreation datetime not null,
 	DateValidation datetime not null,

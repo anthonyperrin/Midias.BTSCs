@@ -44,6 +44,7 @@
             this.vehiculeUC1 = new Midias.BTSCs.App.UserControls.VehiculeUC();
             this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
             this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
+            this.salarieUC = new Midias.BTSCs.App.UserControls.SalarieUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -236,6 +237,15 @@
             this.produitUC.Size = new System.Drawing.Size(886, 532);
             this.produitUC.TabIndex = 6;
             // 
+            // SalarieUC
+            // 
+            this.salarieUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.salarieUC.Location = new System.Drawing.Point(154, 108);
+            this.salarieUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.salarieUC.Name = "SalarieUC";
+            this.salarieUC.Size = new System.Drawing.Size(886, 532);
+            this.salarieUC.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +254,7 @@
             this.Controls.Add(this.vehiculeUC1);
             this.Controls.Add(this.homeUC);
             this.Controls.Add(this.produitUC);
+            this.Controls.Add(this.salarieUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -265,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeAppBox)).EndInit();
             this.vehiculeUC1.Hide();
             this.homeUC.Hide();
+            this.salarieUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,6 +299,7 @@
         private UserControls.HomeUC homeUC;
         private UserControls.VehiculeUC vehiculeUC1;
         private UserControls.ProduitUC produitUC;
+        private UserControls.SalarieUC salarieUC;
     }
 }
 

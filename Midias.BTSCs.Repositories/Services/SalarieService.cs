@@ -65,7 +65,6 @@ namespace Midias.BTSCs.Services
                 Permis = s.Permis,
                 Email = s.Email,
                 Telephone = s.Telephone,
-                Livraison = new List<LivraisonDto>().Where(l => l.Salarie.Id == s.Id).ToList()
             }).ToList();
         }
 

@@ -48,6 +48,10 @@ namespace Midias.BTSCs.App
         {
             menuBarPanel.Top = HomeBtn.Top;
             menuBarPanel.Height = HomeBtn.Height;
+            homeUC.Show();
+            vehiculeUC1.Hide();
+            salarieUC.Hide();
+            produitUC.Hide();
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
@@ -55,6 +59,8 @@ namespace Midias.BTSCs.App
             menuBarPanel.Top = HomeBtn.Top;
             homeUC.Show();
             vehiculeUC1.Hide();
+            salarieUC.Hide();
+            produitUC.Hide();
         }
 
         private void ProduitsBtn_Click(object sender, EventArgs e)
@@ -62,6 +68,8 @@ namespace Midias.BTSCs.App
             menuBarPanel.Top = ProduitsBtn.Top;
             homeUC.Hide();
             vehiculeUC1.Hide();
+            salarieUC.Hide();
+            produitUC.Show();
         }
 
         private void SalariesBtn_Click(object sender, EventArgs e)
@@ -69,13 +77,16 @@ namespace Midias.BTSCs.App
             menuBarPanel.Top = SalariesBtn.Top;
             homeUC.Hide();
             vehiculeUC1.Hide();
-
+            produitUC.Hide();
+            salarieUC.Show();
         }
 
         private void VehiculesBtn_Click(object sender, EventArgs e)
         {
             menuBarPanel.Top = VehiculesBtn.Top;
             homeUC.Hide();
+            salarieUC.Hide();
+            produitUC.Hide();
             vehiculeUC1.Show();
         }
 
