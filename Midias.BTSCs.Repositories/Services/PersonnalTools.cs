@@ -31,34 +31,26 @@ namespace Midias.BTSCs
         //}
 
 
-        public DataGridView GenerateGridHeaders(DataGridView dataGrid , object personnalObject)
+        public DataGridView GenerateGridHeaders(DataGridView dataGrid , object personnalObject, string[] excludedValues)
         {
 
             string objectType = GetObjectType(personnalObject);
-            string[] properties = GetArrayProperties(personnalObject);
-            PropertyInfo[] propertiesInfos = GetPropertiesTypes(personnalObject);
-            int objectSize = properties.Length;
+            Debug.WriteLine(objectType);
+            string[] properties = GetPropertiesArray(personnalObject);
+            int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;
-            for (int i = 0; i < objectSize - 1; i++)
+            for (int i = 0; i < objectSize; i++)
             {
                 string value = properties[i];
-
-                dataGrid.Columns[i].HeaderText = value;
+                if (!excludedValues.Contains(properties[i]))
+                {
+                    dataGrid.Columns[i].HeaderText = value;
+                }
             }
 
             return dataGrid;
 
         }
-
-
-        
-
-
-
-
-
-
-
 
 
         public string GetObjectType(object personnalObject)
@@ -67,6 +59,7 @@ namespace Midias.BTSCs
 
             string[] arrayAccess = type.ToString().Split('.');
             string lastValue = arrayAccess[arrayAccess.Length - 1];
+            lastValue = lastValue.Substring(0, lastValue.Length - 3);
 
             return lastValue;
         }
@@ -78,7 +71,7 @@ namespace Midias.BTSCs
         }
 
 
-        public string[] GetArrayProperties(object personnalObject)
+        public string[] GetPropertiesArray(object personnalObject)
         {
             List<string> propertiesString = new List<string>();
             PropertyInfo[] properties = personnalObject.GetType().GetProperties();

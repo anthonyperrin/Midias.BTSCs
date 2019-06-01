@@ -73,6 +73,12 @@
     <Compile Include="UserControls\ProduitUC.Designer.cs">
       <DependentUpon>ProduitUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\SalarieUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SalarieUC.Designer.cs">
+      <DependentUpon>SalarieUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VehiculeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProduitUC.resx">
       <DependentUpon>ProduitUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SalarieUC.resx">
+      <DependentUpon>SalarieUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VehiculeUC.resx">
       <DependentUpon>VehiculeUC.cs</DependentUpon>

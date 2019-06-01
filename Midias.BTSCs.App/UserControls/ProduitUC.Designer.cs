@@ -29,26 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.produitDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.produitDtoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this._Midias_BTSCsDataSet1 = new Midias.BTSCs.App._Midias_BTSCsDataSet1();
             this.categorieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categorieTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet1TableAdapters.CategorieTableAdapter();
             this.gridProducts = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).BeginInit();
+            this.produitDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.produitDtoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // produitDtoBindingSource
-            // 
-            this.produitDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
-            // 
-            // produitDtoBindingSource1
-            // 
-            this.produitDtoBindingSource1.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
             // 
             // _Midias_BTSCsDataSet1
             // 
@@ -69,8 +61,16 @@
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProducts.Location = new System.Drawing.Point(3, 3);
             this.gridProducts.Name = "gridProducts";
-            this.gridProducts.Size = new System.Drawing.Size(923, 488);
+            this.gridProducts.Size = new System.Drawing.Size(646, 488);
             this.gridProducts.TabIndex = 0;
+            // 
+            // produitDtoBindingSource
+            // 
+            this.produitDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
+            // 
+            // produitDtoBindingSource1
+            // 
+            this.produitDtoBindingSource1.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
             // 
             // ProduitUC
             // 
@@ -81,11 +81,11 @@
             this.Name = "ProduitUC";
             this.Size = new System.Drawing.Size(981, 494);
             this.Load += new System.EventHandler(this.ProduitUC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

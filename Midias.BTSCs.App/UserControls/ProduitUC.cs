@@ -25,10 +25,11 @@ namespace Midias.BTSCs.App.UserControls
             InitializeComponent();
 
             var produits = _produitsService.GetProduits();
-            
+
+            string[] excludedValues = new string[] {"Mouvement"};
             if (produits.Count > 0)
             {
-                gridProducts = _tools.GenerateGridHeaders(gridProducts, produits[0]);
+                gridProducts = _tools.GenerateGridHeaders(gridProducts, produits[0], excludedValues);
                 foreach (ProduitDto product in produits)
                 {
                     DataGridViewRow row = new DataGridViewRow();
@@ -39,12 +40,12 @@ namespace Midias.BTSCs.App.UserControls
                     row.Cells[0].Value = product.Id;
                     row.Cells[1].Value = product.Libelle;
                     row.Cells[2].Value = product.PrixHT;
-                    row.Cells[3].Value = product.Quantite;
-                    row.Cells[4].Value = product.Taxe;
+                    row.Cells[3].Value = product.Taxe;
+                    row.Cells[4].Value = product.Quantite;
                     row.Cells[5].Value = product.Categorie.Libelle;
                     if (mouvements.Length > 0)
                     {
-                        
+                        //row.Cells[6].
                     }
 
                     gridProducts.Rows.Add(row);
