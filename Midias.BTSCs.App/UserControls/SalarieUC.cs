@@ -41,7 +41,7 @@ namespace Midias.BTSCs.App.UserControls
                     row.Cells[3].Value = salarie.Valide;
                     row.Cells[4].Value = salarie.Permis;
                     row.Cells[5].Value = salarie.Email;
-                    row.Cells[5].Value = salarie.Telephone;
+                    row.Cells[6].Value = salarie.Telephone;
                     
 
                     gridSalaries.Rows.Add(row);

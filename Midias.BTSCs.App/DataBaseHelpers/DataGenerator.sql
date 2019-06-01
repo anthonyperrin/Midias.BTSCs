@@ -16,8 +16,8 @@
 --DELETE FROM Produit WHERE id = 4 ;
 --SELECT * FROM Mouvement;
 
---Select * From Salarie;
+Select * From Salarie;
 
 
-INSERT INTO Salarie VALUES ('Noble', 'Pierre', 1, 'y', 'pierre.noble@epsi.fr', '0625534218');
+--INSERT INTO Salarie VALUES ('Noble', 'Pierre', 1, 'y', 'pierre.noble@epsi.fr', '0625534218');
 

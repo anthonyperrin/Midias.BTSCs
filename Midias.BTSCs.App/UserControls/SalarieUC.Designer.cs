@@ -37,7 +37,7 @@
             this.gridSalaries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridSalaries.Location = new System.Drawing.Point(3, 3);
             this.gridSalaries.Name = "gridSalaries";
-            this.gridSalaries.Size = new System.Drawing.Size(672, 518);
+            this.gridSalaries.Size = new System.Drawing.Size(720, 518);
             this.gridSalaries.TabIndex = 0;
             // 
             // SalarieUC
@@ -46,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridSalaries);
             this.Name = "SalarieUC";
-            this.Size = new System.Drawing.Size(887, 547);
+            this.Size = new System.Drawing.Size(947, 547);
             this.Load += new System.EventHandler(this.SalarieUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridSalaries)).EndInit();
             this.ResumeLayout(false);
