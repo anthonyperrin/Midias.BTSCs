@@ -82,5 +82,10 @@ namespace Midias.BTSCs.App.UserControls
             var vehicules = _vehiculesService.GetVehicules();
             dataGridView1.DataSource = vehicules;
         }
+
+        private void VehiculeUC_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,98 +29,73 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.produitDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixHTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categorieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.produitDtoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this._Midias_BTSCsDataSet1 = new Midias.BTSCs.App._Midias_BTSCsDataSet1();
+            this.categorieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categorieTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet1TableAdapters.CategorieTableAdapter();
+            this.gridProducts = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.libelleDataGridViewTextBoxColumn,
-            this.prixHTDataGridViewTextBoxColumn,
-            this.taxeDataGridViewTextBoxColumn,
-            this.quantiteDataGridViewTextBoxColumn,
-            this.categorieDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.produitDtoBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(931, 439);
-            this.dataGridView1.TabIndex = 0;
             // 
             // produitDtoBindingSource
             // 
             this.produitDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
             // 
-            // idDataGridViewTextBoxColumn
+            // produitDtoBindingSource1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.produitDtoBindingSource1.DataSource = typeof(Midias.BTSCs.Dto.ProduitDto);
             // 
-            // libelleDataGridViewTextBoxColumn
+            // _Midias_BTSCsDataSet1
             // 
-            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "Libelle";
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "Libelle";
-            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
+            this._Midias_BTSCsDataSet1.DataSetName = "_Midias_BTSCsDataSet1";
+            this._Midias_BTSCsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // prixHTDataGridViewTextBoxColumn
+            // categorieBindingSource
             // 
-            this.prixHTDataGridViewTextBoxColumn.DataPropertyName = "PrixHT";
-            this.prixHTDataGridViewTextBoxColumn.HeaderText = "PrixHT";
-            this.prixHTDataGridViewTextBoxColumn.Name = "prixHTDataGridViewTextBoxColumn";
+            this.categorieBindingSource.DataMember = "Categorie";
+            this.categorieBindingSource.DataSource = this._Midias_BTSCsDataSet1;
             // 
-            // taxeDataGridViewTextBoxColumn
+            // categorieTableAdapter
             // 
-            this.taxeDataGridViewTextBoxColumn.DataPropertyName = "Taxe";
-            this.taxeDataGridViewTextBoxColumn.HeaderText = "Taxe";
-            this.taxeDataGridViewTextBoxColumn.Name = "taxeDataGridViewTextBoxColumn";
+            this.categorieTableAdapter.ClearBeforeFill = true;
             // 
-            // quantiteDataGridViewTextBoxColumn
+            // gridProducts
             // 
-            this.quantiteDataGridViewTextBoxColumn.DataPropertyName = "Quantite";
-            this.quantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
-            this.quantiteDataGridViewTextBoxColumn.Name = "quantiteDataGridViewTextBoxColumn";
-            // 
-            // categorieDataGridViewTextBoxColumn
-            // 
-            this.categorieDataGridViewTextBoxColumn.DataPropertyName = "Categorie";
-            this.categorieDataGridViewTextBoxColumn.HeaderText = "Categorie";
-            this.categorieDataGridViewTextBoxColumn.Name = "categorieDataGridViewTextBoxColumn";
+            this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProducts.Location = new System.Drawing.Point(3, 3);
+            this.gridProducts.Name = "gridProducts";
+            this.gridProducts.Size = new System.Drawing.Size(923, 488);
+            this.gridProducts.TabIndex = 0;
             // 
             // ProduitUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridProducts);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ProduitUC";
-            this.Size = new System.Drawing.Size(957, 598);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Size = new System.Drawing.Size(981, 494);
+            this.Load += new System.EventHandler(this.ProduitUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource produitDtoBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prixHTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn taxeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantiteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categorieDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource produitDtoBindingSource1;
+        private System.Windows.Forms.BindingSource categorieBindingSource;
+        private _Midias_BTSCsDataSet1 _Midias_BTSCsDataSet1;
+        private _Midias_BTSCsDataSet1TableAdapters.CategorieTableAdapter categorieTableAdapter;
+        private System.Windows.Forms.DataGridView gridProducts;
     }
 }
