@@ -50,9 +50,9 @@
             this.gridSalaries.AllowUserToAddRows = false;
             this.gridSalaries.AllowUserToDeleteRows = false;
             this.gridSalaries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSalaries.Location = new System.Drawing.Point(3, 40);
+            this.gridSalaries.Location = new System.Drawing.Point(3, 30);
             this.gridSalaries.Name = "gridSalaries";
-            this.gridSalaries.Size = new System.Drawing.Size(629, 454);
+            this.gridSalaries.Size = new System.Drawing.Size(629, 464);
             this.gridSalaries.TabIndex = 0;
             // 
             // salarieName
