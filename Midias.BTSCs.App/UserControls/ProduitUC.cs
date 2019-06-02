@@ -159,5 +159,28 @@ namespace Midias.BTSCs.App.UserControls
         {
             
         }
+
+        private void TextBox5_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox5.Text))
+            {
+                gridProducts.Rows.Clear();
+                this.UpdateDataGrid();
+            }
+            else
+            {
+
+                ProduitDto[] produits = _produitsService.GetProduits().Where(p => p.Libelle.ToUpper().Contains(textBox5.Text.ToUpper()) || p.Categorie.Libelle.ToUpper().Contains(textBox5.Text.ToUpper())).ToArray();
+                var categories = _categorieService.GetCategories();
+
+
+                string[] excludedValues = new string[] { "Mouvements" };
+                if (produits.Length > 0)
+                {
+                    gridProducts.Rows.Clear();
+                    gridProducts = _tools.GenerateGrid(gridProducts, produits, excludedValues);
+                }
+            }
+        }
     }
 }

@@ -62,6 +62,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.stokTextBox = new System.Windows.Forms.TextBox();
             this.updateButton = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
@@ -94,9 +96,9 @@
             this.gridProducts.AllowUserToAddRows = false;
             this.gridProducts.AllowUserToDeleteRows = false;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProducts.Location = new System.Drawing.Point(3, 3);
+            this.gridProducts.Location = new System.Drawing.Point(3, 30);
             this.gridProducts.Name = "gridProducts";
-            this.gridProducts.Size = new System.Drawing.Size(613, 526);
+            this.gridProducts.Size = new System.Drawing.Size(613, 499);
             this.gridProducts.TabIndex = 0;
             this.gridProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProducts_CellContentClick);
             this.gridProducts.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProducts_CellEndEdit);
@@ -314,10 +316,29 @@
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(78, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(537, 20);
+            this.textBox5.TabIndex = 19;
+            this.textBox5.TextChanged += new System.EventHandler(this.TextBox5_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Rechercher :";
+            // 
             // ProduitUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.stokTextBox);
             this.Controls.Add(this.label9);
@@ -391,5 +412,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox stokTextBox;
         private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
     }
 }

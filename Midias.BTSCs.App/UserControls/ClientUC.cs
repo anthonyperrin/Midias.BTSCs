@@ -104,5 +104,39 @@ namespace Midias.BTSCs.App.UserControls
            
             client = this._clientsService.UpdateClient(client);
         }
+
+        private void TextBox8_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox8.Text))
+            {
+                gridClients.Rows.Clear();
+                this.UpdateDataGrid();
+            }
+            else
+            {
+
+                ClientDto[] clients = _clientsService.GetClients().Where(c => c.Nom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Prenom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Rue1.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Ville.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.CodePostal.ToUpper().Contains(textBox8.Text.ToUpper())).ToArray();
+                List<AdresseDto> adresses = _adressesService.GetAdresses();
+
+
+                string[] excludedValues = new string[] { "Adresse", "Commande" };
+
+                if (clients.Length > 0)
+                {
+                    gridClients.Rows.Clear();
+                    gridClients = _tools.GenerateGrid(gridClients, clients, excludedValues);
+                    gridClients.Columns[0].ReadOnly = true;
+                    gridClients.Columns[3].ReadOnly = true;
+                    gridClients.Columns[4].ReadOnly = true;
+                    gridClients.Columns[5].ReadOnly = true;
+                    gridClients.Columns[5].Width = 75;
+
+                }
+                else
+                {
+                    gridClients.Rows.Clear();
+                }
+            }
+        }
     }
 }

@@ -40,6 +40,8 @@
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.buttonAddSalarie = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridSalaries)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,9 +50,9 @@
             this.gridSalaries.AllowUserToAddRows = false;
             this.gridSalaries.AllowUserToDeleteRows = false;
             this.gridSalaries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridSalaries.Location = new System.Drawing.Point(3, 3);
+            this.gridSalaries.Location = new System.Drawing.Point(3, 30);
             this.gridSalaries.Name = "gridSalaries";
-            this.gridSalaries.Size = new System.Drawing.Size(629, 491);
+            this.gridSalaries.Size = new System.Drawing.Size(629, 464);
             this.gridSalaries.TabIndex = 0;
             // 
             // salarieName
@@ -143,10 +145,29 @@
             this.buttonAddSalarie.UseVisualStyleBackColor = true;
             this.buttonAddSalarie.Click += new System.EventHandler(this.ButtonAddSalarie_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(78, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(553, 20);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Rechercher :";
+            // 
             // SalarieUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonAddSalarie);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxMail);
@@ -182,5 +203,7 @@
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.Button buttonAddSalarie;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
