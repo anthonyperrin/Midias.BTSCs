@@ -58,6 +58,8 @@
             // 
             // gridProducts
             // 
+            this.gridProducts.AllowUserToAddRows = false;
+            this.gridProducts.AllowUserToDeleteRows = false;
             this.gridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProducts.Location = new System.Drawing.Point(3, 3);
             this.gridProducts.Name = "gridProducts";
@@ -77,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridProducts);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProduitUC";
             this.Size = new System.Drawing.Size(981, 494);
             this.Load += new System.EventHandler(this.ProduitUC_Load);
