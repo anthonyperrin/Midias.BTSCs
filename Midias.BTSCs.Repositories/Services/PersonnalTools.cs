@@ -63,44 +63,50 @@ namespace Midias.BTSCs
                             row.Cells[3].Value = product.Taxe;
                             row.Cells[4].Value = product.Quantite;
                             row.Cells[5].Value = product.Categorie.Libelle;
-                            if (mouvements.Length > 0)
-                            {
-                                //DataGridViewButtonCell showMouvements = new DataGridViewButtonCell();
-                                //showMouvements. = "Afficher";
-                                //row.Cells[6]. = showMouvements;
-                            }
+                            
 
                             dataGrid.Rows.Add(row);
                         }
                         break;
+
                     default:
                         Debug.WriteLine("Default");
                         break;
                 }
-
             }
             return dataGrid;
         }
 
 
-        public DataGridView GenerateGridHeaders(DataGridView dataGrid , object personnalObject, string[] excludedValues)
+        public DataGridView GenerateGridHeaders(DataGridView dataGrid, object personnalObject, string[] excludedValues)
         {
 
             string objectType = GetObjectType(personnalObject);
             string[] properties = GetPropertiesArray(personnalObject);
             int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;
-            for (int i = 0; i < objectSize; i++)
+            for (int i = 0; i < properties.Length; i++)
             {
                 string value = properties[i];
+                Debug.WriteLine(value);
+
                 if (!excludedValues.Contains(properties[i]))
                 {
                     dataGrid.Columns[i].HeaderText = value;
                 }
+                else
+                {
+                    DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn()
+                    {
+                        HeaderText = properties[i],
+                        Text = "Afficher",
+                        UseColumnTextForButtonValue = true,
+                    };
+
+                    dataGrid.Columns.Add(btnCol);
+                }
             }
-
             return dataGrid;
-
         }
 
 

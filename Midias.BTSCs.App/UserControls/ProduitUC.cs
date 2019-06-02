@@ -87,7 +87,7 @@ namespace Midias.BTSCs.App.UserControls
             this.comboBox1.DataSource = categories;
             this.comboBox2.DataSource = produits;
 
-            string[] excludedValues = new string[] { };
+            string[] excludedValues = new string[] { "Mouvements" };
             if (produits.Length > 0)
             {
                 gridProducts.Rows.Clear();
@@ -123,6 +123,18 @@ namespace Midias.BTSCs.App.UserControls
             prod.PrixHT = Convert.ToDouble(gridProducts.Rows[e.RowIndex].Cells[2].Value);
             prod.Taxe = Convert.ToDouble(gridProducts.Rows[e.RowIndex].Cells[3].Value);
             prod = this._produitsService.UpdateProduit(prod);
+        }
+
+        private void GridProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+            {
+                
+            }
+        }
+        private void GridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
