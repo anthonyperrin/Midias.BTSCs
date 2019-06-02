@@ -65,6 +65,7 @@
             this.gridClients.Name = "gridClients";
             this.gridClients.Size = new System.Drawing.Size(612, 527);
             this.gridClients.TabIndex = 0;
+            this.gridClients.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClients_CellEndEdit);
             // 
             // label1
             // 

@@ -90,5 +90,16 @@ namespace Midias.BTSCs.App.UserControls
                 this.UpdateDataGrid();
             }
         }
+
+        private void GridClients_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            ClientDto client = new ClientDto();
+            int id = Convert.ToInt32(gridClients.Rows[e.RowIndex].Cells[0].Value);
+            client = _clientsService.GetClients().Where(p => p.Id == id).FirstOrDefault();
+            client.Nom = gridClients.Rows[e.RowIndex].Cells[1].Value.ToString();
+            client.Prenom = gridClients.Rows[e.RowIndex].Cells[1].Value.ToString();
+           
+            client = this._clientsService.UpdateClient(client);
+        }
     }
 }
