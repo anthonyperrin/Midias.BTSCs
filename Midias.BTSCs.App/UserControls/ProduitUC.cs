@@ -27,6 +27,11 @@ namespace Midias.BTSCs.App.UserControls
             InitializeComponent();
 
             this.UpdateDataGrid();
+            
+            gridProducts.Columns[0].Width = 30;
+            gridProducts.Columns[2].Width = 75;
+            gridProducts.Columns[3].Width = 75;
+            gridProducts.Columns[4].Width = 75;
 
         }
 
@@ -80,6 +85,7 @@ namespace Midias.BTSCs.App.UserControls
             if (produits.Count > 0)
             {
                 gridProducts = _tools.GenerateGridHeaders(gridProducts, produits[0], excludedValues);
+                gridProducts.Rows.Clear();
                 foreach (ProduitDto product in produits)
                 {
                     DataGridViewRow row = new DataGridViewRow();
