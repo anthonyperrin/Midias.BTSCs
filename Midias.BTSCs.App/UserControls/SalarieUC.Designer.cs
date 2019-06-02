@@ -147,9 +147,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(81, 4);
+            this.textBox1.Location = new System.Drawing.Point(78, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(550, 20);
+            this.textBox1.Size = new System.Drawing.Size(553, 20);
             this.textBox1.TabIndex = 13;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -158,9 +158,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Rechercher : ";
+            this.label1.Text = "Rechercher :";
             // 
             // SalarieUC
             // 
