@@ -1,4 +1,6 @@
-﻿namespace Midias.BTSCs.App
+﻿using System;
+
+namespace Midias.BTSCs.App
 {
     partial class Form1
     {
@@ -35,6 +37,9 @@
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
+            this.AdressesBtn = new System.Windows.Forms.Button();
+            this.ClientsBtn = new System.Windows.Forms.Button();
+            this.CommandeBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -61,6 +66,9 @@
             this.panel1.Controls.Add(this.VehiculesBtn);
             this.panel1.Controls.Add(this.SalariesBtn);
             this.panel1.Controls.Add(this.ProduitsBtn);
+            this.panel1.Controls.Add(this.CommandeBtn);
+            this.panel1.Controls.Add(this.ClientsBtn);
+            this.panel1.Controls.Add(this.AdressesBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -142,6 +150,54 @@
             this.ProduitsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ProduitsBtn.UseVisualStyleBackColor = true;
             this.ProduitsBtn.Click += new System.EventHandler(this.ProduitsBtn_Click);
+            // 
+            // CommandeBtn
+            // 
+            this.CommandeBtn.FlatAppearance.BorderSize = 0;
+            this.CommandeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CommandeBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
+            this.CommandeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CommandeBtn.Location = new System.Drawing.Point(9, 303);
+            this.CommandeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CommandeBtn.Name = "CommandeBtn";
+            this.CommandeBtn.Size = new System.Drawing.Size(141, 49);
+            this.CommandeBtn.TabIndex = 0;
+            this.CommandeBtn.Text = "     Commande";
+            this.CommandeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CommandeBtn.UseVisualStyleBackColor = true;
+            this.CommandeBtn.Click += new System.EventHandler(this.CommandeBtn_Click);
+            // 
+            // ClientBtn
+            // 
+            this.ClientsBtn.FlatAppearance.BorderSize = 0;
+            this.ClientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
+            this.ClientsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClientsBtn.Location = new System.Drawing.Point(9, 352);
+            this.ClientsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientsBtn.Name = "ClientsBtn";
+            this.ClientsBtn.Size = new System.Drawing.Size(141, 49);
+            this.ClientsBtn.TabIndex = 0;
+            this.ClientsBtn.Text = "     Client";
+            this.ClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClientsBtn.UseVisualStyleBackColor = true;
+            this.ClientsBtn.Click += new System.EventHandler(this.ClientsBtn_Click);
+            // 
+            // AdressesBtn
+            // 
+            this.AdressesBtn.FlatAppearance.BorderSize = 0;
+            this.AdressesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdressesBtn.Image = ((System.Drawing.Image)(resources.GetObject("VehiculesBtn.Image")));
+            this.AdressesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdressesBtn.Location = new System.Drawing.Point(9, 401);
+            this.AdressesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AdressesBtn.Name = "AdressesBtn";
+            this.AdressesBtn.Size = new System.Drawing.Size(141, 49);
+            this.AdressesBtn.TabIndex = 0;
+            this.AdressesBtn.Text = "     Adresses";
+            this.AdressesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AdressesBtn.UseVisualStyleBackColor = true;
+            this.AdressesBtn.Click += new System.EventHandler(this.AdressesBtn_Click);
             // 
             // panel3
             // 
@@ -288,6 +344,9 @@
         private System.Windows.Forms.Button ProduitsBtn;
         private System.Windows.Forms.Button SalariesBtn;
         private System.Windows.Forms.Button VehiculesBtn;
+        private System.Windows.Forms.Button CommandeBtn;
+        private System.Windows.Forms.Button ClientsBtn;
+        private System.Windows.Forms.Button AdressesBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox closeAppBox;

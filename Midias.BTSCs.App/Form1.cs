@@ -72,6 +72,21 @@ namespace Midias.BTSCs.App
             produitUC.Show();
         }
 
+        private void CommandeBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = CommandeBtn.Top;
+        }
+
+        private void ClientsBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = ClientsBtn.Top;
+        }
+
+        private void AdressesBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = AdressesBtn.Top;
+        }
+
         private void SalariesBtn_Click(object sender, EventArgs e)
         {
             menuBarPanel.Top = SalariesBtn.Top;
