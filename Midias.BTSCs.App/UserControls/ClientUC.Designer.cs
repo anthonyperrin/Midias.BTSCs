@@ -49,21 +49,23 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this._Midias_BTSCsDataSet6 = new Midias.BTSCs.App._Midias_BTSCsDataSet6();
             this.adresseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Midias_BTSCsDataSet6 = new Midias.BTSCs.App._Midias_BTSCsDataSet6();
             this.adresseTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet6TableAdapters.AdresseTableAdapter();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adresseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).BeginInit();
             this.SuspendLayout();
             // 
             // gridClients
             // 
             this.gridClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridClients.Location = new System.Drawing.Point(3, 3);
+            this.gridClients.Location = new System.Drawing.Point(3, 30);
             this.gridClients.Name = "gridClients";
-            this.gridClients.Size = new System.Drawing.Size(612, 527);
+            this.gridClients.Size = new System.Drawing.Size(612, 500);
             this.gridClients.TabIndex = 0;
             this.gridClients.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridClients_CellEndEdit);
             // 
@@ -230,15 +232,15 @@
             this.comboBox1.TabIndex = 19;
             this.comboBox1.ValueMember = "Id";
             // 
-            // _Midias_BTSCsDataSet6
-            // 
-            this._Midias_BTSCsDataSet6.DataSetName = "_Midias_BTSCsDataSet6";
-            this._Midias_BTSCsDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // adresseBindingSource
             // 
             this.adresseBindingSource.DataMember = "Adresse";
             this.adresseBindingSource.DataSource = this._Midias_BTSCsDataSet6;
+            // 
+            // _Midias_BTSCsDataSet6
+            // 
+            this._Midias_BTSCsDataSet6.DataSetName = "_Midias_BTSCsDataSet6";
+            this._Midias_BTSCsDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // adresseTableAdapter
             // 
@@ -254,10 +256,29 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(78, 4);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(536, 20);
+            this.textBox8.TabIndex = 21;
+            this.textBox8.TextChanged += new System.EventHandler(this.TextBox8_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Rechercher :";
+            // 
             // ClientUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label10);
@@ -282,8 +303,8 @@
             this.Name = "ClientUC";
             this.Size = new System.Drawing.Size(886, 533);
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adresseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +336,7 @@
         private _Midias_BTSCsDataSet6 _Midias_BTSCsDataSet6;
         private _Midias_BTSCsDataSet6TableAdapters.AdresseTableAdapter adresseTableAdapter;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label11;
     }
 }
