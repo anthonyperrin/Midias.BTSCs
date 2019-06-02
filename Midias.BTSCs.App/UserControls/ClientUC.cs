@@ -46,6 +46,7 @@ namespace Midias.BTSCs.App.UserControls
                 gridClients.Columns[5].Width = 75;
 
             }
+            gridClients.AllowUserToAddRows = false;
 
             comboBox1.DataSource = adresses;
         }
