@@ -52,6 +52,7 @@ namespace Midias.BTSCs.App
             vehiculeUC1.Hide();
             salarieUC.Hide();
             produitUC.Hide();
+            clientUC.Hide();
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace Midias.BTSCs.App
             vehiculeUC1.Hide();
             salarieUC.Hide();
             produitUC.Hide();
+            clientUC.Hide();
         }
 
         private void ProduitsBtn_Click(object sender, EventArgs e)
@@ -70,6 +72,27 @@ namespace Midias.BTSCs.App
             vehiculeUC1.Hide();
             salarieUC.Hide();
             produitUC.Show();
+            clientUC.Hide();
+        }
+
+        private void CommandeBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = CommandeBtn.Top;
+            homeUC.Hide();
+            vehiculeUC1.Hide();
+            produitUC.Hide();
+            salarieUC.Hide();
+            clientUC.Hide();
+        }
+
+        private void ClientsBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = ClientsBtn.Top;
+            homeUC.Hide();
+            vehiculeUC1.Hide();
+            produitUC.Hide();
+            salarieUC.Hide();
+            clientUC.Show();
         }
 
         private void SalariesBtn_Click(object sender, EventArgs e)
@@ -79,6 +102,7 @@ namespace Midias.BTSCs.App
             vehiculeUC1.Hide();
             produitUC.Hide();
             salarieUC.Show();
+            clientUC.Hide();
         }
 
         private void VehiculesBtn_Click(object sender, EventArgs e)
@@ -88,6 +112,7 @@ namespace Midias.BTSCs.App
             salarieUC.Hide();
             produitUC.Hide();
             vehiculeUC1.Show();
+            clientUC.Hide();
         }
 
         /// <summary>

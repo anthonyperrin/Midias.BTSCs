@@ -1,4 +1,6 @@
-﻿namespace Midias.BTSCs.App
+﻿using System;
+
+namespace Midias.BTSCs.App
 {
     partial class Form1
     {
@@ -35,6 +37,8 @@
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
+            this.ClientsBtn = new System.Windows.Forms.Button();
+            this.CommandeBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,6 +49,7 @@
             this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
             this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
             this.salarieUC = new Midias.BTSCs.App.UserControls.SalarieUC();
+            this.clientUC = new Midias.BTSCs.App.UserControls.ClientUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +66,8 @@
             this.panel1.Controls.Add(this.VehiculesBtn);
             this.panel1.Controls.Add(this.SalariesBtn);
             this.panel1.Controls.Add(this.ProduitsBtn);
+            this.panel1.Controls.Add(this.CommandeBtn);
+            this.panel1.Controls.Add(this.ClientsBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -142,6 +149,39 @@
             this.ProduitsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ProduitsBtn.UseVisualStyleBackColor = true;
             this.ProduitsBtn.Click += new System.EventHandler(this.ProduitsBtn_Click);
+            // 
+            // CommandeBtn
+            // 
+            this.CommandeBtn.FlatAppearance.BorderSize = 0;
+            this.CommandeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CommandeBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
+            this.CommandeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CommandeBtn.Location = new System.Drawing.Point(9, 303);
+            this.CommandeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CommandeBtn.Name = "CommandeBtn";
+            this.CommandeBtn.Size = new System.Drawing.Size(141, 49);
+            this.CommandeBtn.TabIndex = 0;
+            this.CommandeBtn.Text = "     Commande";
+            this.CommandeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CommandeBtn.UseVisualStyleBackColor = true;
+            this.CommandeBtn.Click += new System.EventHandler(this.CommandeBtn_Click);
+            // 
+            // ClientBtn
+            // 
+            this.ClientsBtn.FlatAppearance.BorderSize = 0;
+            this.ClientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
+            this.ClientsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClientsBtn.Location = new System.Drawing.Point(9, 352);
+            this.ClientsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientsBtn.Name = "ClientsBtn";
+            this.ClientsBtn.Size = new System.Drawing.Size(141, 49);
+            this.ClientsBtn.TabIndex = 0;
+            this.ClientsBtn.Text = "     Client";
+            this.ClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClientsBtn.UseVisualStyleBackColor = true;
+            this.ClientsBtn.Click += new System.EventHandler(this.ClientsBtn_Click);
+            
             // 
             // panel3
             // 
@@ -246,6 +286,15 @@
             this.salarieUC.Size = new System.Drawing.Size(886, 532);
             this.salarieUC.TabIndex = 6;
             // 
+            // ClientUC
+            // 
+            this.clientUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.clientUC.Location = new System.Drawing.Point(154, 108);
+            this.clientUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clientUC.Name = "ClientUC";
+            this.clientUC.Size = new System.Drawing.Size(886, 532);
+            this.clientUC.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +304,7 @@
             this.Controls.Add(this.homeUC);
             this.Controls.Add(this.produitUC);
             this.Controls.Add(this.salarieUC);
+            this.Controls.Add(this.clientUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -277,6 +327,7 @@
             this.vehiculeUC1.Hide();
             this.homeUC.Hide();
             this.salarieUC.Hide();
+            this.clientUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +339,8 @@
         private System.Windows.Forms.Button ProduitsBtn;
         private System.Windows.Forms.Button SalariesBtn;
         private System.Windows.Forms.Button VehiculesBtn;
+        private System.Windows.Forms.Button CommandeBtn;
+        private System.Windows.Forms.Button ClientsBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox closeAppBox;
@@ -300,6 +353,7 @@
         private UserControls.VehiculeUC vehiculeUC1;
         private UserControls.ProduitUC produitUC;
         private UserControls.SalarieUC salarieUC;
+        private UserControls.ClientUC clientUC;
     }
 }
 

@@ -43,7 +43,7 @@ namespace Midias.BTSCs.Services.Services
         void DeleteAdresse(int id);
     }
 
-    class AdressesService : ServiceBase, IAdressesService
+    public class AdressesService : ServiceBase, IAdressesService
     {
         public AdressesService()
         {
