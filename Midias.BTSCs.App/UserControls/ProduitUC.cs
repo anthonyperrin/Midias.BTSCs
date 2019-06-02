@@ -29,9 +29,11 @@ namespace Midias.BTSCs.App.UserControls
             this.UpdateDataGrid();
             
             gridProducts.Columns[0].Width = 30;
+            gridProducts.Columns[0].ReadOnly = true;
             gridProducts.Columns[2].Width = 75;
             gridProducts.Columns[3].Width = 75;
             gridProducts.Columns[4].Width = 75;
+            gridProducts.Columns[5].ReadOnly = true;
 
         }
 
@@ -80,6 +82,7 @@ namespace Midias.BTSCs.App.UserControls
             var categories = _categorieService.GetCategories();
 
             this.comboBox1.DataSource = categories;
+            this.comboBox2.DataSource = produits;
 
             string[] excludedValues = new string[] { "Mouvement" };
             if (produits.Count > 0)
@@ -106,6 +109,24 @@ namespace Midias.BTSCs.App.UserControls
 
                     gridProducts.Rows.Add(row);
                 }
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(stokTextBox.Text))
+            {
+                ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
+                MouvementDto mouv = new MouvementDto();
+                mouv.Produit = prod;
+                mouv.Quantite = Convert.ToInt32(stokTextBox.Text);
+                mouv.DateCreation = DateTime.Now;
+
+                _mouvementsService.CreateNewMouvement(mouv);
+
+                this.UpdateDataGrid();
+
+                stokTextBox.ResetText();
             }
         }
     }

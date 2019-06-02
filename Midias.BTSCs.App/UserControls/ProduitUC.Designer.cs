@@ -53,6 +53,15 @@
             this.categorieTableAdapter1 = new Midias.BTSCs.App._Midias_BTSCsDataSet2TableAdapters.CategorieTableAdapter();
             this.categorieTableAdapter2 = new Midias.BTSCs.App._Midias_BTSCsDataSet3TableAdapters.CategorieTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this._Midias_BTSCsDataSet4 = new Midias.BTSCs.App._Midias_BTSCsDataSet4();
+            this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.produitTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet4TableAdapters.ProduitTableAdapter();
+            this.label9 = new System.Windows.Forms.Label();
+            this.stokTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
@@ -62,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _Midias_BTSCsDataSet1
@@ -100,7 +111,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(634, 6);
+            this.label1.Location = new System.Drawing.Point(623, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 24);
             this.label1.TabIndex = 1;
@@ -229,10 +240,88 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(623, 240);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(250, 24);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Modifier le stock d\'un produit";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(622, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Produit :";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Id", true));
+            this.comboBox2.DataSource = this.produitBindingSource;
+            this.comboBox2.DisplayMember = "Libelle";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(674, 276);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(209, 21);
+            this.comboBox2.TabIndex = 15;
+            this.comboBox2.ValueMember = "Id";
+            // 
+            // _Midias_BTSCsDataSet4
+            // 
+            this._Midias_BTSCsDataSet4.DataSetName = "_Midias_BTSCsDataSet4";
+            this._Midias_BTSCsDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // produitBindingSource
+            // 
+            this.produitBindingSource.DataMember = "Produit";
+            this.produitBindingSource.DataSource = this._Midias_BTSCsDataSet4;
+            // 
+            // produitTableAdapter
+            // 
+            this.produitTableAdapter.ClearBeforeFill = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(622, 310);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Stock :";
+            // 
+            // stokTextBox
+            // 
+            this.stokTextBox.Location = new System.Drawing.Point(669, 307);
+            this.stokTextBox.Name = "stokTextBox";
+            this.stokTextBox.Size = new System.Drawing.Size(214, 20);
+            this.stokTextBox.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(622, 333);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(261, 23);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Valider la modification de stock";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // ProduitUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.stokTextBox);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
@@ -259,6 +348,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +380,14 @@
         private _Midias_BTSCsDataSet2TableAdapters.CategorieTableAdapter categorieTableAdapter1;
         private _Midias_BTSCsDataSet3TableAdapters.CategorieTableAdapter categorieTableAdapter2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.BindingSource produitBindingSource;
+        private _Midias_BTSCsDataSet4 _Midias_BTSCsDataSet4;
+        private _Midias_BTSCsDataSet4TableAdapters.ProduitTableAdapter produitTableAdapter;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox stokTextBox;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -58,7 +58,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Quantite" Type="int" />
           <Property Name="DateCreation" Type="datetime" />
           <Property Name="IdProduit" Type="int" />
@@ -311,7 +311,7 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantite" Type="Int32" />
           <Property Name="DateCreation" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Produit" Relationship="Self.FK_Mouvement_Produit" FromRole="Mouvement" ToRole="Produit" />

@@ -48,7 +48,7 @@ namespace Midias.BTSCs.Services
         public Vehicule GetVehicule(int id)
         {
             Vehicule vehicule = Context.Vehicule.Where(v => v.Id == id).FirstOrDefault();
-            return new Vehicule(vehicule.Id, vehicule.CarteGrise, vehicule.Immatriculation, vehicule.Marque, vehicule.Modele);
+            return vehicule;
         }
 
         public List<VehiculeDto> GetVehicules()
