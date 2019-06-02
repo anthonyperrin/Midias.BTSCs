@@ -1,0 +1,1 @@
+﻿INSERT INTO Salarie VALUES ('Noble', 'pierre', 1, 'y', 'pierre.noble@epsi.fr', '0615250294');

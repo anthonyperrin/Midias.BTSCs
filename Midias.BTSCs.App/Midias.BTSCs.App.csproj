@@ -95,6 +95,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Midias_BTSCsDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="_Midias_BTSCsDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_Midias_BTSCsDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +163,28 @@
     </None>
     <None Include="_Midias_BTSCsDataSet1.xss">
       <DependentUpon>_Midias_BTSCsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_Midias_BTSCsDataSet2.xsc">
+      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_Midias_BTSCsDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Midias_BTSCsDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Midias_BTSCsDataSet2.xss">
+      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="_Midias_BTSCsDataSet3.xsc">
+      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="_Midias_BTSCsDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_Midias_BTSCsDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_Midias_BTSCsDataSet3.xss">
+      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
