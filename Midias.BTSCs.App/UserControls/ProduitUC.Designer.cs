@@ -56,12 +56,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this._Midias_BTSCsDataSet4 = new Midias.BTSCs.App._Midias_BTSCsDataSet4();
             this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Midias_BTSCsDataSet4 = new Midias.BTSCs.App._Midias_BTSCsDataSet4();
             this.produitTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet4TableAdapters.ProduitTableAdapter();
             this.label9 = new System.Windows.Forms.Label();
             this.stokTextBox = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.updateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
@@ -71,8 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).BeginInit();
             this.SuspendLayout();
             // 
             // _Midias_BTSCsDataSet1
@@ -273,15 +273,15 @@
             this.comboBox2.TabIndex = 15;
             this.comboBox2.ValueMember = "Id";
             // 
-            // _Midias_BTSCsDataSet4
-            // 
-            this._Midias_BTSCsDataSet4.DataSetName = "_Midias_BTSCsDataSet4";
-            this._Midias_BTSCsDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // produitBindingSource
             // 
             this.produitBindingSource.DataMember = "Produit";
             this.produitBindingSource.DataSource = this._Midias_BTSCsDataSet4;
+            // 
+            // _Midias_BTSCsDataSet4
+            // 
+            this._Midias_BTSCsDataSet4.DataSetName = "_Midias_BTSCsDataSet4";
+            this._Midias_BTSCsDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // produitTableAdapter
             // 
@@ -303,21 +303,21 @@
             this.stokTextBox.Size = new System.Drawing.Size(214, 20);
             this.stokTextBox.TabIndex = 17;
             // 
-            // button2
+            // updateButton
             // 
-            this.button2.Location = new System.Drawing.Point(622, 333);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(261, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Valider la modification de stock";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.updateButton.Location = new System.Drawing.Point(622, 333);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(261, 23);
+            this.updateButton.TabIndex = 18;
+            this.updateButton.Text = "Valider la modification de stock";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // ProduitUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.stokTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox2);
@@ -349,8 +349,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,6 +389,6 @@
         private _Midias_BTSCsDataSet4TableAdapters.ProduitTableAdapter produitTableAdapter;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox stokTextBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button updateButton;
     }
 }
