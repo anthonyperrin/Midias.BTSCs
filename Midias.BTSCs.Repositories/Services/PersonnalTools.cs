@@ -63,12 +63,6 @@ namespace Midias.BTSCs
                             row.Cells[3].Value = product.Taxe;
                             row.Cells[4].Value = product.Quantite;
                             row.Cells[5].Value = product.Categorie.Libelle;
-                            if (mouvements.Length > 0)
-                            {
-                                //DataGridViewButtonCell showMouvements = new DataGridViewButtonCell();
-                                //showMouvements. = "Afficher";
-                                //row.Cells[6]. = showMouvements;
-                            }
 
                             dataGrid.Rows.Add(row);
                         }
@@ -107,12 +101,22 @@ namespace Midias.BTSCs
             string[] properties = GetPropertiesArray(personnalObject);
             int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;
-            for (int i = 0; i < objectSize; i++)
+            for (int i = 0; i < properties.Length; i++)
             {
                 string value = properties[i];
                 if (!excludedValues.Contains(properties[i]))
                 {
                     dataGrid.Columns[i].HeaderText = value;
+                } else
+                {
+                    DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn()
+                    {
+                        Text = "Afficher",
+                        Name = "btnMouvements",
+                        UseColumnTextForButtonValue = true,
+                    };
+
+                    dataGrid.Columns.Add(colBtn);
                 }
             }
 

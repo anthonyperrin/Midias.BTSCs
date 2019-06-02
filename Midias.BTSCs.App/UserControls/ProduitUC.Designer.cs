@@ -98,6 +98,7 @@
             this.gridProducts.Name = "gridProducts";
             this.gridProducts.Size = new System.Drawing.Size(613, 526);
             this.gridProducts.TabIndex = 0;
+            this.gridProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProducts_CellContentClick);
             this.gridProducts.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridProducts_CellEndEdit);
             // 
             // produitDtoBindingSource
