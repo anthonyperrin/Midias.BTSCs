@@ -129,7 +129,21 @@ namespace Midias.BTSCs.App.UserControls
         {
             if (e.ColumnIndex == 6)
             {
-                MessageBox.Show("Ca marche");
+                int id = Convert.ToInt32(gridProducts.Rows[e.RowIndex].Cells[0].Value);
+                List<MouvementDto> mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == id).ToList();
+                string mouvementsToShow = "ID       Quantité\n";
+                if (mouvements.Count > 0)
+                {
+                    foreach (MouvementDto mvt in mouvements)
+                    {
+                        mouvementsToShow += mvt.Id + "       " + mvt.Quantite + "\n";
+                    }
+                    MessageBox.Show(mouvementsToShow);
+                } else
+                {
+                    MessageBox.Show("Il n'y a pas de mouvements");
+                }
+                
             }
         }
         private void GridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
