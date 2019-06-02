@@ -101,22 +101,37 @@ namespace Midias.BTSCs
             string[] properties = GetPropertiesArray(personnalObject);
             int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;
+            if (objectType.Equals("Client")) {
+                dataGrid.ColumnCount = 6;
+            }
             for (int i = 0; i < properties.Length; i++)
             {
                 string value = properties[i];
+                Debug.WriteLine(value);
                 if (!excludedValues.Contains(properties[i]))
                 {
                     dataGrid.Columns[i].HeaderText = value;
+                    
                 } else
                 {
-                    DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn()
+                    if (objectType.Equals("Client"))
                     {
-                        Text = "Afficher",
-                        Name = "btnMouvements",
-                        UseColumnTextForButtonValue = true,
-                    };
-
-                    dataGrid.Columns.Add(colBtn);
+                        if (properties[i].Equals("Adresse"))
+                        {
+                            dataGrid.Columns[3].HeaderText = "Rue 1"; 
+                            dataGrid.Columns[4].HeaderText = "Ville"; 
+                            dataGrid.Columns[5].HeaderText = "Code postal"; 
+                        }
+                    } else
+                    {
+                        DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn()
+                        {
+                            Text = "Afficher",
+                            Name = "btnDisplay",
+                            UseColumnTextForButtonValue = true,
+                        };
+                        dataGrid.Columns.Add(colBtn);
+                    }
                 }
             }
 

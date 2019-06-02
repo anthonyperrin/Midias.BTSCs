@@ -32,7 +32,8 @@ namespace Midias.BTSCs.App.UserControls
             List<AdresseDto> adresses = _adressesService.GetAdresses();
 
 
-            string[] excludedValues = new string[] { };
+            string[] excludedValues = new string[] { "Adresse", "Commande" };
+
             if (clients.Length > 0)
             {
                 gridClients.Rows.Clear();
@@ -45,7 +46,8 @@ namespace Midias.BTSCs.App.UserControls
                 gridClients.Columns[5].Width = 75;
 
             }
-            comboBox1.DataSource = _adressesService.GetAdresses();
+
+            comboBox1.DataSource = adresses;
         }
 
         private void Button1_Click(object sender, EventArgs e)
