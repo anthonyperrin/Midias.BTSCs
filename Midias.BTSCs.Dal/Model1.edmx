@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Rue1" Type="varchar" MaxLength="250" />
           <Property Name="Rue2" Type="varchar" MaxLength="250" />
           <Property Name="CodePostal" Type="varchar" MaxLength="10" />
@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="varchar" MaxLength="100" />
           <Property Name="Prenom" Type="varchar" MaxLength="100" />
           <Property Name="IdAdresse" Type="int" />
@@ -257,7 +257,7 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rue1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Rue2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="CodePostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -278,7 +278,7 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Adresse" Relationship="Self.FK_Client_Adresse" FromRole="Client" ToRole="Adresse" />

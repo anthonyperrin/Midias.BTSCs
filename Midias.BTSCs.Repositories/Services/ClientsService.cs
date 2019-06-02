@@ -73,21 +73,12 @@ namespace Midias.BTSCs.Services.Services
 
         public void CreateNewClient(ClientDto client)
         {
-            Context.Client.Add(new Client()
-            {
-                Id = client.Id,
-                Nom = client.Nom,
-                Prenom = client.Prenom,
-                Adresse = new Adresse()
-                {
-                    Id = client.Adresse.Id,
-                    Rue1 = client.Adresse.Rue1,
-                    Rue2 = client.Adresse.Rue2,
-                    CodePostal = client.Adresse.CodePostal,
-                    Ville = client.Adresse.Ville,
-                    Pays = client.Adresse.Ville
-                }
-            });
+            Adresse adresse = Context.Adresse.Where(c => c.Id == client.Adresse.Id).FirstOrDefault();
+            Client cli = new Client();
+            cli.Nom = client.Nom;
+            cli.Prenom = client.Prenom;
+            cli.Adresse = adresse;
+            Context.Client.Add(cli);
             Context.SaveChanges();
         }
 

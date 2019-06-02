@@ -87,7 +87,6 @@ namespace Midias.BTSCs
                             row.Cells[4].Value = client.Adresse.Ville;
                             row.Cells[5].Value = client.Adresse.CodePostal;
 
-
                             dataGrid.Rows.Add(row);
                         }
                         break;
