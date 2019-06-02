@@ -33,6 +33,7 @@ namespace Midias.BTSCs.App.UserControls
             gridProducts.Columns[2].Width = 75;
             gridProducts.Columns[3].Width = 75;
             gridProducts.Columns[4].Width = 75;
+            gridProducts.Columns[4].ReadOnly = true;
             gridProducts.Columns[5].ReadOnly = true;
 
         }
@@ -128,6 +129,17 @@ namespace Midias.BTSCs.App.UserControls
 
                 stokTextBox.ResetText();
             }
+        }
+
+        private void GridProducts_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            ProduitDto prod = new ProduitDto();
+            int id = Convert.ToInt32(gridProducts.Rows[e.RowIndex].Cells[0].Value);
+            prod = _produitsService.GetProduits().Where(p=>p.Id == id).FirstOrDefault();
+            prod.Libelle = gridProducts.Rows[e.RowIndex].Cells[1].Value.ToString();
+            prod.PrixHT = Convert.ToDouble(gridProducts.Rows[e.RowIndex].Cells[2].Value);
+            prod.Taxe = Convert.ToDouble(gridProducts.Rows[e.RowIndex].Cells[3].Value);
+            prod = this._produitsService.UpdateProduit(prod);
         }
     }
 }
