@@ -37,7 +37,6 @@ namespace Midias.BTSCs.App
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
-            this.AdressesBtn = new System.Windows.Forms.Button();
             this.ClientsBtn = new System.Windows.Forms.Button();
             this.CommandeBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,6 +49,7 @@ namespace Midias.BTSCs.App
             this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
             this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
             this.salarieUC = new Midias.BTSCs.App.UserControls.SalarieUC();
+            this.clientUC = new Midias.BTSCs.App.UserControls.ClientUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +68,6 @@ namespace Midias.BTSCs.App
             this.panel1.Controls.Add(this.ProduitsBtn);
             this.panel1.Controls.Add(this.CommandeBtn);
             this.panel1.Controls.Add(this.ClientsBtn);
-            this.panel1.Controls.Add(this.AdressesBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
@@ -182,22 +181,7 @@ namespace Midias.BTSCs.App
             this.ClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ClientsBtn.UseVisualStyleBackColor = true;
             this.ClientsBtn.Click += new System.EventHandler(this.ClientsBtn_Click);
-            // 
-            // AdressesBtn
-            // 
-            this.AdressesBtn.FlatAppearance.BorderSize = 0;
-            this.AdressesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdressesBtn.Image = ((System.Drawing.Image)(resources.GetObject("VehiculesBtn.Image")));
-            this.AdressesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdressesBtn.Location = new System.Drawing.Point(9, 401);
-            this.AdressesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.AdressesBtn.Name = "AdressesBtn";
-            this.AdressesBtn.Size = new System.Drawing.Size(141, 49);
-            this.AdressesBtn.TabIndex = 0;
-            this.AdressesBtn.Text = "     Adresses";
-            this.AdressesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AdressesBtn.UseVisualStyleBackColor = true;
-            this.AdressesBtn.Click += new System.EventHandler(this.AdressesBtn_Click);
+            
             // 
             // panel3
             // 
@@ -302,6 +286,15 @@ namespace Midias.BTSCs.App
             this.salarieUC.Size = new System.Drawing.Size(886, 532);
             this.salarieUC.TabIndex = 6;
             // 
+            // ClientUC
+            // 
+            this.clientUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.clientUC.Location = new System.Drawing.Point(154, 108);
+            this.clientUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clientUC.Name = "ClientUC";
+            this.clientUC.Size = new System.Drawing.Size(886, 532);
+            this.clientUC.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +304,7 @@ namespace Midias.BTSCs.App
             this.Controls.Add(this.homeUC);
             this.Controls.Add(this.produitUC);
             this.Controls.Add(this.salarieUC);
+            this.Controls.Add(this.clientUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -333,6 +327,7 @@ namespace Midias.BTSCs.App
             this.vehiculeUC1.Hide();
             this.homeUC.Hide();
             this.salarieUC.Hide();
+            this.clientUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,7 +341,6 @@ namespace Midias.BTSCs.App
         private System.Windows.Forms.Button VehiculesBtn;
         private System.Windows.Forms.Button CommandeBtn;
         private System.Windows.Forms.Button ClientsBtn;
-        private System.Windows.Forms.Button AdressesBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox closeAppBox;
@@ -359,6 +353,7 @@ namespace Midias.BTSCs.App
         private UserControls.VehiculeUC vehiculeUC1;
         private UserControls.ProduitUC produitUC;
         private UserControls.SalarieUC salarieUC;
+        private UserControls.ClientUC clientUC;
     }
 }
 
