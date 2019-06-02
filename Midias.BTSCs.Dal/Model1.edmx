@@ -20,7 +20,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Client">
@@ -270,7 +270,7 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Produit" Relationship="Self.FK_Produit_Categorie" FromRole="Categorie" ToRole="Produit" />
         </EntityType>

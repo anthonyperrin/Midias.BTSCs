@@ -59,13 +59,15 @@ namespace Midias.BTSCs.App.UserControls
             {
                 var categories = _categorieService.GetCategories();
                 CategorieDto cat = categories.Where(c => c.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
-                ProduitDto prod = new ProduitDto();
-                prod.Libelle = textBox1.Text;
-                prod.PrixHT = Convert.ToDouble(textBox2.Text);
-                prod.Quantite = Convert.ToInt32(textBox3.Text);
-                prod.Taxe = Convert.ToDouble(textBox4.Text);
-                prod.Categorie = cat;
-
+                ProduitDto prod = new ProduitDto()
+                {
+                    Libelle = textBox1.Text,
+                    PrixHT = Convert.ToDouble(textBox2.Text),
+                    Quantite = Convert.ToInt32(textBox3.Text),
+                    Taxe = Convert.ToDouble(textBox4.Text),
+                    Categorie = cat
+                };
+                
                 _produitsService.CreateNewProduit(prod);
 
                 this.UpdateDataGrid();
@@ -79,45 +81,26 @@ namespace Midias.BTSCs.App.UserControls
 
         private void UpdateDataGrid()
         {
-            var produits = _produitsService.GetProduits();
+            ProduitDto[] produits = _produitsService.GetProduits().ToArray();
             var categories = _categorieService.GetCategories();
 
             this.comboBox1.DataSource = categories;
             this.comboBox2.DataSource = produits;
 
-            string[] excludedValues = new string[] { "Mouvement" };
-            if (produits.Count > 0)
+            string[] excludedValues = new string[] { };
+            if (produits.Length > 0)
             {
-                gridProducts = _tools.GenerateGridHeaders(gridProducts, produits[0], excludedValues);
                 gridProducts.Rows.Clear();
-                foreach (ProduitDto product in produits)
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    var mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == product.Id).ToList().ToArray();
-
-                    row.CreateCells(gridProducts);
-
-                    row.Cells[0].Value = product.Id;
-                    row.Cells[1].Value = product.Libelle;
-                    row.Cells[2].Value = product.PrixHT;
-                    row.Cells[3].Value = product.Taxe;
-                    row.Cells[4].Value = product.Quantite;
-                    row.Cells[5].Value = product.Categorie.Libelle;
-                    if (mouvements.Length > 0)
-                    {
-                        //row.Cells[6].
-                    }
-
-                    gridProducts.Rows.Add(row);
-                }
+                gridProducts = _tools.GenerateGrid(gridProducts, produits, excludedValues);
             }
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void updateButton_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(stokTextBox.Text))
             {
                 ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
+                Debug.WriteLine(prod.Id);
                 MouvementDto mouv = new MouvementDto();
                 mouv.Produit = prod;
                 mouv.Quantite = Convert.ToInt32(stokTextBox.Text);

@@ -36,7 +36,11 @@ namespace Midias.BTSCs
                             row.Cells[0].Value = salarie.Id;
                             row.Cells[1].Value = salarie.Nom;
                             row.Cells[2].Value = salarie.Prenom;
-                            row.Cells[3].Value = salarie.Valide;
+                            row.Cells[3].Value = "Non";
+                            if (salarie.Valide == true)
+                            {
+                                row.Cells[3].Value = "Oui";
+                            }
                             row.Cells[4].Value = salarie.Permis;
                             row.Cells[5].Value = salarie.Email;
                             row.Cells[6].Value = salarie.Telephone;
@@ -61,13 +65,14 @@ namespace Midias.BTSCs
                             row.Cells[5].Value = product.Categorie.Libelle;
                             if (mouvements.Length > 0)
                             {
-                                //row.Cells[6].
+                                //DataGridViewButtonCell showMouvements = new DataGridViewButtonCell();
+                                //showMouvements. = "Afficher";
+                                //row.Cells[6]. = showMouvements;
                             }
 
                             dataGrid.Rows.Add(row);
                         }
                         break;
-                    
                     default:
                         Debug.WriteLine("Default");
                         break;

@@ -17,7 +17,7 @@ namespace Midias.BTSCs.App.UserControls
 
         SalarieService _salarieService = new SalarieService();
         PersonnalTools _tools = new PersonnalTools();
-        string[] excludedValues = new string[] { "Livraison" };
+        string[] excludedValues = new string[] {};
 
         public SalarieUC()
         {
@@ -29,6 +29,15 @@ namespace Midias.BTSCs.App.UserControls
             if (salaries.Length > 0)
             {
                 gridSalaries = _tools.GenerateGrid(gridSalaries, salaries, excludedValues);
+
+
+                gridSalaries.Columns[0].Width = 30;
+                gridSalaries.Columns[0].ReadOnly = true;
+                gridSalaries.Columns[2].Width = 75;
+                gridSalaries.Columns[3].Width = 75;
+                gridSalaries.Columns[4].Width = 50;
+                gridSalaries.Columns[4].ReadOnly = true;
+                gridSalaries.Columns[5].ReadOnly = true;
             }
         }
 
@@ -52,6 +61,8 @@ namespace Midias.BTSCs.App.UserControls
                 };
 
                 _salarieService.CreateNewSalarie(salarie);
+
+                gridSalaries.Rows.Clear();
 
                 UpdateDataGrid();
 
