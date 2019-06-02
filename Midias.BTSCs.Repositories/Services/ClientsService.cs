@@ -41,7 +41,7 @@ namespace Midias.BTSCs.Services.Services
         void DeleteClient(int id);
     }
 
-    class ClientsService : ServiceBase, IClientsService
+    public class ClientsService : ServiceBase, IClientsService
     {
         public ClientsService()
         {

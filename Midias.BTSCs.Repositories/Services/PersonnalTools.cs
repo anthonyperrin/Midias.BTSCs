@@ -73,6 +73,24 @@ namespace Midias.BTSCs
                             dataGrid.Rows.Add(row);
                         }
                         break;
+                    case "Client":
+                        foreach (ClientDto client in listObjects)
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+
+                            row.CreateCells(dataGrid);
+
+                            row.Cells[0].Value = client.Id;
+                            row.Cells[1].Value = client.Nom;
+                            row.Cells[2].Value = client.Prenom;
+                            row.Cells[3].Value = client.Adresse.Rue1;
+                            row.Cells[4].Value = client.Adresse.Ville;
+                            row.Cells[5].Value = client.Adresse.CodePostal;
+
+
+                            dataGrid.Rows.Add(row);
+                        }
+                        break;
                     default:
                         Debug.WriteLine("Default");
                         break;
