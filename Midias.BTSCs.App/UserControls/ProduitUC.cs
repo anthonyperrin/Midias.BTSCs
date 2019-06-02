@@ -131,12 +131,20 @@ namespace Midias.BTSCs.App.UserControls
             {
                 int id = Convert.ToInt32(gridProducts.Rows[e.RowIndex].Cells[0].Value);
                 List<MouvementDto> mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == id).ToList();
-                string mouvementsToShow = "ID       Quantité\n";
+                string mouvementsToShow = "ID       Quantité                    Date\n";
                 if (mouvements.Count > 0)
                 {
                     foreach (MouvementDto mvt in mouvements)
                     {
-                        mouvementsToShow += mvt.Id + "       " + mvt.Quantite + "\n";
+                        string qte;
+                        if (mvt.Quantite.ToString().Length == 1)
+                        {
+                            qte = "0" + mvt.Quantite.ToString();
+                        } else
+                        {
+                            qte = mvt.Quantite.ToString();
+                        }
+                        mouvementsToShow += mvt.Id + "        " + qte + "                    " + mvt.DateCreation + "\n";
                     }
                     MessageBox.Show(mouvementsToShow);
                 } else
