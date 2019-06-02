@@ -26,35 +26,15 @@ namespace Midias.BTSCs.App.UserControls
         {
             InitializeComponent();
 
-            var produits = _produitsService.GetProduits();
+            ProduitDto[] produits = _produitsService.GetProduits().ToArray();
             var categories = _categorieService.GetCategories();
 
             this.comboBox1.DataSource = categories;
 
             string[] excludedValues = new string[] {"Mouvement"};
-            if (produits.Count > 0)
+            if (produits.Length > 0)
             {
-                gridProducts = _tools.GenerateGridHeaders(gridProducts, produits[0], excludedValues);
-                foreach (ProduitDto product in produits)
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    var mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == product.Id).ToList().ToArray();
-                    
-                    row.CreateCells(gridProducts);
-
-                    row.Cells[0].Value = product.Id;
-                    row.Cells[1].Value = product.Libelle;
-                    row.Cells[2].Value = product.PrixHT;
-                    row.Cells[3].Value = product.Taxe;
-                    row.Cells[4].Value = product.Quantite;
-                    row.Cells[5].Value = product.Categorie.Libelle;
-                    if (mouvements.Length > 0)
-                    {
-                        //row.Cells[6].
-                    }
-
-                    gridProducts.Rows.Add(row);
-                }
+                gridProducts = _tools.GenerateGrid(gridProducts, produits, excludedValues);
             }
             
 

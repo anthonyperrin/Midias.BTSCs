@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Midias.BTSCs.Dto;
+using Midias.BTSCs.Services.Services;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,30 +14,74 @@ namespace Midias.BTSCs
     public class PersonnalTools
     {
 
+        private IMouvementsService _mouvementsService = new MouvementsService();
 
-        //public DataGridView GenerateGrid(DataGridView dataGrid, List<object> listObjects)
-        //{
-        //    if (listObjects.Count > 0)
-        //    {
+        public DataGridView GenerateGrid(DataGridView dataGrid, object[] arrayObjects, string[] excludedValues)
+        {
+            var listObjects = arrayObjects.ToList();
+            if (listObjects.Count > 0)
+            {
+                var list = listObjects as IEnumerable<object>;
+                string type = GetObjectType(listObjects[0]);
+                dataGrid = GenerateGridHeaders(dataGrid, listObjects[0], excludedValues);
+                switch (type)
+                {
+                    case "Salarie":
+                        foreach (SalarieDto salarie in listObjects)
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
 
-        //        dataGrid = GenerateGridHeaders(dataGrid, listObjects[0]);
+                            row.CreateCells(dataGrid);
 
-        //        int i = 0;
-        //        foreach (object obj in listObjects)
-        //        {
-        //            dataGrid.Column
-        //        }
+                            row.Cells[0].Value = salarie.Id;
+                            row.Cells[1].Value = salarie.Nom;
+                            row.Cells[2].Value = salarie.Prenom;
+                            row.Cells[3].Value = salarie.Valide;
+                            row.Cells[4].Value = salarie.Permis;
+                            row.Cells[5].Value = salarie.Email;
+                            row.Cells[6].Value = salarie.Telephone;
 
-        //    }
-        //    return dataGrid;
-        //}
+
+                            dataGrid.Rows.Add(row);
+                        }
+                        break;
+                    case "Produit":
+                        foreach(ProduitDto product in listObjects)
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            var mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == product.Id).ToList().ToArray();
+
+                            row.CreateCells(dataGrid);
+
+                            row.Cells[0].Value = product.Id;
+                            row.Cells[1].Value = product.Libelle;
+                            row.Cells[2].Value = product.PrixHT;
+                            row.Cells[3].Value = product.Taxe;
+                            row.Cells[4].Value = product.Quantite;
+                            row.Cells[5].Value = product.Categorie.Libelle;
+                            if (mouvements.Length > 0)
+                            {
+                                //row.Cells[6].
+                            }
+
+                            dataGrid.Rows.Add(row);
+                        }
+                        break;
+                    
+                    default:
+                        Debug.WriteLine("Default");
+                        break;
+                }
+
+            }
+            return dataGrid;
+        }
 
 
         public DataGridView GenerateGridHeaders(DataGridView dataGrid , object personnalObject, string[] excludedValues)
         {
 
             string objectType = GetObjectType(personnalObject);
-            Debug.WriteLine(objectType);
             string[] properties = GetPropertiesArray(personnalObject);
             int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;

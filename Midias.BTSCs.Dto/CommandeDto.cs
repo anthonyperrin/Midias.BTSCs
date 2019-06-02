@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Midias.BTSCs.Dto
 {
-    public class CommandeDto
+    public class CommandeDto 
     {
         public int Id { get; set; }
         public string Libelle { get; set; }

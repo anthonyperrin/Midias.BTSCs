@@ -141,6 +141,7 @@
             this.buttonAddSalarie.TabIndex = 12;
             this.buttonAddSalarie.Text = "Ajouter";
             this.buttonAddSalarie.UseVisualStyleBackColor = true;
+            this.buttonAddSalarie.Click += new System.EventHandler(this.ButtonAddSalarie_Click);
             // 
             // SalarieUC
             // 
@@ -159,7 +160,7 @@
             this.Controls.Add(this.salarieName);
             this.Controls.Add(this.gridSalaries);
             this.Name = "SalarieUC";
-            this.Size = new System.Drawing.Size(947, 502);
+            this.Size = new System.Drawing.Size(894, 502);
             this.Load += new System.EventHandler(this.SalarieUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridSalaries)).EndInit();
             this.ResumeLayout(false);

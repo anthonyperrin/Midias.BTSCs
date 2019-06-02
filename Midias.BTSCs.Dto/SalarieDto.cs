@@ -2,7 +2,7 @@
 
 namespace Midias.BTSCs.Dto
 {
-    public class SalarieDto
+    public class SalarieDto 
     {
         public int Id { get; set; }
         public string Nom { get; set; }

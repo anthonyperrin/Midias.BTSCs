@@ -29,7 +29,7 @@ namespace Midias.BTSCs.App.UserControls
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //Si les champs sont rempli
+            //Si les champs sont remplis
             if (!String.IsNullOrEmpty(modeleText.Text) && !String.IsNullOrEmpty(marqueText.Text) && !String.IsNullOrEmpty(immatText.Text) && !String.IsNullOrEmpty(cartegriseText.Text)){
                 //Nouveau vehicule
                 VehiculeDto vehicule = new VehiculeDto();

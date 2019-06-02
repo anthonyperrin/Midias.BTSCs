@@ -18,4 +18,4 @@
 
 --Select * From Salarie;
 --INSERT INTO Salarie VALUES ('Plagnol', 'Antoine', 1, 'n', 'antoine.plagnol@epsi.fr', '0615250294');
-
+SELECT * FROM Vehicule

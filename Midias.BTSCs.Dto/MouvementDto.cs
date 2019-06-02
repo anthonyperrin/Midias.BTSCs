@@ -2,7 +2,7 @@
 
 namespace Midias.BTSCs.Dto
 {
-    public class MouvementDto
+    public class MouvementDto 
     {
         public int Id { get; set; }
         public int? Quantite { get; set; }

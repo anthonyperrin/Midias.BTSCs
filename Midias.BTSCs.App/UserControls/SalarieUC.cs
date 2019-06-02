@@ -16,42 +16,58 @@ namespace Midias.BTSCs.App.UserControls
     {
 
         SalarieService _salarieService = new SalarieService();
+        PersonnalTools _tools = new PersonnalTools();
+        string[] excludedValues = new string[] { "Livraison" };
 
         public SalarieUC()
         {
             InitializeComponent();
 
-            var salaries = _salarieService.GetSalaries();
-            var _tools = new PersonnalTools();
+            SalarieDto[] salaries = _salarieService.GetSalaries().ToArray();
 
-            string[] excludedValues = new string[] { "Livraison" };
-            if (salaries.Count > 0)
+            
+            if (salaries.Length > 0)
             {
-                gridSalaries = _tools.GenerateGridHeaders(gridSalaries, salaries[0], excludedValues);
-                foreach (SalarieDto salarie in salaries)
-                {
-                    DataGridViewRow row = new DataGridViewRow();
-                    //var mouvements = _salarieService.GetMouvements().Where(m => m.Produit.Id == product.Id).ToList().ToArray();
-
-                    row.CreateCells(gridSalaries);
-
-                    row.Cells[0].Value = salarie.Id;
-                    row.Cells[1].Value = salarie.Nom;
-                    row.Cells[2].Value = salarie.Prenom;
-                    row.Cells[3].Value = salarie.Valide;
-                    row.Cells[4].Value = salarie.Permis;
-                    row.Cells[5].Value = salarie.Email;
-                    row.Cells[6].Value = salarie.Telephone;
-                    
-
-                    gridSalaries.Rows.Add(row);
-                }
+                gridSalaries = _tools.GenerateGrid(gridSalaries, salaries, excludedValues);
             }
         }
 
         private void SalarieUC_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonAddSalarie_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBoxName.Text) && !String.IsNullOrEmpty(textBoxFirstName.Text) && !String.IsNullOrEmpty(textBoxPermis.Text) && !String.IsNullOrEmpty(textBoxMail.Text) && !String.IsNullOrEmpty(textBoxPhone.Text))
+            {
+                SalarieDto salarie = new SalarieDto()
+                {
+                    Nom = textBoxName.Text,
+                    Prenom = textBoxFirstName.Text,
+                    Valide = true,
+                    Permis = textBoxPermis.Text,
+                    Email = textBoxMail.Text,
+                    Telephone = textBoxPhone.Text
+                };
+
+                _salarieService.CreateNewSalarie(salarie);
+
+                UpdateDataGrid();
+
+                textBoxName.ResetText();
+                textBoxFirstName.ResetText();
+                textBoxPermis.ResetText();
+                textBoxMail.ResetText();
+                textBoxPhone.ResetText();
+
+            }
+        }
+
+        private void UpdateDataGrid()
+        {
+            SalarieDto[] salaries = _salarieService.GetSalaries().ToArray();
+            gridSalaries = _tools.GenerateGrid(gridSalaries, salaries, excludedValues);
         }
     }
 }
