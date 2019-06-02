@@ -46,11 +46,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.categorieBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this._Midias_BTSCsDataSet3 = new Midias.BTSCs.App._Midias_BTSCsDataSet3();
             this._Midias_BTSCsDataSet2 = new Midias.BTSCs.App._Midias_BTSCsDataSet2();
             this.categorieBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categorieTableAdapter1 = new Midias.BTSCs.App._Midias_BTSCsDataSet2TableAdapters.CategorieTableAdapter();
-            this._Midias_BTSCsDataSet3 = new Midias.BTSCs.App._Midias_BTSCsDataSet3();
-            this.categorieBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.categorieTableAdapter2 = new Midias.BTSCs.App._Midias_BTSCsDataSet3TableAdapters.CategorieTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet1)).BeginInit();
@@ -58,10 +58,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // _Midias_BTSCsDataSet1
@@ -191,6 +191,16 @@
             this.comboBox1.TabIndex = 11;
             this.comboBox1.ValueMember = "Id";
             // 
+            // categorieBindingSource2
+            // 
+            this.categorieBindingSource2.DataMember = "Categorie";
+            this.categorieBindingSource2.DataSource = this._Midias_BTSCsDataSet3;
+            // 
+            // _Midias_BTSCsDataSet3
+            // 
+            this._Midias_BTSCsDataSet3.DataSetName = "_Midias_BTSCsDataSet3";
+            this._Midias_BTSCsDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // _Midias_BTSCsDataSet2
             // 
             this._Midias_BTSCsDataSet2.DataSetName = "_Midias_BTSCsDataSet2";
@@ -205,16 +215,6 @@
             // 
             this.categorieTableAdapter1.ClearBeforeFill = true;
             // 
-            // _Midias_BTSCsDataSet3
-            // 
-            this._Midias_BTSCsDataSet3.DataSetName = "_Midias_BTSCsDataSet3";
-            this._Midias_BTSCsDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categorieBindingSource2
-            // 
-            this.categorieBindingSource2.DataMember = "Categorie";
-            this.categorieBindingSource2.DataSource = this._Midias_BTSCsDataSet3;
-            // 
             // categorieTableAdapter2
             // 
             this.categorieTableAdapter2.ClearBeforeFill = true;
@@ -227,6 +227,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Ajouter";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ProduitUC
             // 
@@ -254,10 +255,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categorieBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

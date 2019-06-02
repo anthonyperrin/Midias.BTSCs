@@ -206,6 +206,10 @@
     <Content Include="database.sql" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Midias.BTSCs.Dal\Midias.BTSCs.Dal.csproj">
+      <Project>{A0EE3D0E-F04C-46A7-B0A7-5F594D031A5B}</Project>
+      <Name>Midias.BTSCs.Dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Midias.BTSCs.Dto\Midias.BTSCs.Dto.csproj">
       <Project>{36658d16-c499-4f1f-9293-a49a92fa85ae}</Project>
       <Name>Midias.BTSCs.Dto</Name>
