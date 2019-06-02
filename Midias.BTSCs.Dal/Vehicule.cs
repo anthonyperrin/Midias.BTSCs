@@ -19,17 +19,7 @@ namespace Midias.BTSCs.Dal
         {
             this.Livraison = new HashSet<Livraison>();
         }
-
-        public Vehicule(int id, string cartegr, string immat, string modele, string marque)
-        {
-            Id = id;
-            CarteGrise = cartegr;
-            Immatriculation = immat;
-            Modele = modele;
-            Marque = marque;
-        }
-        
-
+    
         public int Id { get; set; }
         public string CarteGrise { get; set; }
         public string Immatriculation { get; set; }

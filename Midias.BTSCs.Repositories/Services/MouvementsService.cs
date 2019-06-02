@@ -72,20 +72,11 @@ namespace Midias.BTSCs.Services.Services
 
         public void CreateNewMouvement(MouvementDto mouvement)
         {
-            Context.Mouvement.Add(new Mouvement()
-            {
-                Id = mouvement.Id,
-                Quantite = mouvement.Quantite,
-                DateCreation = mouvement.DateCreation,
-                Produit = new Produit()
-                {
-                    Id = mouvement.Produit.Id,
-                    Libelle = mouvement.Produit.Libelle,
-                    PrixHT = mouvement.Produit.PrixHT,
-                    Taxe = mouvement.Produit.Taxe,
-                    Quantite = mouvement.Produit.Quantite
-                },
-            });
+            Mouvement mouv = new Mouvement();
+            mouv.Produit = Context.Produit.Where(m => m.Id == mouvement.Produit.Id).FirstOrDefault();
+            mouv.Quantite = mouvement.Quantite;
+            mouv.DateCreation = mouvement.DateCreation;
+            Context.Mouvement.Add(mouv);
             Context.SaveChanges();
         }
 

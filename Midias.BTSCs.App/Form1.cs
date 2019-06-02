@@ -97,7 +97,7 @@ namespace Midias.BTSCs.App
         /// <param name="e"></param>
         private void closeAppBox_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
         }
 
         /// <summary>

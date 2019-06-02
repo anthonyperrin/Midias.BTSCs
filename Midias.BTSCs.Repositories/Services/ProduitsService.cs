@@ -71,19 +71,13 @@ namespace Midias.BTSCs.Services
 
         public void CreateNewProduit(ProduitDto produit)
         {
-            Context.Produit.Add(new Produit()
-            {
-                Id = produit.Id,
-                Libelle = produit.Libelle,
-                PrixHT = produit.PrixHT,
-                Quantite = produit.Quantite,
-                Categorie = new Categorie()
-                {
-                    Id = produit.Categorie.Id,
-                    Libelle = produit.Categorie.Libelle,
-                },
-                Taxe = produit.Taxe
-            });
+            Produit prod = new Produit();
+            prod.Libelle = produit.Libelle;
+            prod.PrixHT = produit.PrixHT;
+            prod.Quantite = produit.Quantite;
+            prod.Taxe = produit.Taxe;
+            prod.Categorie = Context.Categorie.Where(x => x.Id == produit.Categorie.Id).FirstOrDefault();
+            Context.Produit.Add(prod);
             Context.SaveChanges();
         }
 
