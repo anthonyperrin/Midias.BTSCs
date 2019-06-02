@@ -130,6 +130,7 @@ namespace Midias.BTSCs.App.UserControls
             if (e.ColumnIndex == 6)
             {
                 int id = Convert.ToInt32(gridProducts.Rows[e.RowIndex].Cells[0].Value);
+                ProduitDto produit = _produitsService.GetProduits().Where(p => p.Id == id).FirstOrDefault();
                 List<MouvementDto> mouvements = _mouvementsService.GetMouvements().Where(m => m.Produit.Id == id).ToList();
                 string mouvementsToShow = "ID       Quantité                    Date\n";
                 if (mouvements.Count > 0)
@@ -146,7 +147,7 @@ namespace Midias.BTSCs.App.UserControls
                         }
                         mouvementsToShow += mvt.Id + "        " + qte + "                    " + mvt.DateCreation + "\n";
                     }
-                    MessageBox.Show(mouvementsToShow);
+                    MessageBox.Show(mouvementsToShow, "Mouvements de " + produit.Libelle);
                 } else
                 {
                     MessageBox.Show("Il n'y a pas de mouvements");
