@@ -84,6 +84,29 @@ namespace Midias.BTSCs
                             dataGrid.Rows.Add(row);
                         }
                         break;
+                    case "Commande":
+                        foreach (CommandeDto commande in listObjects)
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+
+                            row.CreateCells(dataGrid);
+
+                            row.Cells[0].Value = commande.Id;
+                            row.Cells[1].Value = commande.Libelle;
+                            row.Cells[2].Value = "Créée";
+                            if (commande.Etat == 1)
+                            {
+                                row.Cells[2].Value = "Validée";
+                            } else if (commande.Etat == 2)
+                            {
+                                row.Cells[2].Value = "Acheminée";
+                            }
+                            row.Cells[3].Value = commande.DateCreation;
+                            row.Cells[4].Value = commande.DateValidation;
+
+                            dataGrid.Rows.Add(row);
+                        }
+                        break;
                     default:
                         Debug.WriteLine("Default");
                         break;
@@ -101,9 +124,18 @@ namespace Midias.BTSCs
             string[] properties = GetPropertiesArray(personnalObject);
             int objectSize = properties.Length - excludedValues.Length;
             dataGrid.ColumnCount = objectSize;
-            if (objectType.Equals("Client")) {
-                dataGrid.ColumnCount = 6;
-            }
+            switch (objectType)
+            {
+                case "Client":
+                    dataGrid.ColumnCount = 6;
+                    break;
+                case "Commande":
+                    dataGrid.ColumnCount = 5;
+                    break;
+                default:
+                    Debug.WriteLine("Default");
+                    break;
+            };
             for (int i = 0; i < properties.Length; i++)
             {
                 string value = properties[i];
@@ -114,23 +146,28 @@ namespace Midias.BTSCs
                     
                 } else
                 {
-                    if (objectType.Equals("Client"))
+                    switch (objectType)
                     {
-                        if (properties[i].Equals("Adresse"))
-                        {
-                            dataGrid.Columns[3].HeaderText = "Rue 1"; 
-                            dataGrid.Columns[4].HeaderText = "Ville"; 
-                            dataGrid.Columns[5].HeaderText = "Code postal"; 
-                        }
-                    } else
-                    {
-                        DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn()
-                        {
-                            Text = "Afficher",
-                            Name = "btnDisplay",
-                            UseColumnTextForButtonValue = true,
-                        };
-                        dataGrid.Columns.Add(colBtn);
+                        case "Client":
+                            if (properties[i].Equals("Adresse"))
+                            {
+                                dataGrid.Columns[3].HeaderText = "Rue 1";
+                                dataGrid.Columns[4].HeaderText = "Ville";
+                                dataGrid.Columns[5].HeaderText = "Code postal";
+                            }
+                            break;
+                        case "Produit":
+                            DataGridViewButtonColumn colBtn = new DataGridViewButtonColumn()
+                            {
+                                Text = "Afficher",
+                                Name = "Mouvements",
+                                UseColumnTextForButtonValue = true,
+                            };
+                            dataGrid.Columns.Add(colBtn);
+                            break;
+                        default:
+                            Debug.WriteLine("Default");
+                            break;
                     }
                 }
             }

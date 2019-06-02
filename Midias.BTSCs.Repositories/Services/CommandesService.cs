@@ -41,7 +41,7 @@ namespace Midias.BTSCs.Services.Services
         void DeleteCommande(int id);
     }
 
-    class CommandesService : ServiceBase, ICommandesService
+    public class CommandesService : ServiceBase, ICommandesService
     {
         public CommandesService()
         {

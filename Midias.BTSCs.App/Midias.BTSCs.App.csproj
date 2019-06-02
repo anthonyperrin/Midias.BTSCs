@@ -67,11 +67,11 @@
     <Compile Include="UserControls\ClientUC.Designer.cs">
       <DependentUpon>ClientUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Commande.cs">
+    <Compile Include="UserControls\CommandeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Commande.Designer.cs">
-      <DependentUpon>Commande.cs</DependentUpon>
+    <Compile Include="UserControls\CommandeUC.Designer.cs">
+      <DependentUpon>CommandeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HomeUC.cs">
       <SubType>UserControl</SubType>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="UserControls\ClientUC.resx">
       <DependentUpon>ClientUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Commande.resx">
-      <DependentUpon>Commande.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\CommandeUC.resx">
+      <DependentUpon>CommandeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>

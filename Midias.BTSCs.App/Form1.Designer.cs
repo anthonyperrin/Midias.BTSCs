@@ -50,6 +50,7 @@ namespace Midias.BTSCs.App
             this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
             this.salarieUC = new Midias.BTSCs.App.UserControls.SalarieUC();
             this.clientUC = new Midias.BTSCs.App.UserControls.ClientUC();
+            this.commandeUC = new Midias.BTSCs.App.UserControls.CommandeUC();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -295,6 +296,15 @@ namespace Midias.BTSCs.App
             this.clientUC.Size = new System.Drawing.Size(886, 532);
             this.clientUC.TabIndex = 6;
             // 
+            // CommandeUC
+            // 
+            this.commandeUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.commandeUC.Location = new System.Drawing.Point(154, 108);
+            this.commandeUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.commandeUC.Name = "CommandeUC";
+            this.commandeUC.Size = new System.Drawing.Size(886, 532);
+            this.commandeUC.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +315,7 @@ namespace Midias.BTSCs.App
             this.Controls.Add(this.produitUC);
             this.Controls.Add(this.salarieUC);
             this.Controls.Add(this.clientUC);
+            this.Controls.Add(this.commandeUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -328,6 +339,7 @@ namespace Midias.BTSCs.App
             this.homeUC.Hide();
             this.salarieUC.Hide();
             this.clientUC.Hide();
+            this.commandeUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,6 +366,7 @@ namespace Midias.BTSCs.App
         private UserControls.ProduitUC produitUC;
         private UserControls.SalarieUC salarieUC;
         private UserControls.ClientUC clientUC;
+        private UserControls.CommandeUC commandeUC;
     }
 }
 
