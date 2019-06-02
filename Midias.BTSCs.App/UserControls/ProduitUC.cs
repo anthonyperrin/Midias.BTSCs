@@ -99,7 +99,7 @@ namespace Midias.BTSCs.App.UserControls
         {
             if (!String.IsNullOrEmpty(stokTextBox.Text))
             {
-                ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
+                ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBox2.SelectedValue)).FirstOrDefault();
                 Debug.WriteLine(prod.Id);
                 MouvementDto mouv = new MouvementDto();
                 mouv.Produit = prod;
