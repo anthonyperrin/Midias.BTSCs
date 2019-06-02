@@ -18,6 +18,8 @@ namespace Midias.BTSCs.App.UserControls
     {
         private IProduitsService _produitsService = new ProduitsService();
         private IMouvementsService _mouvementsService = new MouvementsService();
+        private ICategoriesService _categorieService = new CategoriesService();
+
         private PersonnalTools _tools = new PersonnalTools();
 
         public ProduitUC()
@@ -25,6 +27,9 @@ namespace Midias.BTSCs.App.UserControls
             InitializeComponent();
 
             var produits = _produitsService.GetProduits();
+            var categories = _categorieService.GetCategories();
+
+            this.comboBox1.DataSource = categories;
 
             string[] excludedValues = new string[] {"Mouvement"};
             if (produits.Count > 0)

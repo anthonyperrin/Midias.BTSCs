@@ -42,7 +42,7 @@ namespace Midias.BTSCs.Services.Services
         void DeleteCategorie(int id);
     }
 
-    class CategoriesService : ServiceBase, ICategoriesService
+    public class CategoriesService : ServiceBase, ICategoriesService
     {
         public CategoriesService()
         {
