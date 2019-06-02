@@ -129,7 +129,7 @@ namespace Midias.BTSCs.App.UserControls
         {
             if (e.ColumnIndex == 6)
             {
-                
+                MessageBox.Show("Ca marche");
             }
         }
         private void GridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
