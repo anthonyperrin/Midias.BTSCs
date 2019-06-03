@@ -4,107 +4,109 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Midias.BTSCs.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Midias.BTSCsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adresse">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Rue1" Type="varchar" MaxLength="250" />
-          <Property Name="Rue2" Type="varchar" MaxLength="250" />
-          <Property Name="CodePostal" Type="varchar" MaxLength="10" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rue1" Type="varchar" MaxLength="255" />
+          <Property Name="Rue2" Type="varchar" MaxLength="255" />
+          <Property Name="CodePostal" Type="varchar" MaxLength="5" />
           <Property Name="Ville" Type="varchar" MaxLength="100" />
-          <Property Name="Pays" Type="varchar" MaxLength="250" />
+          <Property Name="Pays" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Libelle" Type="varchar" MaxLength="250" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="100" />
           <Property Name="Prenom" Type="varchar" MaxLength="100" />
-          <Property Name="IdAdresse" Type="int" />
+          <Property Name="IdAdresse" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Commande">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Libelle" Type="varchar" MaxLength="250" />
-          <Property Name="Etat" Type="int" />
-          <Property Name="DateCreation" Type="datetime" />
-          <Property Name="DateValidation" Type="datetime" />
-          <Property Name="IdClient" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="255" />
+          <Property Name="Etat" Type="int" Nullable="false" />
+          <Property Name="DateCreation" Type="datetime" Nullable="false" />
+          <Property Name="DateValidation" Type="datetime" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Livraison">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateLivraison" Type="datetime" />
-          <Property Name="IdAdresse" Type="int" />
-          <Property Name="IdCommande" Type="int" />
-          <Property Name="IdSalarie" Type="int" />
-          <Property Name="IdVehicule" Type="int" />
+          <Property Name="IdAdresse" Type="int" Nullable="false" />
+          <Property Name="IdCommande" Type="int" Nullable="false" />
+          <Property Name="IdSalarie" Type="int" Nullable="false" />
+          <Property Name="IdVehicule" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Mouvement">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantite" Type="int" />
-          <Property Name="DateCreation" Type="datetime" />
-          <Property Name="IdProduit" Type="int" />
+          <Property Name="DateCreation" Type="datetime" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Produit">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="varchar" MaxLength="100" />
           <Property Name="PrixHT" Type="float" />
-          <Property Name="Quantite" Type="int" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
           <Property Name="Taxe" Type="float" />
           <Property Name="IdCategorie" Type="int" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midias.BTSCs.dbo.ProduitCommande' ; en outre, aucune clé primaire valide n'a pu être déduite. Cette table/vue a été exclue. Pour utiliser l'entité, vous devez passer en revue votre schéma, ajouter les clés appropriées et supprimer le commentaire associé.
         <EntityType Name="ProduitCommande">
-          <Property Name="Quantite" Type="int" />
-          <Property Name="IdProduit" Type="int" />
-          <Property Name="IdCommande" Type="int" />
-        </EntityType>-->
+          <Key>
+            <PropertyRef Name="IdProduit" />
+            <PropertyRef Name="IdCommande" />
+          </Key>
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="IdProduit" Type="int" Nullable="false" />
+          <Property Name="IdCommande" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Salarie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="varchar" MaxLength="250" />
-          <Property Name="Prenom" Type="varchar" MaxLength="250" />
-          <Property Name="Valide" Type="bit" />
-          <Property Name="Permis" Type="varchar" MaxLength="250" />
-          <Property Name="Email" Type="varchar" MaxLength="250" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="255" />
+          <Property Name="Prenom" Type="varchar" MaxLength="255" />
+          <Property Name="Valide" Type="bit" Nullable="false" />
+          <Property Name="Permis" Type="varchar" MaxLength="1" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
           <Property Name="Telephone" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="Vehicule">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CarteGrise" Type="varchar" MaxLength="250" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarteGrise" Type="varchar" MaxLength="10" />
           <Property Name="Immatriculation" Type="varchar" MaxLength="10" />
           <Property Name="Modele" Type="varchar" MaxLength="50" />
           <Property Name="Marque" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Client_Adresse">
-          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+        <Association Name="FK__Client__IdAdress__49C3F6B7">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adresse">
@@ -115,8 +117,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Commande_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+        <Association Name="FK__Commande__IdClie__4D94879B">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
@@ -127,8 +129,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Adresse">
-          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdAdr__5441852A">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Adresse">
@@ -139,8 +141,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Commande">
-          <End Role="Commande" Type="Self.Commande" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdCom__5535A963">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Commande">
@@ -151,8 +153,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Salarie">
-          <End Role="Salarie" Type="Self.Salarie" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdSal__5629CD9C">
+          <End Role="Salarie" Type="Self.Salarie" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Salarie">
@@ -163,8 +165,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Vehicule">
-          <End Role="Vehicule" Type="Self.Vehicule" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdVeh__571DF1D5">
+          <End Role="Vehicule" Type="Self.Vehicule" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vehicule">
@@ -175,8 +177,8 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mouvement_Produit">
-          <End Role="Produit" Type="Self.Produit" Multiplicity="0..1" />
+        <Association Name="FK__Mouvement__IdPro__403A8C7D">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
           <End Role="Mouvement" Type="Self.Mouvement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Produit">
@@ -187,7 +189,7 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Produit_Categorie">
+        <Association Name="FK__Produit__IdCateg__3C69FB99">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
           <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,13 +201,31 @@ avertissement 6013: Aucune clé primaire n'est définie pour la table/vue 'Midia
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Erreurs détectées durant la génération :
-erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par une relation, mais elle est introuvable.
-        <Association Name="FK_ProduitCommmande_Commande" />-->
-        <!--Erreurs détectées durant la génération :
-erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par une relation, mais elle est introuvable.
-        <Association Name="FK_ProduitCommmande_Produit" />-->
-        <EntityContainer Name="MidiasBTSCsStoreContainer">
+        <Association Name="FK__ProduitCo__IdCom__5165187F">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="ProduitCommande" Type="Self.ProduitCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduitCommande">
+              <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProduitCo__IdPro__5070F446">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="ProduitCommande" Type="Self.ProduitCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduitCommande">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MidiasBTSCsModelStoreContainer">
           <EntitySet Name="Adresse" EntityType="Self.Adresse" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -213,66 +233,75 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <EntitySet Name="Livraison" EntityType="Self.Livraison" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mouvement" EntityType="Self.Mouvement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProduitCommande" EntityType="Self.ProduitCommande" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salarie" EntityType="Self.Salarie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicule" EntityType="Self.Vehicule" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Client_Adresse" Association="Self.FK_Client_Adresse">
+          <AssociationSet Name="FK__Client__IdAdress__49C3F6B7" Association="Self.FK__Client__IdAdress__49C3F6B7">
             <End Role="Adresse" EntitySet="Adresse" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="FK_Commande_Client" Association="Self.FK_Commande_Client">
+          <AssociationSet Name="FK__Commande__IdClie__4D94879B" Association="Self.FK__Commande__IdClie__4D94879B">
             <End Role="Client" EntitySet="Client" />
             <End Role="Commande" EntitySet="Commande" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Adresse" Association="Self.FK_Livraison_Adresse">
+          <AssociationSet Name="FK__Livraison__IdAdr__5441852A" Association="Self.FK__Livraison__IdAdr__5441852A">
             <End Role="Adresse" EntitySet="Adresse" />
             <End Role="Livraison" EntitySet="Livraison" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Commande" Association="Self.FK_Livraison_Commande">
+          <AssociationSet Name="FK__Livraison__IdCom__5535A963" Association="Self.FK__Livraison__IdCom__5535A963">
             <End Role="Commande" EntitySet="Commande" />
             <End Role="Livraison" EntitySet="Livraison" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Salarie" Association="Self.FK_Livraison_Salarie">
+          <AssociationSet Name="FK__Livraison__IdSal__5629CD9C" Association="Self.FK__Livraison__IdSal__5629CD9C">
             <End Role="Salarie" EntitySet="Salarie" />
             <End Role="Livraison" EntitySet="Livraison" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Vehicule" Association="Self.FK_Livraison_Vehicule">
+          <AssociationSet Name="FK__Livraison__IdVeh__571DF1D5" Association="Self.FK__Livraison__IdVeh__571DF1D5">
             <End Role="Vehicule" EntitySet="Vehicule" />
             <End Role="Livraison" EntitySet="Livraison" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mouvement_Produit" Association="Self.FK_Mouvement_Produit">
+          <AssociationSet Name="FK__Mouvement__IdPro__403A8C7D" Association="Self.FK__Mouvement__IdPro__403A8C7D">
             <End Role="Produit" EntitySet="Produit" />
             <End Role="Mouvement" EntitySet="Mouvement" />
           </AssociationSet>
-          <AssociationSet Name="FK_Produit_Categorie" Association="Self.FK_Produit_Categorie">
+          <AssociationSet Name="FK__Produit__IdCateg__3C69FB99" Association="Self.FK__Produit__IdCateg__3C69FB99">
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduitCo__IdCom__5165187F" Association="Self.FK__ProduitCo__IdCom__5165187F">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduitCo__IdPro__5070F446" Association="Self.FK__ProduitCo__IdPro__5070F446">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommande" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Midias.BTSCs" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Midias.BTSCsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adresse">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rue1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Rue2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="CodePostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Rue1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Rue2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CodePostal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Pays" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Adresse" FromRole="Adresse" ToRole="Client" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_Adresse" FromRole="Adresse" ToRole="Livraison" />
+          <Property Name="Pays" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Client__IdAdress__49C3F6B7" FromRole="Adresse" ToRole="Client" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdAdr__5441852A" FromRole="Adresse" ToRole="Livraison" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Libelle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Produit" Relationship="Self.FK_Produit_Categorie" FromRole="Categorie" ToRole="Produit" />
+          <Property Name="Libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Produits" Relationship="Self.FK__Produit__IdCateg__3C69FB99" FromRole="Categorie" ToRole="Produit" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -281,31 +310,38 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Adresse" Relationship="Self.FK_Client_Adresse" FromRole="Client" ToRole="Adresse" />
-          <NavigationProperty Name="Commande" Relationship="Self.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
+          <Property Name="IdAdresse" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresse" Relationship="Self.FK__Client__IdAdress__49C3F6B7" FromRole="Client" ToRole="Adresse" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Commande__IdClie__4D94879B" FromRole="Client" ToRole="Commande" />
         </EntityType>
         <EntityType Name="Commande">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Libelle" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Etat" Type="Int32" />
-          <Property Name="DateCreation" Type="DateTime" Precision="3" />
-          <Property Name="DateValidation" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Commande_Client" FromRole="Commande" ToRole="Client" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_Commande" FromRole="Commande" ToRole="Livraison" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="Int32" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateValidation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Commande__IdClie__4D94879B" FromRole="Commande" ToRole="Client" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdCom__5535A963" FromRole="Commande" ToRole="Livraison" />
+          <NavigationProperty Name="ProduitCommandes" Relationship="Self.FK__ProduitCo__IdCom__5165187F" FromRole="Commande" ToRole="ProduitCommande" />
         </EntityType>
         <EntityType Name="Livraison">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateLivraison" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Adresse" Relationship="Self.FK_Livraison_Adresse" FromRole="Livraison" ToRole="Adresse" />
-          <NavigationProperty Name="Commande" Relationship="Self.FK_Livraison_Commande" FromRole="Livraison" ToRole="Commande" />
-          <NavigationProperty Name="Salarie" Relationship="Self.FK_Livraison_Salarie" FromRole="Livraison" ToRole="Salarie" />
-          <NavigationProperty Name="Vehicule" Relationship="Self.FK_Livraison_Vehicule" FromRole="Livraison" ToRole="Vehicule" />
+          <Property Name="IdAdresse" Type="Int32" Nullable="false" />
+          <Property Name="IdCommande" Type="Int32" Nullable="false" />
+          <Property Name="IdSalarie" Type="Int32" Nullable="false" />
+          <Property Name="IdVehicule" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresse" Relationship="Self.FK__Livraison__IdAdr__5441852A" FromRole="Livraison" ToRole="Adresse" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK__Livraison__IdCom__5535A963" FromRole="Livraison" ToRole="Commande" />
+          <NavigationProperty Name="Salarie" Relationship="Self.FK__Livraison__IdSal__5629CD9C" FromRole="Livraison" ToRole="Salarie" />
+          <NavigationProperty Name="Vehicule" Relationship="Self.FK__Livraison__IdVeh__571DF1D5" FromRole="Livraison" ToRole="Vehicule" />
         </EntityType>
         <EntityType Name="Mouvement">
           <Key>
@@ -313,118 +349,229 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantite" Type="Int32" />
-          <Property Name="DateCreation" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Produit" Relationship="Self.FK_Mouvement_Produit" FromRole="Mouvement" ToRole="Produit" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produit" Relationship="Self.FK__Mouvement__IdPro__403A8C7D" FromRole="Mouvement" ToRole="Produit" />
         </EntityType>
         <EntityType Name="Produit">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PrixHT" Type="Double" />
-          <Property Name="Quantite" Type="Int32" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
           <Property Name="Taxe" Type="Double" />
-          <NavigationProperty Name="Categorie" Relationship="Self.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
-          <NavigationProperty Name="Mouvement" Relationship="Self.FK_Mouvement_Produit" FromRole="Produit" ToRole="Mouvement" />
+          <Property Name="IdCategorie" Type="Int32" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK__Produit__IdCateg__3C69FB99" FromRole="Produit" ToRole="Categorie" />
+          <NavigationProperty Name="Mouvements" Relationship="Self.FK__Mouvement__IdPro__403A8C7D" FromRole="Produit" ToRole="Mouvement" />
+          <NavigationProperty Name="ProduitCommandes" Relationship="Self.FK__ProduitCo__IdPro__5070F446" FromRole="Produit" ToRole="ProduitCommande" />
+        </EntityType>
+        <EntityType Name="ProduitCommande">
+          <Key>
+            <PropertyRef Name="IdProduit" />
+            <PropertyRef Name="IdCommande" />
+          </Key>
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="IdProduit" Type="Int32" Nullable="false" />
+          <Property Name="IdCommande" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK__ProduitCo__IdCom__5165187F" FromRole="ProduitCommande" ToRole="Commande" />
+          <NavigationProperty Name="Produit" Relationship="Self.FK__ProduitCo__IdPro__5070F446" FromRole="ProduitCommande" ToRole="Produit" />
         </EntityType>
         <EntityType Name="Salarie">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Prenom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Valide" Type="Boolean" />
-          <Property Name="Permis" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Valide" Type="Boolean" Nullable="false" />
+          <Property Name="Permis" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_Salarie" FromRole="Salarie" ToRole="Livraison" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdSal__5629CD9C" FromRole="Salarie" ToRole="Livraison" />
         </EntityType>
         <EntityType Name="Vehicule">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CarteGrise" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CarteGrise" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Immatriculation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Modele" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Marque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK_Livraison_Vehicule" FromRole="Vehicule" ToRole="Livraison" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdVeh__571DF1D5" FromRole="Vehicule" ToRole="Livraison" />
         </EntityType>
-        <Association Name="FK_Client_Adresse">
-          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+        <Association Name="FK__Client__IdAdress__49C3F6B7">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IdAdresse" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Adresse">
-          <End Role="Adresse" Type="Self.Adresse" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdAdr__5441852A">
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="IdAdresse" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Produit_Categorie">
+        <Association Name="FK__Produit__IdCateg__3C69FB99">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
           <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="IdCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Commande_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+        <Association Name="FK__Commande__IdClie__4D94879B">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Commande">
-          <End Role="Commande" Type="Self.Commande" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdCom__5535A963">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Salarie">
-          <End Role="Salarie" Type="Self.Salarie" Multiplicity="0..1" />
+        <Association Name="FK__ProduitCo__IdCom__5165187F">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="ProduitCommande" Type="Self.ProduitCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduitCommande">
+              <PropertyRef Name="IdCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Livraison__IdSal__5629CD9C">
+          <End Role="Salarie" Type="Self.Salarie" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salarie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="IdSalarie" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Livraison_Vehicule">
-          <End Role="Vehicule" Type="Self.Vehicule" Multiplicity="0..1" />
+        <Association Name="FK__Livraison__IdVeh__571DF1D5">
+          <End Role="Vehicule" Type="Self.Vehicule" Multiplicity="1" />
           <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="IdVehicule" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mouvement_Produit">
-          <End Role="Produit" Type="Self.Produit" Multiplicity="0..1" />
+        <Association Name="FK__Mouvement__IdPro__403A8C7D">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
           <End Role="Mouvement" Type="Self.Mouvement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mouvement">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BTSCs" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Adresse" EntityType="Self.Adresse" />
-          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Commande" EntityType="Self.Commande" />
-          <EntitySet Name="Livraison" EntityType="Self.Livraison" />
-          <EntitySet Name="Mouvement" EntityType="Self.Mouvement" />
-          <EntitySet Name="Produit" EntityType="Self.Produit" />
-          <EntitySet Name="Salarie" EntityType="Self.Salarie" />
-          <EntitySet Name="Vehicule" EntityType="Self.Vehicule" />
-          <AssociationSet Name="FK_Client_Adresse" Association="Self.FK_Client_Adresse">
-            <End Role="Adresse" EntitySet="Adresse" />
-            <End Role="Client" EntitySet="Client" />
+        <Association Name="FK__ProduitCo__IdPro__5070F446">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="ProduitCommande" Type="Self.ProduitCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProduitCommande">
+              <PropertyRef Name="IdProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresses" EntityType="Self.Adresse" />
+          <EntitySet Name="Categories" EntityType="Self.Categorie" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Commandes" EntityType="Self.Commande" />
+          <EntitySet Name="Livraisons" EntityType="Self.Livraison" />
+          <EntitySet Name="Mouvements" EntityType="Self.Mouvement" />
+          <EntitySet Name="Produits" EntityType="Self.Produit" />
+          <EntitySet Name="ProduitCommandes" EntityType="Self.ProduitCommande" />
+          <EntitySet Name="Salaries" EntityType="Self.Salarie" />
+          <EntitySet Name="Vehicules" EntityType="Self.Vehicule" />
+          <AssociationSet Name="FK__Client__IdAdress__49C3F6B7" Association="Self.FK__Client__IdAdress__49C3F6B7">
+            <End Role="Adresse" EntitySet="Adresses" />
+            <End Role="Client" EntitySet="Clients" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Adresse" Association="Self.FK_Livraison_Adresse">
-            <End Role="Adresse" EntitySet="Adresse" />
-            <End Role="Livraison" EntitySet="Livraison" />
+          <AssociationSet Name="FK__Livraison__IdAdr__5441852A" Association="Self.FK__Livraison__IdAdr__5441852A">
+            <End Role="Adresse" EntitySet="Adresses" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
-          <AssociationSet Name="FK_Produit_Categorie" Association="Self.FK_Produit_Categorie">
-            <End Role="Categorie" EntitySet="Categorie" />
-            <End Role="Produit" EntitySet="Produit" />
+          <AssociationSet Name="FK__Produit__IdCateg__3C69FB99" Association="Self.FK__Produit__IdCateg__3C69FB99">
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="Produit" EntitySet="Produits" />
           </AssociationSet>
-          <AssociationSet Name="FK_Commande_Client" Association="Self.FK_Commande_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Commande" EntitySet="Commande" />
+          <AssociationSet Name="FK__Commande__IdClie__4D94879B" Association="Self.FK__Commande__IdClie__4D94879B">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Commande" EntitySet="Commandes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Commande" Association="Self.FK_Livraison_Commande">
-            <End Role="Commande" EntitySet="Commande" />
-            <End Role="Livraison" EntitySet="Livraison" />
+          <AssociationSet Name="FK__Livraison__IdCom__5535A963" Association="Self.FK__Livraison__IdCom__5535A963">
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Salarie" Association="Self.FK_Livraison_Salarie">
-            <End Role="Salarie" EntitySet="Salarie" />
-            <End Role="Livraison" EntitySet="Livraison" />
+          <AssociationSet Name="FK__ProduitCo__IdCom__5165187F" Association="Self.FK__ProduitCo__IdCom__5165187F">
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommandes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Livraison_Vehicule" Association="Self.FK_Livraison_Vehicule">
-            <End Role="Vehicule" EntitySet="Vehicule" />
-            <End Role="Livraison" EntitySet="Livraison" />
+          <AssociationSet Name="FK__Livraison__IdSal__5629CD9C" Association="Self.FK__Livraison__IdSal__5629CD9C">
+            <End Role="Salarie" EntitySet="Salaries" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mouvement_Produit" Association="Self.FK_Mouvement_Produit">
-            <End Role="Produit" EntitySet="Produit" />
-            <End Role="Mouvement" EntitySet="Mouvement" />
+          <AssociationSet Name="FK__Livraison__IdVeh__571DF1D5" Association="Self.FK__Livraison__IdVeh__571DF1D5">
+            <End Role="Vehicule" EntitySet="Vehicules" />
+            <End Role="Livraison" EntitySet="Livraisons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mouvement__IdPro__403A8C7D" Association="Self.FK__Mouvement__IdPro__403A8C7D">
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="Mouvement" EntitySet="Mouvements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProduitCo__IdPro__5070F446" Association="Self.FK__ProduitCo__IdPro__5070F446">
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommandes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -432,9 +579,9 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MidiasBTSCsStoreContainer" CdmEntityContainer="BTSCs">
-          <EntitySetMapping Name="Adresse">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Adresse">
+        <EntityContainerMapping StorageEntityContainer="MidiasBTSCsModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Adresses">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Adresse">
               <MappingFragment StoreEntitySet="Adresse">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Rue1" ColumnName="Rue1" />
@@ -445,64 +592,81 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categorie">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Categorie">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Categorie">
               <MappingFragment StoreEntitySet="Categorie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Client">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="IdAdresse" ColumnName="IdAdresse" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Commande">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Commande">
+          <EntitySetMapping Name="Commandes">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Commande">
               <MappingFragment StoreEntitySet="Commande">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="Etat" ColumnName="Etat" />
                 <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
                 <ScalarProperty Name="DateValidation" ColumnName="DateValidation" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Livraison">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Livraison">
+          <EntitySetMapping Name="Livraisons">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Livraison">
               <MappingFragment StoreEntitySet="Livraison">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DateLivraison" ColumnName="DateLivraison" />
+                <ScalarProperty Name="IdAdresse" ColumnName="IdAdresse" />
+                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+                <ScalarProperty Name="IdSalarie" ColumnName="IdSalarie" />
+                <ScalarProperty Name="IdVehicule" ColumnName="IdVehicule" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mouvement">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Mouvement">
+          <EntitySetMapping Name="Mouvements">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Mouvement">
               <MappingFragment StoreEntitySet="Mouvement">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
                 <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Produit">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Produit">
+          <EntitySetMapping Name="Produits">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Produit">
               <MappingFragment StoreEntitySet="Produit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
                 <ScalarProperty Name="PrixHT" ColumnName="PrixHT" />
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
                 <ScalarProperty Name="Taxe" ColumnName="Taxe" />
+                <ScalarProperty Name="IdCategorie" ColumnName="IdCategorie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Salarie">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Salarie">
+          <EntitySetMapping Name="ProduitCommandes">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.ProduitCommande">
+              <MappingFragment StoreEntitySet="ProduitCommande">
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="IdProduit" ColumnName="IdProduit" />
+                <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salaries">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Salarie">
               <MappingFragment StoreEntitySet="Salarie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
@@ -514,8 +678,8 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vehicule">
-            <EntityTypeMapping TypeName="Midias.BTSCs.Vehicule">
+          <EntitySetMapping Name="Vehicules">
+            <EntityTypeMapping TypeName="Midias.BTSCsModel.Vehicule">
               <MappingFragment StoreEntitySet="Vehicule">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CarteGrise" ColumnName="CarteGrise" />
@@ -525,78 +689,6 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FK_Client_Adresse" TypeName="Midias.BTSCs.FK_Client_Adresse" StoreEntitySet="Client">
-            <EndProperty Name="Adresse">
-              <ScalarProperty Name="Id" ColumnName="IdAdresse" />
-            </EndProperty>
-            <EndProperty Name="Client">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdAdresse" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Livraison_Adresse" TypeName="Midias.BTSCs.FK_Livraison_Adresse" StoreEntitySet="Livraison">
-            <EndProperty Name="Adresse">
-              <ScalarProperty Name="Id" ColumnName="IdAdresse" />
-            </EndProperty>
-            <EndProperty Name="Livraison">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdAdresse" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Produit_Categorie" TypeName="Midias.BTSCs.FK_Produit_Categorie" StoreEntitySet="Produit">
-            <EndProperty Name="Categorie">
-              <ScalarProperty Name="Id" ColumnName="IdCategorie" />
-            </EndProperty>
-            <EndProperty Name="Produit">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdCategorie" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Commande_Client" TypeName="Midias.BTSCs.FK_Commande_Client" StoreEntitySet="Commande">
-            <EndProperty Name="Client">
-              <ScalarProperty Name="Id" ColumnName="IdClient" />
-            </EndProperty>
-            <EndProperty Name="Commande">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdClient" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Livraison_Commande" TypeName="Midias.BTSCs.FK_Livraison_Commande" StoreEntitySet="Livraison">
-            <EndProperty Name="Commande">
-              <ScalarProperty Name="Id" ColumnName="IdCommande" />
-            </EndProperty>
-            <EndProperty Name="Livraison">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdCommande" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Livraison_Salarie" TypeName="Midias.BTSCs.FK_Livraison_Salarie" StoreEntitySet="Livraison">
-            <EndProperty Name="Salarie">
-              <ScalarProperty Name="Id" ColumnName="IdSalarie" />
-            </EndProperty>
-            <EndProperty Name="Livraison">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdSalarie" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Livraison_Vehicule" TypeName="Midias.BTSCs.FK_Livraison_Vehicule" StoreEntitySet="Livraison">
-            <EndProperty Name="Vehicule">
-              <ScalarProperty Name="Id" ColumnName="IdVehicule" />
-            </EndProperty>
-            <EndProperty Name="Livraison">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdVehicule" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Mouvement_Produit" TypeName="Midias.BTSCs.FK_Mouvement_Produit" StoreEntitySet="Mouvement">
-            <EndProperty Name="Produit">
-              <ScalarProperty Name="Id" ColumnName="IdProduit" />
-            </EndProperty>
-            <EndProperty Name="Mouvement">
-              <ScalarProperty Name="Id" ColumnName="Id" />
-            </EndProperty>
-            <Condition IsNull="false" ColumnName="IdProduit" />
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -611,8 +703,8 @@ erreur 6004: La table 'Midias.BTSCs.dbo.ProduitCommande' est référencée par u
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
       </DesignerInfoPropertySet>

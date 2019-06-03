@@ -97,41 +97,6 @@
     <Compile Include="UserControls\VehiculeUC.Designer.cs">
       <DependentUpon>VehiculeUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="_Midias_BTSCsDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet4.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet5.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="_Midias_BTSCsDataSet6.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Midias_BTSCsDataSet6.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +129,9 @@
       <DependentUpon>VehiculeUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.AdresseDto.datasource" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.CategorieDto.datasource" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.ClientDto.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.ProduitDto.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.VehiculeDto.datasource" />
     <None Include="Properties\Settings.settings">
@@ -175,83 +143,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="_Midias_BTSCsDataSet.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet.xss">
-      <DependentUpon>_Midias_BTSCsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet1.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet1.xss">
-      <DependentUpon>_Midias_BTSCsDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet2.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet2.xss">
-      <DependentUpon>_Midias_BTSCsDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet3.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet3.xss">
-      <DependentUpon>_Midias_BTSCsDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet4.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet4.xss">
-      <DependentUpon>_Midias_BTSCsDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet5.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet5.xss">
-      <DependentUpon>_Midias_BTSCsDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet6.xsc">
-      <DependentUpon>_Midias_BTSCsDataSet6.xsd</DependentUpon>
-    </None>
-    <None Include="_Midias_BTSCsDataSet6.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_Midias_BTSCsDataSet6.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_Midias_BTSCsDataSet6.xss">
-      <DependentUpon>_Midias_BTSCsDataSet6.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

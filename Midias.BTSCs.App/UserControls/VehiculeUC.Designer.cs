@@ -30,18 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carteGriseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.immatriculationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marqueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Suppression = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.vehiculeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.midiasBTSCsDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Midias_BTSCsDataSet = new Midias.BTSCs.App._Midias_BTSCsDataSet();
             this.vehiculeDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiculeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiculeTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSetTableAdapters.VehiculeTableAdapter();
             this.AddButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,12 +43,13 @@
             this.marqueText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -66,13 +57,13 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.carteGriseDataGridViewTextBoxColumn,
-            this.immatriculationDataGridViewTextBoxColumn,
-            this.modeleDataGridViewTextBoxColumn,
-            this.marqueDataGridViewTextBoxColumn,
-            this.Suppression});
-            this.dataGridView1.DataSource = this.vehiculeBindingSource1;
+            this.Suppression,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridView1.DataSource = this.vehiculeDtoBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(2, 28);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -82,39 +73,6 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellEndEdit);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // carteGriseDataGridViewTextBoxColumn
-            // 
-            this.carteGriseDataGridViewTextBoxColumn.DataPropertyName = "CarteGrise";
-            this.carteGriseDataGridViewTextBoxColumn.HeaderText = "CarteGrise";
-            this.carteGriseDataGridViewTextBoxColumn.Name = "carteGriseDataGridViewTextBoxColumn";
-            // 
-            // immatriculationDataGridViewTextBoxColumn
-            // 
-            this.immatriculationDataGridViewTextBoxColumn.DataPropertyName = "Immatriculation";
-            this.immatriculationDataGridViewTextBoxColumn.HeaderText = "Immatriculation";
-            this.immatriculationDataGridViewTextBoxColumn.Name = "immatriculationDataGridViewTextBoxColumn";
-            // 
-            // modeleDataGridViewTextBoxColumn
-            // 
-            this.modeleDataGridViewTextBoxColumn.DataPropertyName = "Modele";
-            this.modeleDataGridViewTextBoxColumn.HeaderText = "Modele";
-            this.modeleDataGridViewTextBoxColumn.Name = "modeleDataGridViewTextBoxColumn";
-            // 
-            // marqueDataGridViewTextBoxColumn
-            // 
-            this.marqueDataGridViewTextBoxColumn.DataPropertyName = "Marque";
-            this.marqueDataGridViewTextBoxColumn.HeaderText = "Marque";
-            this.marqueDataGridViewTextBoxColumn.Name = "marqueDataGridViewTextBoxColumn";
-            // 
             // Suppression
             // 
             this.Suppression.HeaderText = "Suppression";
@@ -122,33 +80,9 @@
             this.Suppression.Text = "Supprimer";
             this.Suppression.UseColumnTextForButtonValue = true;
             // 
-            // vehiculeBindingSource1
-            // 
-            this.vehiculeBindingSource1.DataMember = "Vehicule";
-            this.vehiculeBindingSource1.DataSource = this.midiasBTSCsDataSetBindingSource;
-            // 
-            // midiasBTSCsDataSetBindingSource
-            // 
-            this.midiasBTSCsDataSetBindingSource.DataSource = this._Midias_BTSCsDataSet;
-            this.midiasBTSCsDataSetBindingSource.Position = 0;
-            // 
-            // _Midias_BTSCsDataSet
-            // 
-            this._Midias_BTSCsDataSet.DataSetName = "_Midias_BTSCsDataSet";
-            this._Midias_BTSCsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // vehiculeDtoBindingSource
             // 
             this.vehiculeDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.VehiculeDto);
-            // 
-            // vehiculeBindingSource
-            // 
-            this.vehiculeBindingSource.DataMember = "Vehicule";
-            this.vehiculeBindingSource.DataSource = this._Midias_BTSCsDataSet;
-            // 
-            // vehiculeTableAdapter
-            // 
-            this.vehiculeTableAdapter.ClearBeforeFill = true;
             // 
             // AddButton
             // 
@@ -241,6 +175,36 @@
             this.textBox1.TabIndex = 11;
             this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CarteGrise";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CarteGrise";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Immatriculation";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Immatriculation";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Modele";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Modele";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Marque";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Marque";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
             // VehiculeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,11 +226,7 @@
             this.Size = new System.Drawing.Size(886, 532);
             this.Load += new System.EventHandler(this.VehiculeUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.midiasBTSCsDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiculeDtoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiculeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,11 +236,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource vehiculeDtoBindingSource;
-        private System.Windows.Forms.BindingSource vehiculeBindingSource;
-        private _Midias_BTSCsDataSet _Midias_BTSCsDataSet;
-        private _Midias_BTSCsDataSetTableAdapters.VehiculeTableAdapter vehiculeTableAdapter;
-        private System.Windows.Forms.BindingSource vehiculeBindingSource1;
-        private System.Windows.Forms.BindingSource midiasBTSCsDataSetBindingSource;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -290,13 +245,13 @@
         private System.Windows.Forms.TextBox immatText;
         private System.Windows.Forms.TextBox modeleText;
         private System.Windows.Forms.TextBox marqueText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn carteGriseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn immatriculationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modeleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn marqueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Suppression;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

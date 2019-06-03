@@ -12,18 +12,13 @@ namespace Midias.BTSCs.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Livraison
+    public partial class ProduitCommande
     {
-        public int Id { get; set; }
-        public Nullable<System.DateTime> DateLivraison { get; set; }
-        public int IdAdresse { get; set; }
+        public int Quantite { get; set; }
+        public int IdProduit { get; set; }
         public int IdCommande { get; set; }
-        public int IdSalarie { get; set; }
-        public int IdVehicule { get; set; }
     
-        public virtual Adresse Adresse { get; set; }
         public virtual Commande Commande { get; set; }
-        public virtual Salarie Salarie { get; set; }
-        public virtual Vehicule Vehicule { get; set; }
+        public virtual Produit Produit { get; set; }
     }
 }

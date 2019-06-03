@@ -4,24 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bfe3c443e631495cb7feb3dc05f57a6b" Name="Diagram1">
-        <EntityTypeShape EntityType="Midias.BTSCs.Adresse" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Categorie" Width="1.5" PointX="7.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Client" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Commande" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Livraison" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Mouvement" Width="1.5" PointX="12.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Produit" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Salarie" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Midias.BTSCs.Vehicule" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Client_Adresse" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Livraison_Adresse" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Produit_Categorie" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Commande_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Livraison_Commande" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Livraison_Salarie" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Livraison_Vehicule" ManuallyRouted="false" />
-        <AssociationConnector Association="Midias.BTSCs.FK_Mouvement_Produit" ManuallyRouted="false" />
+      <Diagram DiagramId="4fd7115442904045a49212cd57ed35ca" Name="Diagram1">
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Adresse" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Categorie" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Client" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Commande" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Livraison" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Mouvement" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Produit" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.ProduitCommande" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Salarie" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Midias.BTSCsModel.Vehicule" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Client__IdAdress__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Livraison__IdAdr__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Produit__IdCateg__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Commande__IdClie__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Livraison__IdCom__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__ProduitCo__IdCom__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Livraison__IdSal__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Livraison__IdVeh__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__Mouvement__IdPro__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Midias.BTSCsModel.FK__ProduitCo__IdPro__5070F446" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

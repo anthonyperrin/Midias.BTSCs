@@ -75,7 +75,7 @@ namespace Midias.BTSCs.Services.Services
             Mouvement mouv = new Mouvement();
             mouv.Produit = Context.Produit.Where(m => m.Id == mouvement.Produit.Id).FirstOrDefault();
             mouv.Quantite = mouvement.Quantite;
-            mouv.DateCreation = mouvement.DateCreation;
+            mouv.DateCreation = (DateTime) mouvement.DateCreation;
             Context.Mouvement.Add(mouv);
             Context.SaveChanges();
         }
@@ -85,7 +85,7 @@ namespace Midias.BTSCs.Services.Services
             var mouvement = Context.Mouvement.Where(p => p.Id == mouvementDto.Id).FirstOrDefault(); ;
 
             mouvement.Quantite = mouvementDto.Quantite;
-            mouvement.DateCreation = mouvementDto.DateCreation;
+            mouvement.DateCreation = (DateTime) mouvementDto.DateCreation;
 
             Context.SaveChanges();
 

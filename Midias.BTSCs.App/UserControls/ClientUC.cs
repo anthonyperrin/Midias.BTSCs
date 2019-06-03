@@ -22,6 +22,12 @@ namespace Midias.BTSCs.App.UserControls
         public ClientUC()
         {
             InitializeComponent();
+
+            var adresses = _adressesService.GetAdresses().ToList();
+            comboBoxAdresses.DataSource = adresses;
+
+            comboBoxAdresses.DropDownStyle = ComboBoxStyle.DropDownList;
+
             this.UpdateDataGrid();
             
         }
@@ -48,7 +54,7 @@ namespace Midias.BTSCs.App.UserControls
             }
             gridClients.AllowUserToAddRows = false;
 
-            comboBox1.DataSource = adresses;
+            comboBoxAdresses.DataSource = adresses;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -70,7 +76,7 @@ namespace Midias.BTSCs.App.UserControls
                 textBox4.ResetText();
                 textBox5.ResetText();
 
-                comboBox1.DataSource = _adressesService.GetAdresses();
+                comboBoxAdresses.DataSource = _adressesService.GetAdresses();
             }
         }
 
@@ -78,7 +84,7 @@ namespace Midias.BTSCs.App.UserControls
         {
             if (!String.IsNullOrEmpty(textBox6.Text) && !String.IsNullOrEmpty(textBox7.Text))
             {
-                AdresseDto adresse = _adressesService.GetAdresses().Where(c => c.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
+                AdresseDto adresse = _adressesService.GetAdresses().Where(c => c.Id == Convert.ToInt32(comboBoxAdresses.SelectedValue)).FirstOrDefault();
 
                 ClientDto client = new ClientDto();
                 client.Nom = textBox6.Text;

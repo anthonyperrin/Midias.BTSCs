@@ -67,7 +67,7 @@ namespace Midias.BTSCs.Services.Services
                     Nom = commande.Client.Nom,
                     Prenom = commande.Client.Prenom
                 },
-                Livraison = commande.Livraison.Select(l => new LivraisonDto()
+                Livraison = commande.Livraisons.Select(l => new LivraisonDto()
                 {
                     Id = l.Id,
                     DateLivraison = l.DateLivraison
@@ -81,15 +81,10 @@ namespace Midias.BTSCs.Services.Services
             {
                 Id = commande.Id,
                 Libelle = commande.Libelle,
-                Etat = commande.Etat,
-                DateCreation = commande.DateCreation,
-                DateValidation = commande.DateValidation,
-                Client = new Client()
-                {
-                    Id = commande.Client.Id,
-                    Nom = commande.Client.Nom,
-                    Prenom = commande.Client.Prenom
-                }
+                Etat = (int) commande.Etat,
+                DateCreation = (DateTime) commande.DateCreation,
+                DateValidation = (DateTime) commande.DateValidation,
+                Client = Context.Client.Where(c => c.Id == commande.Client.Id).FirstOrDefault()
             });
             Context.SaveChanges();
         }
@@ -99,11 +94,10 @@ namespace Midias.BTSCs.Services.Services
             var commande = Context.Commande.Where(p => p.Id == commandeDto.Id).FirstOrDefault(); ;
 
             commande.Libelle = commandeDto.Libelle;
-            commande.Etat = commandeDto.Etat;
-            commande.DateCreation = commandeDto.DateCreation;
-            commande.DateValidation = commandeDto.DateValidation;
+            commande.Etat = (int) commandeDto.Etat;
+            commande.DateCreation = (DateTime) commandeDto.DateCreation;
+            commande.DateValidation = (DateTime) commandeDto.DateValidation;
             
-
             Context.SaveChanges();
 
             return commandeDto;

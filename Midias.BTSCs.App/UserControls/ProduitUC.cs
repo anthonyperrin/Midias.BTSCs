@@ -26,6 +26,14 @@ namespace Midias.BTSCs.App.UserControls
         {
             InitializeComponent();
 
+            var categories = _categorieService.GetCategories().ToList();
+            comboBoxCategories.DataSource = categories;
+            var products = _produitsService.GetProduits().ToList();
+            comboBoxProducts.DataSource = products;
+
+            comboBoxCategories.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProducts.DropDownStyle = ComboBoxStyle.DropDownList;
+
             this.UpdateDataGrid();
             
             gridProducts.Columns[0].Width = 30;
@@ -58,7 +66,7 @@ namespace Midias.BTSCs.App.UserControls
             if (!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text) && !String.IsNullOrEmpty(textBox3.Text) && !String.IsNullOrEmpty(textBox4.Text))
             {
                 var categories = _categorieService.GetCategories();
-                CategorieDto cat = categories.Where(c => c.Id == Convert.ToInt32(comboBox1.SelectedValue)).FirstOrDefault();
+                CategorieDto cat = categories.Where(c => c.Id == Convert.ToInt32(comboBoxCategories.SelectedValue)).FirstOrDefault();
                 ProduitDto prod = new ProduitDto()
                 {
                     Libelle = textBox1.Text,
@@ -84,8 +92,8 @@ namespace Midias.BTSCs.App.UserControls
             ProduitDto[] produits = _produitsService.GetProduits().ToArray();
             var categories = _categorieService.GetCategories();
 
-            this.comboBox1.DataSource = categories;
-            this.comboBox2.DataSource = produits;
+            this.comboBoxCategories.DataSource = categories;
+            this.comboBoxProducts.DataSource = produits;
 
             string[] excludedValues = new string[] { "Mouvements" };
             if (produits.Length > 0)
@@ -99,7 +107,7 @@ namespace Midias.BTSCs.App.UserControls
         {
             if (!String.IsNullOrEmpty(stokTextBox.Text))
             {
-                ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBox2.SelectedValue)).FirstOrDefault();
+                ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBoxProducts.SelectedValue)).FirstOrDefault();
                 Debug.WriteLine(prod.Id);
                 MouvementDto mouv = new MouvementDto();
                 mouv.Produit = prod;
@@ -152,9 +160,9 @@ namespace Midias.BTSCs.App.UserControls
                 {
                     MessageBox.Show("Il n'y a pas de mouvements");
                 }
-                
             }
         }
+
         private void GridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -172,7 +180,6 @@ namespace Midias.BTSCs.App.UserControls
 
                 ProduitDto[] produits = _produitsService.GetProduits().Where(p => p.Libelle.ToUpper().Contains(textBox5.Text.ToUpper()) || p.Categorie.Libelle.ToUpper().Contains(textBox5.Text.ToUpper())).ToArray();
                 var categories = _categorieService.GetCategories();
-
 
                 string[] excludedValues = new string[] { "Mouvements" };
                 if (produits.Length > 0)

@@ -17,17 +17,21 @@ namespace Midias.BTSCs.Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Commande()
         {
-            this.Livraison = new HashSet<Livraison>();
+            this.Livraisons = new HashSet<Livraison>();
+            this.ProduitCommandes = new HashSet<ProduitCommande>();
         }
     
         public int Id { get; set; }
         public string Libelle { get; set; }
-        public Nullable<int> Etat { get; set; }
-        public Nullable<System.DateTime> DateCreation { get; set; }
-        public Nullable<System.DateTime> DateValidation { get; set; }
+        public int Etat { get; set; }
+        public System.DateTime DateCreation { get; set; }
+        public System.DateTime DateValidation { get; set; }
+        public int IdClient { get; set; }
     
         public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Livraison> Livraison { get; set; }
+        public virtual ICollection<Livraison> Livraisons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProduitCommande> ProduitCommandes { get; set; }
     }
 }
