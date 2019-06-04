@@ -178,7 +178,8 @@ namespace Midias.BTSCs.App.UserControls
             else
             {
 
-                ProduitDto[] produits = _produitsService.GetProduits().Where(p => p.Libelle.ToUpper().Contains(textBox5.Text.ToUpper()) || p.Categorie.Libelle.ToUpper().Contains(textBox5.Text.ToUpper())).ToArray();
+                ProduitDto[] produits = _produitsService.GetProduits().Where(p => p.Libelle.ToUpper().Contains(textBox5.Text.ToUpper())).ToArray();
+                //ProduitDto[] produits = _produitsService.GetProduits().Where(p => p.Libelle.ToUpper().Contains(textBox5.Text.ToUpper()) || p.Categorie.Libelle.ToUpper().Contains(textBox5.Text.ToUpper())).ToArray();
                 var categories = _categorieService.GetCategories();
 
                 string[] excludedValues = new string[] { "Mouvements" };

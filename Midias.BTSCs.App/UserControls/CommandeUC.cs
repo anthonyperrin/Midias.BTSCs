@@ -43,9 +43,7 @@ namespace Midias.BTSCs.App.UserControls
             comboBoxClient.DataSource = clients;
             if (commandes.Length > 0)
             {
-                string[] excludedValues = new string[] { "Client", "Livraison", "ProduitCommandes"};
-
-                gridCommandes = _tools.GenerateGrid(gridCommandes, commandes, excludedValues);
+                UpdateDataGrid();
 
                 gridCommandes.Columns[0].Width = 30;
                 gridCommandes.Columns[0].ReadOnly = true;
@@ -293,7 +291,8 @@ namespace Midias.BTSCs.App.UserControls
             else
             {
 
-                CommandeDto[] commandes = _commandesService.GetCommandes().Where(c => c.Libelle.ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateCreation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateValidation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.Etat.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper())).ToArray();
+                CommandeDto[] commandes = _commandesService.GetCommandes().Where(c => c.Libelle.ToUpper().Contains(textBoxSearch.Text.ToUpper())).ToArray();
+                //CommandeDto[] commandes = _commandesService.GetCommandes().Where(c => c.Libelle.ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateCreation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateValidation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.Etat.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper())).ToArray();
 
                 string[] excludedValues = new string[] { "Client", "Livraison", "ProduitCommandes" };
                 if (commandes.Length > 0)

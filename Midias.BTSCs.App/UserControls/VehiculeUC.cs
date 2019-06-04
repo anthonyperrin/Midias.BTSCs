@@ -97,8 +97,10 @@ namespace Midias.BTSCs.App.UserControls
             }
             else
             {
-                var vehicules = _vehiculesService.GetVehicules().Where(v => (v.Immatriculation.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.Marque.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.Modele.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.CarteGrise.ToUpper().Contains(textBox1.Text.ToUpper()))).ToList();
+                var vehicules = _vehiculesService.GetVehicules().Where(v => v.Immatriculation.ToUpper().Contains(textBox1.Text.ToUpper())).ToList();
                 dataGridView1.DataSource = vehicules;
+                //var vehicules = _vehiculesService.GetVehicules().Where(v => (v.Immatriculation.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.Marque.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.Modele.ToUpper().Contains(textBox1.Text.ToUpper())) || (v.CarteGrise.ToUpper().Contains(textBox1.Text.ToUpper()))).ToList();
+                //dataGridView1.DataSource = vehicules;
             }
         }
     }

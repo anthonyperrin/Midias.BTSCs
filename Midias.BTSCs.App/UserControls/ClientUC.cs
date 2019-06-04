@@ -121,7 +121,8 @@ namespace Midias.BTSCs.App.UserControls
             else
             {
 
-                ClientDto[] clients = _clientsService.GetClients().Where(c => c.Nom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Prenom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Rue1.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Ville.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.CodePostal.ToUpper().Contains(textBox8.Text.ToUpper())).ToArray();
+                ClientDto[] clients = _clientsService.GetClients().Where(c => c.Nom.ToUpper().Contains(textBox8.Text.ToUpper())).ToArray();
+                //ClientDto[] clients = _clientsService.GetClients().Where(c => c.Nom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Prenom.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Rue1.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.Ville.ToUpper().Contains(textBox8.Text.ToUpper()) || c.Adresse.CodePostal.ToUpper().Contains(textBox8.Text.ToUpper())).ToArray();
                 List<AdresseDto> adresses = _adressesService.GetAdresses();
 
 

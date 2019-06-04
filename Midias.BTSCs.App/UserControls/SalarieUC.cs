@@ -91,7 +91,8 @@ namespace Midias.BTSCs.App.UserControls
             else
             {
 
-                SalarieDto[] salaries = _salarieService.GetSalaries().Where(s => s.Nom.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Prenom.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Email.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Telephone.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Permis.ToUpper().Contains(textBox1.Text.ToUpper()) ).ToArray();
+                SalarieDto[] salaries = _salarieService.GetSalaries().Where(s => s.Nom.ToUpper().Contains(textBox1.Text.ToUpper())).ToArray();
+                //SalarieDto[] salaries = _salarieService.GetSalaries().Where(s => s.Nom.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Prenom.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Email.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Telephone.ToUpper().Contains(textBox1.Text.ToUpper()) || s.Permis.ToUpper().Contains(textBox1.Text.ToUpper())).ToArray();
                 gridSalaries.Rows.Clear();
                 gridSalaries = _tools.GenerateGrid(gridSalaries, salaries, excludedValues);
             }
