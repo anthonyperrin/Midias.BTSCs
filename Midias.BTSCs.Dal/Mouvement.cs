@@ -16,7 +16,8 @@ namespace Midias.BTSCs.Dal
     {
         public int Id { get; set; }
         public Nullable<int> Quantite { get; set; }
-        public Nullable<System.DateTime> DateCreation { get; set; }
+        public System.DateTime DateCreation { get; set; }
+        public int IdProduit { get; set; }
     
         public virtual Produit Produit { get; set; }
     }

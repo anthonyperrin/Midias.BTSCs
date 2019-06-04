@@ -18,16 +18,20 @@ namespace Midias.BTSCs.Dal
         public Produit()
         {
             this.Mouvement = new HashSet<Mouvement>();
+            this.ProduitCommande = new HashSet<ProduitCommande>();
         }
     
         public int Id { get; set; }
         public string Libelle { get; set; }
         public Nullable<double> PrixHT { get; set; }
-        public Nullable<int> Quantite { get; set; }
+        public int Quantite { get; set; }
         public Nullable<double> Taxe { get; set; }
+        public Nullable<int> IdCategorie { get; set; }
     
         public virtual Categorie Categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mouvement> Mouvement { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProduitCommande> ProduitCommande { get; set; }
     }
 }
