@@ -90,3 +90,42 @@ create table Livraison (
 	IdSalarie int not null foreign key references Salarie(Id),
 	IdVehicule int not null foreign key references Vehicule(Id)
 	);
+
+--ssssssss
+CREATE TRIGGER CommandeProduitUpdate ON Commande
+AFTER UPDATE
+AS
+DECLARE @idCom int, @idPro int, @quanti int;
+DECLARE vendor_cursor CURSOR FOR
+SELECT ProduitCommande.Quantite, ProduitCommande.IdProduit FROM ProduitCommande, inserted WHERE ProduitCommande.IdCommande = inserted.Id;
+OPEN vendor_cursor
+
+FETCH NEXT FROM vendor_cursor
+INTO @quanti, @idPro
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    IF (SELECT inserted.Etat FROM inserted) = 1
+        UPDATE Produit SET Produit.Quantite = Produit.Quantite - @quanti WHERE @idPro = Produit.Id
+
+
+    FETCH NEXT FROM vendor_cursor
+    INTO @quanti, @idPro
+END
+CLOSE vendor_cursor;
+DEALLOCATE vendor_cursor;
+
+--
+CREATE TRIGGER mouvementProduit ON Mouvement
+AFTER INSERT
+AS
+BEGIN
+UPDATE Produit SET Produit.Quantite = Produit.Quantite + inserted.Quantite FROM inserted WHERE inserted.IdProduit = Produit.Id
+END;
+
+--
+CREATE TRIGGER mouvementProduitUpdate ON Mouvement
+AFTER UPDATE
+AS
+BEGIN
+UPDATE Produit SET Produit.Quantite = Produit.Quantite - deleted.Quantite + inserted.Quantite FROM inserted, deleted WHERE inserted.IdProduit = Produit.Id
+END;

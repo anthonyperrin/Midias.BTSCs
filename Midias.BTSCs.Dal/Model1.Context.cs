@@ -19,7 +19,7 @@ namespace Midias.BTSCs.Dal
             : base("name=Midias.BTSCs")
         {
         }
-    
+   
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
