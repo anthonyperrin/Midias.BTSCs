@@ -94,6 +94,7 @@ namespace Midias.BTSCs
                             row.Cells[0].Value = commande.Id;
                             row.Cells[1].Value = commande.Libelle;
                             row.Cells[2].Value = "Créée";
+                            Debug.WriteLine(commande.Etat);
                             if (commande.Etat == 1)
                             {
                                 row.Cells[2].Value = "Validée";
@@ -101,8 +102,8 @@ namespace Midias.BTSCs
                             {
                                 row.Cells[2].Value = "Acheminée";
                             }
-                            row.Cells[3].Value = commande.DateCreation;
-                            row.Cells[4].Value = commande.DateValidation;
+                            row.Cells[3].Value = commande.DateValidation;
+                            row.Cells[4].Value = commande.DateCreation;
 
                             dataGrid.Rows.Add(row);
                         }
@@ -139,7 +140,6 @@ namespace Midias.BTSCs
             for (int i = 0; i < properties.Length; i++)
             {
                 string value = properties[i];
-                Debug.WriteLine(value);
                 if (!excludedValues.Contains(properties[i]))
                 {
                     dataGrid.Columns[i].HeaderText = value;
@@ -164,6 +164,37 @@ namespace Midias.BTSCs
                                 UseColumnTextForButtonValue = true,
                             };
                             dataGrid.Columns.Add(colBtn);
+                            break;
+                        case "Commande":
+                            if (value.Equals("Client"))
+                            {
+                                DataGridViewButtonColumn colBtnClient = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Client",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnClient);
+                            } else if (value.Equals("ProduitCommandes"))
+                            {
+                                DataGridViewButtonColumn colBtnProducts = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Produits",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnProducts);
+
+                            } else if (value.Equals("Livraison"))
+                            {
+                                DataGridViewButtonColumn colBtnLivraison = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Livraison",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnLivraison);
+                            }
                             break;
                         default:
                             Debug.WriteLine("Default");

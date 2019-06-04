@@ -115,16 +115,16 @@ namespace Midias.BTSCs.Services.Services
                 {
                     Id = livraison.Commande.Id,
                     Libelle = livraison.Commande.Libelle,
-                    Etat = livraison.Commande.Etat,
-                    DateCreation = livraison.Commande.DateCreation,
-                    DateValidation = livraison.Commande.DateValidation,
+                    Etat = (int) livraison.Commande.Etat,
+                    DateCreation = (DateTime) livraison.Commande.DateCreation,
+                    DateValidation = (DateTime) livraison.Commande.DateValidation,
                 },
                 Salarie = new Salarie()
                 {
                     Id = livraison.Salarie.Id,
                     Nom = livraison.Salarie.Nom,
                     Prenom = livraison.Salarie.Prenom,
-                    Valide = livraison.Salarie.Valide,
+                    Valide = (bool) livraison.Salarie.Valide,
                     Permis = livraison.Salarie.Permis,
                     Email = livraison.Salarie.Email,
                     Telephone = livraison.Salarie.Telephone,

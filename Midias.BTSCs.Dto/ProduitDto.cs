@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Midias.BTSCs.Dto
 {
-    public class ProduitDto 
+    public class ProduitDto
     {
         public int Id { get; set; }
         public string Libelle { get; set; }

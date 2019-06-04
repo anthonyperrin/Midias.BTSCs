@@ -48,16 +48,15 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAdresses = new System.Windows.Forms.ComboBox();
             this.adresseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Midias_BTSCsDataSet6 = new Midias.BTSCs.App._Midias_BTSCsDataSet6();
-            this.adresseTableAdapter = new Midias.BTSCs.App._Midias_BTSCsDataSet6TableAdapters.AdresseTableAdapter();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.adresseDtoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adresseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adresseDtoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridClients
@@ -220,31 +219,17 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Adresse :";
             // 
-            // comboBox1
+            // comboBoxAdresses
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.adresseBindingSource, "Id", true));
-            this.comboBox1.DataSource = this.adresseBindingSource;
-            this.comboBox1.DisplayMember = "Rue1";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(682, 311);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 21);
-            this.comboBox1.TabIndex = 19;
-            this.comboBox1.ValueMember = "Id";
-            // 
-            // adresseBindingSource
-            // 
-            this.adresseBindingSource.DataMember = "Adresse";
-            this.adresseBindingSource.DataSource = this._Midias_BTSCsDataSet6;
-            // 
-            // _Midias_BTSCsDataSet6
-            // 
-            this._Midias_BTSCsDataSet6.DataSetName = "_Midias_BTSCsDataSet6";
-            this._Midias_BTSCsDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // adresseTableAdapter
-            // 
-            this.adresseTableAdapter.ClearBeforeFill = true;
+            this.comboBoxAdresses.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.adresseDtoBindingSource, "Id", true));
+            this.comboBoxAdresses.DataSource = this.adresseDtoBindingSource;
+            this.comboBoxAdresses.DisplayMember = "Rue1";
+            this.comboBoxAdresses.FormattingEnabled = true;
+            this.comboBoxAdresses.Location = new System.Drawing.Point(682, 311);
+            this.comboBoxAdresses.Name = "comboBoxAdresses";
+            this.comboBoxAdresses.Size = new System.Drawing.Size(201, 21);
+            this.comboBoxAdresses.TabIndex = 19;
+            this.comboBoxAdresses.ValueMember = "Id";
             // 
             // button2
             // 
@@ -273,6 +258,10 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Rechercher :";
             // 
+            // adresseDtoBindingSource
+            // 
+            this.adresseDtoBindingSource.DataSource = typeof(Midias.BTSCs.Dto.AdresseDto);
+            // 
             // ClientUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,7 +269,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxAdresses);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox7);
@@ -304,7 +293,7 @@
             this.Size = new System.Drawing.Size(886, 533);
             ((System.ComponentModel.ISupportInitialize)(this.gridClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adresseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Midias_BTSCsDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adresseDtoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,12 +320,11 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxAdresses;
         private System.Windows.Forms.BindingSource adresseBindingSource;
-        private _Midias_BTSCsDataSet6 _Midias_BTSCsDataSet6;
-        private _Midias_BTSCsDataSet6TableAdapters.AdresseTableAdapter adresseTableAdapter;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.BindingSource adresseDtoBindingSource;
     }
 }

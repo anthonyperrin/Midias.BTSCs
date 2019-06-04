@@ -23,6 +23,7 @@ namespace Midias.BTSCs.App.UserControls
 
             dataGridView1.DataSource = vehicules;
             dataGridView1.AllowUserToAddRows = true;
+
             this._isLoaded = true;
         }
 

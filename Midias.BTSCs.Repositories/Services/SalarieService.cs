@@ -75,7 +75,7 @@ namespace Midias.BTSCs.Services
                 Id = salarie.Id,
                 Nom = salarie.Nom,
                 Prenom = salarie.Prenom,
-                Valide = salarie.Valide,
+                Valide = (bool) salarie.Valide,
                 Permis = salarie.Permis,
                 Email = salarie.Email,
                 Telephone = salarie.Telephone
@@ -90,7 +90,7 @@ namespace Midias.BTSCs.Services
 
             salarie.Nom = salarieDto.Nom;
             salarie.Prenom = salarieDto.Prenom;
-            salarie.Valide = salarieDto.Valide;
+            salarie.Valide = (bool) salarieDto.Valide;
             salarie.Permis = salarieDto.Permis;
             salarie.Email = salarieDto.Email;
             salarie.Telephone = salarieDto.Telephone;

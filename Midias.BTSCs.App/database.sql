@@ -78,7 +78,7 @@ create table Commande (
 create table ProduitCommande (
 	Quantite int not null default(1),
 	IdProduit int not null foreign key references Produit(Id),
-	IdCommande int not null foreign key references Commande(Id)
+	IdCommande int not null foreign key references Commande(Id),
 	);
 
 --- Livraison table

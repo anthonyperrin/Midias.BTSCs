@@ -74,7 +74,7 @@ namespace Midias.BTSCs.Services
             Produit prod = new Produit();
             prod.Libelle = produit.Libelle;
             prod.PrixHT = produit.PrixHT;
-            prod.Quantite = produit.Quantite;
+            prod.Quantite = (int) produit.Quantite;
             prod.Taxe = produit.Taxe;
             prod.Categorie = Context.Categorie.Where(x => x.Id == produit.Categorie.Id).FirstOrDefault();
             Context.Produit.Add(prod);

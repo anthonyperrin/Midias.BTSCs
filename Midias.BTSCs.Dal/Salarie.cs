@@ -17,7 +17,7 @@ namespace Midias.BTSCs.Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Salarie()
         {
-            this.Livraison = new HashSet<Livraison>();
+            this.Livraisons = new HashSet<Livraison>();
         }
     
         public int Id { get; set; }
@@ -29,6 +29,6 @@ namespace Midias.BTSCs.Dal
         public string Telephone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Livraison> Livraison { get; set; }
+        public virtual ICollection<Livraison> Livraisons { get; set; }
     }
 }

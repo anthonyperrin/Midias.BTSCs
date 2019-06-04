@@ -292,8 +292,8 @@
           <Property Name="CodePostal" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Pays" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Client__IdAdress__49C3F6B7" FromRole="Adresse" ToRole="Client" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK__Livraison__IdAdr__5441852A" FromRole="Adresse" ToRole="Livraison" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Client__IdAdress__49C3F6B7" FromRole="Adresse" ToRole="Client" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdAdr__5441852A" FromRole="Adresse" ToRole="Livraison" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
@@ -301,7 +301,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Produit" Relationship="Self.FK__Produit__IdCateg__3C69FB99" FromRole="Categorie" ToRole="Produit" />
+          <NavigationProperty Name="Produits" Relationship="Self.FK__Produit__IdCateg__3C69FB99" FromRole="Categorie" ToRole="Produit" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -312,7 +312,7 @@
           <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IdAdresse" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Adresse" Relationship="Self.FK__Client__IdAdress__49C3F6B7" FromRole="Client" ToRole="Adresse" />
-          <NavigationProperty Name="Commande" Relationship="Self.FK__Commande__IdClie__4D94879B" FromRole="Client" ToRole="Commande" />
+          <NavigationProperty Name="Commandes" Relationship="Self.FK__Commande__IdClie__4D94879B" FromRole="Client" ToRole="Commande" />
         </EntityType>
         <EntityType Name="Commande">
           <Key>
@@ -325,8 +325,8 @@
           <Property Name="DateValidation" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK__Commande__IdClie__4D94879B" FromRole="Commande" ToRole="Client" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK__Livraison__IdCom__5535A963" FromRole="Commande" ToRole="Livraison" />
-          <NavigationProperty Name="ProduitCommande" Relationship="Self.FK__ProduitCo__IdCom__5165187F" FromRole="Commande" ToRole="ProduitCommande" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdCom__5535A963" FromRole="Commande" ToRole="Livraison" />
+          <NavigationProperty Name="ProduitCommandes" Relationship="Self.FK__ProduitCo__IdCom__5165187F" FromRole="Commande" ToRole="ProduitCommande" />
         </EntityType>
         <EntityType Name="Livraison">
           <Key>
@@ -364,8 +364,8 @@
           <Property Name="Taxe" Type="Double" />
           <Property Name="IdCategorie" Type="Int32" />
           <NavigationProperty Name="Categorie" Relationship="Self.FK__Produit__IdCateg__3C69FB99" FromRole="Produit" ToRole="Categorie" />
-          <NavigationProperty Name="Mouvement" Relationship="Self.FK__Mouvement__IdPro__403A8C7D" FromRole="Produit" ToRole="Mouvement" />
-          <NavigationProperty Name="ProduitCommande" Relationship="Self.FK__ProduitCo__IdPro__5070F446" FromRole="Produit" ToRole="ProduitCommande" />
+          <NavigationProperty Name="Mouvements" Relationship="Self.FK__Mouvement__IdPro__403A8C7D" FromRole="Produit" ToRole="Mouvement" />
+          <NavigationProperty Name="ProduitCommandes" Relationship="Self.FK__ProduitCo__IdPro__5070F446" FromRole="Produit" ToRole="ProduitCommande" />
         </EntityType>
         <EntityType Name="ProduitCommande">
           <Key>
@@ -389,7 +389,7 @@
           <Property Name="Permis" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK__Livraison__IdSal__5629CD9C" FromRole="Salarie" ToRole="Livraison" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdSal__5629CD9C" FromRole="Salarie" ToRole="Livraison" />
         </EntityType>
         <EntityType Name="Vehicule">
           <Key>
@@ -400,7 +400,7 @@
           <Property Name="Immatriculation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Modele" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Marque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Livraison" Relationship="Self.FK__Livraison__IdVeh__571DF1D5" FromRole="Vehicule" ToRole="Livraison" />
+          <NavigationProperty Name="Livraisons" Relationship="Self.FK__Livraison__IdVeh__571DF1D5" FromRole="Vehicule" ToRole="Livraison" />
         </EntityType>
         <Association Name="FK__Client__IdAdress__49C3F6B7">
           <End Role="Adresse" Type="Self.Adresse" Multiplicity="1" />
@@ -523,55 +523,55 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Adresse" EntityType="Self.Adresse" />
-          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Commande" EntityType="Self.Commande" />
-          <EntitySet Name="Livraison" EntityType="Self.Livraison" />
-          <EntitySet Name="Mouvement" EntityType="Self.Mouvement" />
-          <EntitySet Name="Produit" EntityType="Self.Produit" />
-          <EntitySet Name="ProduitCommande" EntityType="Self.ProduitCommande" />
-          <EntitySet Name="Salarie" EntityType="Self.Salarie" />
-          <EntitySet Name="Vehicule" EntityType="Self.Vehicule" />
+          <EntitySet Name="Adresses" EntityType="Self.Adresse" />
+          <EntitySet Name="Categories" EntityType="Self.Categorie" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Commandes" EntityType="Self.Commande" />
+          <EntitySet Name="Livraisons" EntityType="Self.Livraison" />
+          <EntitySet Name="Mouvements" EntityType="Self.Mouvement" />
+          <EntitySet Name="Produits" EntityType="Self.Produit" />
+          <EntitySet Name="ProduitCommandes" EntityType="Self.ProduitCommande" />
+          <EntitySet Name="Salaries" EntityType="Self.Salarie" />
+          <EntitySet Name="Vehicules" EntityType="Self.Vehicule" />
           <AssociationSet Name="FK__Client__IdAdress__49C3F6B7" Association="Self.FK__Client__IdAdress__49C3F6B7">
-            <End Role="Adresse" EntitySet="Adresse" />
-            <End Role="Client" EntitySet="Client" />
+            <End Role="Adresse" EntitySet="Adresses" />
+            <End Role="Client" EntitySet="Clients" />
           </AssociationSet>
           <AssociationSet Name="FK__Livraison__IdAdr__5441852A" Association="Self.FK__Livraison__IdAdr__5441852A">
-            <End Role="Adresse" EntitySet="Adresse" />
-            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Adresse" EntitySet="Adresses" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
           <AssociationSet Name="FK__Produit__IdCateg__3C69FB99" Association="Self.FK__Produit__IdCateg__3C69FB99">
-            <End Role="Categorie" EntitySet="Categorie" />
-            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="Produit" EntitySet="Produits" />
           </AssociationSet>
           <AssociationSet Name="FK__Commande__IdClie__4D94879B" Association="Self.FK__Commande__IdClie__4D94879B">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Commande" EntitySet="Commandes" />
           </AssociationSet>
           <AssociationSet Name="FK__Livraison__IdCom__5535A963" Association="Self.FK__Livraison__IdCom__5535A963">
-            <End Role="Commande" EntitySet="Commande" />
-            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
           <AssociationSet Name="FK__ProduitCo__IdCom__5165187F" Association="Self.FK__ProduitCo__IdCom__5165187F">
-            <End Role="Commande" EntitySet="Commande" />
-            <End Role="ProduitCommande" EntitySet="ProduitCommande" />
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommandes" />
           </AssociationSet>
           <AssociationSet Name="FK__Livraison__IdSal__5629CD9C" Association="Self.FK__Livraison__IdSal__5629CD9C">
-            <End Role="Salarie" EntitySet="Salarie" />
-            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Salarie" EntitySet="Salaries" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
           <AssociationSet Name="FK__Livraison__IdVeh__571DF1D5" Association="Self.FK__Livraison__IdVeh__571DF1D5">
-            <End Role="Vehicule" EntitySet="Vehicule" />
-            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Vehicule" EntitySet="Vehicules" />
+            <End Role="Livraison" EntitySet="Livraisons" />
           </AssociationSet>
           <AssociationSet Name="FK__Mouvement__IdPro__403A8C7D" Association="Self.FK__Mouvement__IdPro__403A8C7D">
-            <End Role="Produit" EntitySet="Produit" />
-            <End Role="Mouvement" EntitySet="Mouvement" />
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="Mouvement" EntitySet="Mouvements" />
           </AssociationSet>
           <AssociationSet Name="FK__ProduitCo__IdPro__5070F446" Association="Self.FK__ProduitCo__IdPro__5070F446">
-            <End Role="Produit" EntitySet="Produit" />
-            <End Role="ProduitCommande" EntitySet="ProduitCommande" />
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="ProduitCommande" EntitySet="ProduitCommandes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -580,7 +580,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MidiasBTSCsModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Adresse">
+          <EntitySetMapping Name="Adresses">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Adresse">
               <MappingFragment StoreEntitySet="Adresse">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -592,7 +592,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categorie">
+          <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Categorie">
               <MappingFragment StoreEntitySet="Categorie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -600,7 +600,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Client">
+          <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -610,7 +610,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Commande">
+          <EntitySetMapping Name="Commandes">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Commande">
               <MappingFragment StoreEntitySet="Commande">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -622,7 +622,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Livraison">
+          <EntitySetMapping Name="Livraisons">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Livraison">
               <MappingFragment StoreEntitySet="Livraison">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -634,7 +634,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mouvement">
+          <EntitySetMapping Name="Mouvements">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Mouvement">
               <MappingFragment StoreEntitySet="Mouvement">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -644,7 +644,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Produit">
+          <EntitySetMapping Name="Produits">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Produit">
               <MappingFragment StoreEntitySet="Produit">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -656,7 +656,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProduitCommande">
+          <EntitySetMapping Name="ProduitCommandes">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.ProduitCommande">
               <MappingFragment StoreEntitySet="ProduitCommande">
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
@@ -665,7 +665,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Salarie">
+          <EntitySetMapping Name="Salaries">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Salarie">
               <MappingFragment StoreEntitySet="Salarie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -678,7 +678,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vehicule">
+          <EntitySetMapping Name="Vehicules">
             <EntityTypeMapping TypeName="Midias.BTSCsModel.Vehicule">
               <MappingFragment StoreEntitySet="Vehicule">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -703,7 +703,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />

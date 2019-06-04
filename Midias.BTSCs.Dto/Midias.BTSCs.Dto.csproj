@@ -47,10 +47,17 @@
     <Compile Include="CommandeDto.cs" />
     <Compile Include="LivraisonDto.cs" />
     <Compile Include="MouvementDto.cs" />
+    <Compile Include="ProduitCommandeDto.cs" />
     <Compile Include="ProduitDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalarieDto.cs" />
     <Compile Include="VehiculeDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midias.BTSCs.Dal\Midias.BTSCs.Dal.csproj">
+      <Project>{A0EE3D0E-F04C-46A7-B0A7-5F594D031A5B}</Project>
+      <Name>Midias.BTSCs.Dal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,8 +18,8 @@ namespace Midias.BTSCs.App.UserControls
         public HomeUC()
         {
             InitializeComponent();
-            var vehicules = _vehiculesService.GetVehicules();
 
+            var vehicules = _vehiculesService.GetVehicules();
             dataGridViewVehicules.DataSource = vehicules;
         }
     }

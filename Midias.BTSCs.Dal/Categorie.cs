@@ -17,13 +17,13 @@ namespace Midias.BTSCs.Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categorie()
         {
-            this.Produit = new HashSet<Produit>();
+            this.Produits = new HashSet<Produit>();
         }
     
         public int Id { get; set; }
         public string Libelle { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Produit> Produit { get; set; }
+        public virtual ICollection<Produit> Produits { get; set; }
     }
 }
