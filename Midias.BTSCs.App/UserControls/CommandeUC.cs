@@ -120,6 +120,8 @@ namespace Midias.BTSCs.App.UserControls
                 }
                 else if (e.ColumnIndex == 6)
                 {
+                    totalPriceHT = 0;
+                    totalPriceTT = 0;
                     string productToShow = "";
                     CommandeDto commande = _commandesService.GetCommandes().Where(c => c.Id == id).FirstOrDefault();
                     List<ProduitCommandeDto> produitCommande = _produitCommandeService.GetProduitCommandes().Where(pc => pc.Commande.Id == commande.Id).ToList();

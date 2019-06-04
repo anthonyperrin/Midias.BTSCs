@@ -66,6 +66,7 @@
             this.gridCommandes.Name = "gridCommandes";
             this.gridCommandes.Size = new System.Drawing.Size(664, 481);
             this.gridCommandes.TabIndex = 0;
+            this.gridCommandes.CellContentClick += GridCommandes_CellContentClick;
             // 
             // label2
             // 
