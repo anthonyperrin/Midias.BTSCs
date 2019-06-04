@@ -125,14 +125,25 @@ namespace Midias.BTSCs.App.UserControls
                     List<ProduitCommandeDto> produitCommande = _produitCommandeService.GetProduitCommandes().Where(pc => pc.Commande.Id == commande.Id).ToList();
                     if (produitCommande.Count > 0)
                     {
+                        
                         foreach (ProduitCommandeDto produit in produitCommande)
                         {
                             if (produit.Quantite > 1)
                             {
                                 produit.Produit.Libelle += "s";
                             }
-                            productToShow += produit.Quantite + " " + produit.Produit.Libelle + "\n";
+                            productToShow += produit.Quantite + " " + produit.Produit.Libelle + " à " + produit.Produit.PrixHT * produit.Quantite + "€\n";
+                            double prixHT = (double)produit.Produit.PrixHT;
+                            double taxe = (double)produit.Produit.Taxe;
+                            totalPriceHT += Math.Round(produit.Quantite * prixHT, 2);
+                            totalPriceTT += Math.Round(produit.Quantite * prixHT * (1 + taxe), 2);
                         }
+                        productToShow += "\n";
+                        productToShow += "______________________ \n";
+                        productToShow += "\n";
+                        productToShow += "Prix HT : " + totalPriceHT + "€\n";
+                        productToShow += "Prix TT : " + totalPriceTT + "€\n";
+
                         MessageBox.Show(productToShow, "Produits dans " + commande.Libelle);
 
                     }
@@ -268,6 +279,27 @@ namespace Midias.BTSCs.App.UserControls
             }
             UpdateDataGrid();
 
+        }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                gridCommandes.Rows.Clear();
+                this.UpdateDataGrid();
+            }
+            else
+            {
+
+                CommandeDto[] commandes = _commandesService.GetCommandes().Where(c => c.Libelle.ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateCreation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.DateValidation.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper()) || c.Etat.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper())).ToArray();
+
+                string[] excludedValues = new string[] { "Client", "Livraison", "ProduitCommandes" };
+                if (commandes.Length > 0)
+                {
+                    gridCommandes.Rows.Clear();
+                    gridCommandes = _tools.GenerateGrid(gridCommandes, commandes, excludedValues);
+                }
+            }
         }
     }
 }

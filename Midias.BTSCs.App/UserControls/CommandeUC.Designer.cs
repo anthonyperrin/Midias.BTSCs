@@ -49,6 +49,8 @@
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.buttonValidateCommand = new System.Windows.Forms.Button();
             this.labelTotalPrices = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridCommandes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientDtoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitDtoBindingSource)).BeginInit();
@@ -60,11 +62,10 @@
             this.gridCommandes.AllowUserToAddRows = false;
             this.gridCommandes.AllowUserToDeleteRows = false;
             this.gridCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCommandes.Location = new System.Drawing.Point(4, 4);
+            this.gridCommandes.Location = new System.Drawing.Point(4, 49);
             this.gridCommandes.Name = "gridCommandes";
-            this.gridCommandes.Size = new System.Drawing.Size(664, 526);
+            this.gridCommandes.Size = new System.Drawing.Size(664, 481);
             this.gridCommandes.TabIndex = 0;
-            this.gridCommandes.CellContentClick += GridCommandes_CellContentClick;
             // 
             // label2
             // 
@@ -251,10 +252,30 @@
             this.labelTotalPrices.Size = new System.Drawing.Size(0, 13);
             this.labelTotalPrices.TabIndex = 17;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Rechercher :";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(109, 19);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(559, 20);
+            this.textBoxSearch.TabIndex = 22;
+            this.textBoxSearch.TextChanged += TextBoxSearch_TextChanged;
+            // 
             // CommandeUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.labelTotalPrices);
             this.Controls.Add(this.buttonValidateCommand);
             this.Controls.Add(this.buttonAddProduct);
@@ -307,5 +328,7 @@
         private System.Windows.Forms.BindingSource produitDtoBindingSource;
         public System.Windows.Forms.Button buttonAddProduct;
         private System.Windows.Forms.Label labelTotalPrices;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
