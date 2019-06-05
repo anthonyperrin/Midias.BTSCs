@@ -65,6 +65,7 @@ namespace Midias.BTSCs.App
             produitUC.Hide();
             clientUC.Hide();
             commandeUC.Hide();
+            livraisonUC.Hide();
 
         }
 
@@ -77,6 +78,7 @@ namespace Midias.BTSCs.App
             produitUC.Show();
             clientUC.Hide();
             commandeUC.Hide();
+            livraisonUC.Hide();
 
         }
 
@@ -89,6 +91,7 @@ namespace Midias.BTSCs.App
             salarieUC.Hide();
             clientUC.Hide();
             commandeUC.Show();
+            livraisonUC.Hide();
         }
 
         private void ClientsBtn_Click(object sender, EventArgs e)
@@ -100,6 +103,7 @@ namespace Midias.BTSCs.App
             salarieUC.Hide();
             clientUC.Show();
             commandeUC.Hide();
+            livraisonUC.Hide();
 
         }
 
@@ -112,6 +116,7 @@ namespace Midias.BTSCs.App
             salarieUC.Show();
             clientUC.Hide();
             commandeUC.Hide();
+            livraisonUC.Hide();
 
         }
 
@@ -124,6 +129,20 @@ namespace Midias.BTSCs.App
             vehiculeUC1.Show();
             clientUC.Hide();
             commandeUC.Hide();
+            livraisonUC.Hide();
+
+        }
+
+        private void LivraisonBtn_Click(object sender, EventArgs e)
+        {
+            menuBarPanel.Top = VehiculesBtn.Top;
+            homeUC.Hide();
+            salarieUC.Hide();
+            produitUC.Hide();
+            vehiculeUC1.Hide();
+            clientUC.Hide();
+            commandeUC.Hide();
+            livraisonUC.Show();
 
         }
 

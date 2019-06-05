@@ -79,6 +79,12 @@
     <Compile Include="UserControls\HomeUC.Designer.cs">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LivraisonUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LivraisonUC.Designer.cs">
+      <DependentUpon>LivraisonUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ProduitUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LivraisonUC.resx">
+      <DependentUpon>LivraisonUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProduitUC.resx">
       <DependentUpon>ProduitUC.cs</DependentUpon>

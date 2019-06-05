@@ -33,24 +33,27 @@ namespace Midias.BTSCs.App
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuBarPanel = new System.Windows.Forms.Panel();
+            this.homeUC = new UserControls.HomeUC();
+            this.vehiculeUC1 = new UserControls.VehiculeUC();
+            this.produitUC = new UserControls.ProduitUC();
+            this.salarieUC = new UserControls.SalarieUC();
+            this.clientUC = new UserControls.ClientUC();
+            this.commandeUC = new UserControls.CommandeUC();
+            this.livraisonUC = new UserControls.LivraisonUC();
+        
             this.HomeBtn = new System.Windows.Forms.Button();
             this.VehiculesBtn = new System.Windows.Forms.Button();
             this.SalariesBtn = new System.Windows.Forms.Button();
             this.ProduitsBtn = new System.Windows.Forms.Button();
-            this.ClientsBtn = new System.Windows.Forms.Button();
             this.CommandeBtn = new System.Windows.Forms.Button();
+            this.ClientsBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.minimizeAppBox = new System.Windows.Forms.PictureBox();
             this.closeAppBox = new System.Windows.Forms.PictureBox();
-            this.vehiculeUC1 = new Midias.BTSCs.App.UserControls.VehiculeUC();
-            this.homeUC = new Midias.BTSCs.App.UserControls.HomeUC();
-            this.produitUC = new Midias.BTSCs.App.UserControls.ProduitUC();
-            this.salarieUC = new Midias.BTSCs.App.UserControls.SalarieUC();
-            this.clientUC = new Midias.BTSCs.App.UserControls.ClientUC();
-            this.commandeUC = new Midias.BTSCs.App.UserControls.CommandeUC();
+            this.LivraisonBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +65,7 @@ namespace Midias.BTSCs.App
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.LivraisonBtn);
             this.panel1.Controls.Add(this.menuBarPanel);
             this.panel1.Controls.Add(this.HomeBtn);
             this.panel1.Controls.Add(this.VehiculesBtn);
@@ -73,7 +77,7 @@ namespace Midias.BTSCs.App
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 650);
             this.panel1.TabIndex = 0;
@@ -82,7 +86,7 @@ namespace Midias.BTSCs.App
             // 
             this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
             this.menuBarPanel.Location = new System.Drawing.Point(0, 107);
-            this.menuBarPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuBarPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuBarPanel.Name = "menuBarPanel";
             this.menuBarPanel.Size = new System.Drawing.Size(9, 49);
             this.menuBarPanel.TabIndex = 5;
@@ -94,7 +98,7 @@ namespace Midias.BTSCs.App
             this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
             this.HomeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.HomeBtn.Location = new System.Drawing.Point(9, 107);
-            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HomeBtn.Name = "HomeBtn";
             this.HomeBtn.Size = new System.Drawing.Size(141, 49);
             this.HomeBtn.TabIndex = 3;
@@ -110,7 +114,7 @@ namespace Midias.BTSCs.App
             this.VehiculesBtn.Image = ((System.Drawing.Image)(resources.GetObject("VehiculesBtn.Image")));
             this.VehiculesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.VehiculesBtn.Location = new System.Drawing.Point(9, 254);
-            this.VehiculesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VehiculesBtn.Margin = new System.Windows.Forms.Padding(2);
             this.VehiculesBtn.Name = "VehiculesBtn";
             this.VehiculesBtn.Size = new System.Drawing.Size(141, 49);
             this.VehiculesBtn.TabIndex = 2;
@@ -126,7 +130,7 @@ namespace Midias.BTSCs.App
             this.SalariesBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
             this.SalariesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SalariesBtn.Location = new System.Drawing.Point(9, 205);
-            this.SalariesBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SalariesBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SalariesBtn.Name = "SalariesBtn";
             this.SalariesBtn.Size = new System.Drawing.Size(141, 49);
             this.SalariesBtn.TabIndex = 1;
@@ -142,7 +146,7 @@ namespace Midias.BTSCs.App
             this.ProduitsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
             this.ProduitsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ProduitsBtn.Location = new System.Drawing.Point(9, 156);
-            this.ProduitsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProduitsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ProduitsBtn.Name = "ProduitsBtn";
             this.ProduitsBtn.Size = new System.Drawing.Size(141, 49);
             this.ProduitsBtn.TabIndex = 0;
@@ -155,10 +159,10 @@ namespace Midias.BTSCs.App
             // 
             this.CommandeBtn.FlatAppearance.BorderSize = 0;
             this.CommandeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CommandeBtn.Image = ((System.Drawing.Image)(resources.GetObject("ProduitsBtn.Image")));
+            this.CommandeBtn.Image = ((System.Drawing.Image)(resources.GetObject("CommandeBtn.Image")));
             this.CommandeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CommandeBtn.Location = new System.Drawing.Point(9, 303);
-            this.CommandeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CommandeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.CommandeBtn.Name = "CommandeBtn";
             this.CommandeBtn.Size = new System.Drawing.Size(141, 49);
             this.CommandeBtn.TabIndex = 0;
@@ -167,14 +171,14 @@ namespace Midias.BTSCs.App
             this.CommandeBtn.UseVisualStyleBackColor = true;
             this.CommandeBtn.Click += new System.EventHandler(this.CommandeBtn_Click);
             // 
-            // ClientBtn
+            // ClientsBtn
             // 
             this.ClientsBtn.FlatAppearance.BorderSize = 0;
             this.ClientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("SalariesBtn.Image")));
+            this.ClientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("ClientsBtn.Image")));
             this.ClientsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ClientsBtn.Location = new System.Drawing.Point(9, 352);
-            this.ClientsBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientsBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ClientsBtn.Name = "ClientsBtn";
             this.ClientsBtn.Size = new System.Drawing.Size(141, 49);
             this.ClientsBtn.TabIndex = 0;
@@ -182,14 +186,13 @@ namespace Midias.BTSCs.App
             this.ClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ClientsBtn.UseVisualStyleBackColor = true;
             this.ClientsBtn.Click += new System.EventHandler(this.ClientsBtn_Click);
-            
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(243, 7);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(148, 96);
             this.panel3.TabIndex = 1;
@@ -198,7 +201,7 @@ namespace Midias.BTSCs.App
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(148, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +213,7 @@ namespace Midias.BTSCs.App
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(128)))), ((int)(((byte)(50)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(150, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(900, 8);
             this.panel2.TabIndex = 1;
@@ -219,7 +222,7 @@ namespace Midias.BTSCs.App
             // 
             this.pictureBox2.Image = global::Midias.BTSCs.App.Properties.Resources.logo_livretou;
             this.pictureBox2.Location = new System.Drawing.Point(395, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(474, 103);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -230,7 +233,7 @@ namespace Midias.BTSCs.App
             // 
             this.minimizeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizeAppBox.Image")));
             this.minimizeAppBox.Location = new System.Drawing.Point(1004, 19);
-            this.minimizeAppBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizeAppBox.Margin = new System.Windows.Forms.Padding(2);
             this.minimizeAppBox.Name = "minimizeAppBox";
             this.minimizeAppBox.Size = new System.Drawing.Size(9, 10);
             this.minimizeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -242,13 +245,30 @@ namespace Midias.BTSCs.App
             // 
             this.closeAppBox.Image = ((System.Drawing.Image)(resources.GetObject("closeAppBox.Image")));
             this.closeAppBox.Location = new System.Drawing.Point(1029, 16);
-            this.closeAppBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.closeAppBox.Margin = new System.Windows.Forms.Padding(2);
             this.closeAppBox.Name = "closeAppBox";
             this.closeAppBox.Size = new System.Drawing.Size(9, 10);
             this.closeAppBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closeAppBox.TabIndex = 3;
             this.closeAppBox.TabStop = false;
             this.closeAppBox.Click += new System.EventHandler(this.closeAppBox_Click);
+            // 
+            // LivraisonBtn
+            // 
+            this.LivraisonBtn.FlatAppearance.BorderSize = 0;
+            this.LivraisonBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LivraisonBtn.Image = ((System.Drawing.Image)(resources.GetObject("LivraisonBtn.Image")));
+            this.LivraisonBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LivraisonBtn.Location = new System.Drawing.Point(9, 405);
+            this.LivraisonBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LivraisonBtn.Name = "LivraisonBtn";
+            this.LivraisonBtn.Size = new System.Drawing.Size(141, 49);
+            this.LivraisonBtn.TabIndex = 6;
+            this.LivraisonBtn.Text = "     Commande";
+            this.LivraisonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LivraisonBtn.UseVisualStyleBackColor = true;
+            this.LivraisonBtn.Click += new System.EventHandler(this.LivraisonBtn_Click);
+            
             // 
             // vehiculeUC1
             // 
@@ -304,6 +324,17 @@ namespace Midias.BTSCs.App
             this.commandeUC.Name = "CommandeUC";
             this.commandeUC.Size = new System.Drawing.Size(886, 532);
             this.commandeUC.TabIndex = 6;
+
+            // 
+            // LivraisonUC
+            // 
+            this.livraisonUC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.livraisonUC.Location = new System.Drawing.Point(154, 108);
+            this.livraisonUC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.livraisonUC.Name = "LivraisonUC";
+            this.livraisonUC.Size = new System.Drawing.Size(886, 532);
+            this.livraisonUC.TabIndex = 6;
+
             // 
             // Form1
             // 
@@ -316,6 +347,7 @@ namespace Midias.BTSCs.App
             this.Controls.Add(this.salarieUC);
             this.Controls.Add(this.clientUC);
             this.Controls.Add(this.commandeUC);
+            this.Controls.Add(this.livraisonUC);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.minimizeAppBox);
             this.Controls.Add(this.closeAppBox);
@@ -324,7 +356,7 @@ namespace Midias.BTSCs.App
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Midias.BTSCs.App";
@@ -340,6 +372,7 @@ namespace Midias.BTSCs.App
             this.salarieUC.Hide();
             this.clientUC.Hide();
             this.commandeUC.Hide();
+            this.livraisonUC.Hide();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,6 +400,8 @@ namespace Midias.BTSCs.App
         private UserControls.SalarieUC salarieUC;
         private UserControls.ClientUC clientUC;
         private UserControls.CommandeUC commandeUC;
+        private UserControls.LivraisonUC livraisonUC;
+        private System.Windows.Forms.Button LivraisonBtn;
     }
 }
 
