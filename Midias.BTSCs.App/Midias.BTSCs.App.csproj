@@ -141,7 +141,9 @@
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.AdresseDto.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.CategorieDto.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.ClientDto.datasource" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.CommandeDto1.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.ProduitDto.datasource" />
+    <None Include="Properties\DataSources\Midias.BTSCs.Dto.SalarieDto1.datasource" />
     <None Include="Properties\DataSources\Midias.BTSCs.Dto.VehiculeDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

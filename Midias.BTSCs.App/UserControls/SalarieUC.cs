@@ -17,7 +17,7 @@ namespace Midias.BTSCs.App.UserControls
 
         SalarieService _salarieService = new SalarieService();
         PersonnalTools _tools = new PersonnalTools();
-        string[] excludedValues = new string[] {};
+        string[] excludedValues = new string[] {"Livraison"};
 
         public SalarieUC()
         {

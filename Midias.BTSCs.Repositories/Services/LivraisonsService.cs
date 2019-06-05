@@ -2,6 +2,7 @@
 using Midias.BTSCs.Dto;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace Midias.BTSCs.Services.Services
         void DeleteLivraison(int id);
     }
 
-    class LivraisonsService : ServiceBase, ILivraisonsService
+    public class LivraisonsService : ServiceBase, ILivraisonsService
     {
         public LivraisonsService()
         {
@@ -98,55 +99,25 @@ namespace Midias.BTSCs.Services.Services
 
         public void CreateNewLivraison(LivraisonDto livraison)
         {
-            Context.Livraison.Add(new Livraison()
+            Livraison livraisonNormale = new Livraison()
             {
-                Id = livraison.Id,
                 DateLivraison = livraison.DateLivraison,
-                Adresse = new Adresse()
-                {
-                    Id = livraison.Adresse.Id,
-                    Rue1 = livraison.Adresse.Rue1,
-                    Rue2 = livraison.Adresse.Rue2,
-                    CodePostal = livraison.Adresse.CodePostal,
-                    Ville = livraison.Adresse.Ville,
-                    Pays = livraison.Adresse.Pays
-                },
-                Commande = new Commande()
-                {
-                    Id = livraison.Commande.Id,
-                    Libelle = livraison.Commande.Libelle,
-                    Etat = (int) livraison.Commande.Etat,
-                    DateCreation = (DateTime) livraison.Commande.DateCreation,
-                    DateValidation = (DateTime) livraison.Commande.DateValidation,
-                },
-                Salarie = new Salarie()
-                {
-                    Id = livraison.Salarie.Id,
-                    Nom = livraison.Salarie.Nom,
-                    Prenom = livraison.Salarie.Prenom,
-                    Valide = (bool) livraison.Salarie.Valide,
-                    Permis = livraison.Salarie.Permis,
-                    Email = livraison.Salarie.Email,
-                    Telephone = livraison.Salarie.Telephone,
-                },
-                Vehicule = new Vehicule()
-                {
-                    Id = livraison.Vehicule.Id,
-                    CarteGrise = livraison.Vehicule.CarteGrise,
-                    Immatriculation = livraison.Vehicule.Immatriculation,
-                    Modele = livraison.Vehicule.Modele,
-                    Marque = livraison.Vehicule.Marque,
-                }
-            });
+                Adresse = Context.Adresse.Where(a => a.Id == livraison.Adresse.Id).FirstOrDefault(),
+                Commande = Context.Commande.Where(c => c.Id == livraison.Commande.Id).FirstOrDefault(),
+                Salarie = Context.Salarie.Where(s => s.Id == livraison.Salarie.Id).FirstOrDefault(),
+                Vehicule = Context.Vehicule.Where(v => v.Id == livraison.Vehicule.Id).FirstOrDefault()
+            };
+            Context.Livraison.Add(livraisonNormale);
             Context.SaveChanges();
         }
 
         public LivraisonDto UpdateLivraison(LivraisonDto livraisonDto)
         {
-            var livraison = Context.Livraison.Where(p => p.Id == livraisonDto.Id).FirstOrDefault(); ;
+            var livraison = Context.Livraison.Where(l => l.Id == livraisonDto.Id).FirstOrDefault();
 
-            livraison.DateLivraison = livraison.DateLivraison;
+            Debug.WriteLine(livraison.DateLivraison);
 
+            livraison.DateLivraison = (DateTime) livraisonDto.DateLivraison;
 
             Context.SaveChanges();
 

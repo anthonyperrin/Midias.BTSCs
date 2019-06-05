@@ -108,7 +108,6 @@ namespace Midias.BTSCs.App.UserControls
             if (!String.IsNullOrEmpty(stokTextBox.Text))
             {
                 ProduitDto prod = _produitsService.GetProduits().Where(p => p.Id == Convert.ToInt32(comboBoxProducts.SelectedValue)).FirstOrDefault();
-                Debug.WriteLine(prod.Id);
                 MouvementDto mouv = new MouvementDto();
                 mouv.Produit = prod;
                 mouv.Quantite = Convert.ToInt32(stokTextBox.Text);

@@ -13,7 +13,6 @@ namespace Midias.BTSCs
 {
     public class PersonnalTools
     {
-
         private IMouvementsService _mouvementsService = new MouvementsService();
 
         public DataGridView GenerateGrid(DataGridView dataGrid, object[] arrayObjects, string[] excludedValues)
@@ -94,17 +93,35 @@ namespace Midias.BTSCs
                             row.Cells[0].Value = commande.Id;
                             row.Cells[1].Value = commande.Libelle;
                             row.Cells[2].Value = "Créée";
-                            Debug.WriteLine(commande.Etat);
                             if (commande.Etat == 1)
                             {
                                 row.Cells[2].Value = "Validée";
                             } else if (commande.Etat == 2)
+                            {
+                                row.Cells[2].Value = "En transit";
+                            } else if (commande.Etat == 3)
                             {
                                 row.Cells[2].Value = "Acheminée";
                             }
                             row.Cells[3].Value = commande.DateValidation;
                             row.Cells[4].Value = commande.DateCreation;
 
+                            dataGrid.Rows.Add(row);
+                        }
+                        break;
+                    case "Livraison":
+                        foreach (LivraisonDto livraison in listObjects)
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+
+                            row.CreateCells(dataGrid);
+
+                            row.Cells[0].Value = livraison.Id;
+                            row.Cells[1].Value = livraison.DateLivraison;
+                            if (livraison.DateLivraison == null)
+                            {
+                                row.Cells[1].Value = "En transit";
+                            }
                             dataGrid.Rows.Add(row);
                         }
                         break;
@@ -127,11 +144,17 @@ namespace Midias.BTSCs
             dataGrid.ColumnCount = objectSize;
             switch (objectType)
             {
+                case "Salarie":
+                    dataGrid.ColumnCount = 7;
+                    break;
                 case "Client":
                     dataGrid.ColumnCount = 6;
                     break;
                 case "Commande":
                     dataGrid.ColumnCount = 5;
+                    break;
+                case "Livraison":
+                    dataGrid.ColumnCount = 2;
                     break;
                 default:
                     Debug.WriteLine("Default");
@@ -194,6 +217,46 @@ namespace Midias.BTSCs
                                     UseColumnTextForButtonValue = true,
                                 };
                                 dataGrid.Columns.Add(colBtnLivraison);
+                            }
+                            break;
+                        case "Livraison":
+                            if (value.Equals("Salarie"))
+                            {
+                                DataGridViewButtonColumn colBtnSalarie = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Salarié",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnSalarie);
+                            } else if (value.Equals("Adresse"))
+                            {
+                                DataGridViewButtonColumn colBtnAdresse = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Adresse",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnAdresse);
+                            } else if (value.Equals("Commande"))
+                            {
+                                DataGridViewButtonColumn colBtnCommande = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Commande",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnCommande);
+                            }
+                            else if (value.Equals("Vehicule"))
+                            {
+                                DataGridViewButtonColumn colBtnVehicule = new DataGridViewButtonColumn()
+                                {
+                                    Text = "Afficher",
+                                    Name = "Vehicule",
+                                    UseColumnTextForButtonValue = true,
+                                };
+                                dataGrid.Columns.Add(colBtnVehicule);
                             }
                             break;
                         default:

@@ -102,7 +102,7 @@ namespace Midias.BTSCs.App
             this.HomeBtn.Name = "HomeBtn";
             this.HomeBtn.Size = new System.Drawing.Size(141, 49);
             this.HomeBtn.TabIndex = 3;
-            this.HomeBtn.Text = "     Accueil";
+            this.HomeBtn.Text = "   Accueil";
             this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.HomeBtn.UseVisualStyleBackColor = true;
             this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
@@ -118,7 +118,7 @@ namespace Midias.BTSCs.App
             this.VehiculesBtn.Name = "VehiculesBtn";
             this.VehiculesBtn.Size = new System.Drawing.Size(141, 49);
             this.VehiculesBtn.TabIndex = 2;
-            this.VehiculesBtn.Text = "     Véhicules";
+            this.VehiculesBtn.Text = "   Véhicules";
             this.VehiculesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.VehiculesBtn.UseVisualStyleBackColor = true;
             this.VehiculesBtn.Click += new System.EventHandler(this.VehiculesBtn_Click);
@@ -134,7 +134,7 @@ namespace Midias.BTSCs.App
             this.SalariesBtn.Name = "SalariesBtn";
             this.SalariesBtn.Size = new System.Drawing.Size(141, 49);
             this.SalariesBtn.TabIndex = 1;
-            this.SalariesBtn.Text = "     Salariés";
+            this.SalariesBtn.Text = "   Salariés";
             this.SalariesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SalariesBtn.UseVisualStyleBackColor = true;
             this.SalariesBtn.Click += new System.EventHandler(this.SalariesBtn_Click);
@@ -150,7 +150,7 @@ namespace Midias.BTSCs.App
             this.ProduitsBtn.Name = "ProduitsBtn";
             this.ProduitsBtn.Size = new System.Drawing.Size(141, 49);
             this.ProduitsBtn.TabIndex = 0;
-            this.ProduitsBtn.Text = "     Produits";
+            this.ProduitsBtn.Text = "   Produits";
             this.ProduitsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ProduitsBtn.UseVisualStyleBackColor = true;
             this.ProduitsBtn.Click += new System.EventHandler(this.ProduitsBtn_Click);
@@ -166,7 +166,7 @@ namespace Midias.BTSCs.App
             this.CommandeBtn.Name = "CommandeBtn";
             this.CommandeBtn.Size = new System.Drawing.Size(141, 49);
             this.CommandeBtn.TabIndex = 0;
-            this.CommandeBtn.Text = "     Commande";
+            this.CommandeBtn.Text = "   Commandes";
             this.CommandeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CommandeBtn.UseVisualStyleBackColor = true;
             this.CommandeBtn.Click += new System.EventHandler(this.CommandeBtn_Click);
@@ -182,7 +182,7 @@ namespace Midias.BTSCs.App
             this.ClientsBtn.Name = "ClientsBtn";
             this.ClientsBtn.Size = new System.Drawing.Size(141, 49);
             this.ClientsBtn.TabIndex = 0;
-            this.ClientsBtn.Text = "     Client";
+            this.ClientsBtn.Text = "   Clients";
             this.ClientsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ClientsBtn.UseVisualStyleBackColor = true;
             this.ClientsBtn.Click += new System.EventHandler(this.ClientsBtn_Click);
@@ -264,7 +264,7 @@ namespace Midias.BTSCs.App
             this.LivraisonBtn.Name = "LivraisonBtn";
             this.LivraisonBtn.Size = new System.Drawing.Size(141, 49);
             this.LivraisonBtn.TabIndex = 6;
-            this.LivraisonBtn.Text = "     Commande";
+            this.LivraisonBtn.Text = "   Livraisons";
             this.LivraisonBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.LivraisonBtn.UseVisualStyleBackColor = true;
             this.LivraisonBtn.Click += new System.EventHandler(this.LivraisonBtn_Click);

@@ -135,7 +135,7 @@ namespace Midias.BTSCs.App
 
         private void LivraisonBtn_Click(object sender, EventArgs e)
         {
-            menuBarPanel.Top = VehiculesBtn.Top;
+            menuBarPanel.Top = LivraisonBtn.Top;
             homeUC.Hide();
             salarieUC.Hide();
             produitUC.Hide();
