@@ -36,13 +36,17 @@ namespace Midias.BTSCs.App.UserControls
 
             this.UpdateDataGrid();
             
-            gridProducts.Columns[0].Width = 30;
-            gridProducts.Columns[0].ReadOnly = true;
-            gridProducts.Columns[2].Width = 75;
-            gridProducts.Columns[3].Width = 75;
-            gridProducts.Columns[4].Width = 75;
-            gridProducts.Columns[4].ReadOnly = true;
-            gridProducts.Columns[5].ReadOnly = true;
+            if (products.Count > 0)
+            {
+                gridProducts.Columns[0].Width = 30;
+                gridProducts.Columns[0].ReadOnly = true;
+                gridProducts.Columns[2].Width = 75;
+                gridProducts.Columns[3].Width = 75;
+                gridProducts.Columns[4].Width = 75;
+                gridProducts.Columns[4].ReadOnly = true;
+                gridProducts.Columns[5].ReadOnly = true;
+            }
+            
 
         }
 

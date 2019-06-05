@@ -109,7 +109,7 @@ namespace Midias.BTSCs.App.UserControls
                     clientToShow += client.Adresse.Rue1 + "\n";
                     if (!String.IsNullOrEmpty(client.Adresse.Rue2))
                     {
-                        clientToShow += client.Adresse.Rue2;
+                        clientToShow += client.Adresse.Rue2 + "\n";
                     }
                     clientToShow += client.Adresse.Ville + "\n";
                     clientToShow += client.Adresse.CodePostal + "\n";

@@ -116,7 +116,7 @@ namespace Midias.BTSCs.App.UserControls
                     adresseToShow += adresse.Rue1 + "\n";
                     if (!String.IsNullOrEmpty(adresse.Rue2))
                     {
-                        adresseToShow += adresse.Rue2;
+                        adresseToShow += adresse.Rue2 + "\n";
                     }
                     adresseToShow += adresse.Ville + "\n";
                     adresseToShow += adresse.CodePostal + "\n";
