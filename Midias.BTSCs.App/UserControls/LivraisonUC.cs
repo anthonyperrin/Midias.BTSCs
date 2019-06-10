@@ -192,5 +192,33 @@ namespace Midias.BTSCs.App.UserControls
                 }
             }
         }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                gridLivraisons.Rows.Clear();
+                this.UpdateDataGrid();
+            }
+            else
+            {
+
+                LivraisonDto[] livraisons = _livraisonsService.GetLivraisons().Where(l => l.DateLivraison.ToString().ToUpper().Contains(textBoxSearch.Text.ToUpper())).ToArray();
+
+
+                string[] excludedValues = new string[] {
+                "Salarie",
+                "Adresse",
+                "Commande",
+                "Vehicule",
+                };
+
+                if (livraisons.Length > 0)
+                {
+                    gridLivraisons.Rows.Clear();
+                    gridLivraisons = _tools.GenerateGrid(gridLivraisons, livraisons, excludedValues);
+                }
+            }
+        }
     }
 }
